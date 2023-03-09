@@ -12,6 +12,10 @@
     <h1 class="text-3xl font-bold underline">
         Hello world!
     </h1>
+    <h1>This is an apple:
+        <x-carbon-apple />
+    </h1>
+    {{-- <x-icon-camera /> --}}
 </body>
 
 </html>
