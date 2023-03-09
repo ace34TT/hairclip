@@ -6,7 +6,10 @@
     <ul class="flex gap-3 pr-40">
         <li><a href="#">A propos</a></li>
         <li><a href="#">Contact</a></li>
-        <li>Con</li>
+        <li><a href="">
+
+                <x-akar-person class="h-6 w-9" />
+            </a></li>
         <li>Con</li>
     </ul>
 </div>
