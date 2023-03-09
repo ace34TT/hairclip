@@ -10,6 +10,7 @@
 
 <body class="antialiased">
     <x-header />
+    <x-footer />
 </body>
 
 </html>
