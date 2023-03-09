@@ -3,10 +3,10 @@
         <div class=""><img src="{{ asset('images/logo.png') }}" height="100px" width="100px" alt=""></div>
         <h2 class="uppercase text-4xl">HairClip</h2>
     </div>
-    <ul class="flex gap-3 pr-40">
+    <ul class="flex gap-8 pr-40">
         <li><a href="#">A propos</a></li>
         <li><a href="#">Contact</a></li>
-        <li>Con</li>
+        <li><i class="fas fa-thumbs-up"></i></li>
         <li>Con</li>
     </ul>
 </div>
