@@ -1,4 +1,4 @@
-<div class="h-28 flex justify-between items-center ">
+<header class="h-28 flex justify-between items-center ">
     <div class="flex gap-5 items-center pl-16">
         <img src="{{ asset('images/logo.png') }}" height="120px" width="120px" alt="">
         <h2 class="uppercase text-4xl">HairClip</h2>
@@ -17,4 +17,4 @@
             </a>
         </li>
     </ul>
-</div>
+</header>

@@ -1,4 +1,4 @@
-<div class="h-fit p-10 bg-neutral-700">
+<footer class="h-fit p-10 bg-neutral-700">
     {{-- main item --}}
     <div class="h-6/5 flex justify-around items-center ">
         {{-- logo --}}
@@ -38,4 +38,4 @@
     <div class="w-full mt-9 flex items-center justify-center">
         <div class="text-white">Full Created by miarajoris.com</div>
     </div>
-</div>
+</footer>
