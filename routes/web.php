@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ShoppingCartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // * HOMEPAGE
-Route::get('/', function () {
-    return view('pages/frontoffice/homepage');
-});
+Route::view('/', "pages/frontoffice/homepage")->name("homepage");
 // * SHOPPING CART
+// Route::controller(ShoppingCartController::class)->group(function () {
+//     Route::get('/shopping-cart', function () {
+//         return view("pages.frontoffice.shopping-cart");
+//     }, ["name" => "shopping-cart"]);
+// });
+Route::name('shopping-cart.')->group(function () {
+    Route::get('/shopping-cart', [ShoppingCartController::class, 'shoppingCart'])->name('');
+});

@@ -1,5 +1,5 @@
 <header class="h-28 flex justify-between items-center ">
-    <div class="flex gap-5 items-center pl-16">
+    <div class="flex gap-5 items-center pl-16" onclick="window.location.href='{{ route('homepage') }}'">
         <img src="{{ asset('images/logo.png') }}" height="120px" width="120px" alt="">
         <h2 class="uppercase text-4xl">HairClip</h2>
     </div>
@@ -12,7 +12,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{{ route('shopping-cart.') }}">
                 <x-bx-cart class="h-9 w-9" />
             </a>
         </li>
