@@ -9,6 +9,7 @@
         "blade-ui-kit/blade-icons": "^1.5",
         "codeat3/blade-akar-icons": "^1.20",
         "codeat3/blade-carbon-icons": "^2.12",
+        "codeat3/blade-google-material-design-icons": "^1.17",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",
