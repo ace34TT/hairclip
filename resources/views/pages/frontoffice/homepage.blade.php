@@ -59,7 +59,7 @@
     {{-- start-section-3 --}}
     <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
     {{-- start-section-4 --}}
-    <div class="h-fit py-10 flex flex-col items-center justify-center prose max-w-none">
+    <div class="h-fit py-10 my-10 flex flex-col items-center justify-center prose max-w-none">
         <h2 class="text-5xl my-10">Rétractable, souple et résistant.</h2>
         <button type="button"
             class="rounded-md bg-white py-2.5 px-3.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
@@ -79,4 +79,19 @@
     </div>
     {{-- end-section-4 --}}
     <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
+    {{-- start-section-5 --}}
+    <div class="h-screen bg-stone-200 flex flex-col justify-center items-center prose max-w-none py-14">
+        <h2>Témoignages</h2>
+        <p class="text-cyan-800">Nos clients sont ravis, c’est à votre tour !</p>
+        <div class="w-10/12 flex  justify-around">
+            <x-testimonial-card customerName="Luisa" customerProfile="messages-1.jpg"
+                message="Je l’adore, je ne m’en sépare plus" stars=4 />
+            <x-testimonial-card customerName="Edoardo" customerProfile="messages-3.jpg"
+                message="Je le recommande pour toutes" stars=3 />
+            <x-testimonial-card customerName="Mart" customerProfile="profile-img.jpg"
+                message="Simple, efficace et de qualité" stars=5 />
+
+        </div>
+    </div>
+    {{-- end-section-5 --}}
 @endsection
