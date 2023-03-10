@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+// * HOMEPAGE
 Route::get('/', function () {
     return view('pages/frontoffice/homepage');
 });
+// * SHOPPING CART
