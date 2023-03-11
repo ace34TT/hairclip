@@ -24,6 +24,7 @@
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200">
+                                {{-- main data --}}
                                 <tr>
                                     <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
                                         <div class="flex gap-10 items-center">
@@ -43,28 +44,50 @@
                                     </td>
                                     <td class="whitespace-nowrap py-4 px-3 text-lg align-middle">
                                         <div class="flex gap-8">
-                                            <span class=" cursor-pointer">-</span>
+                                            <div
+                                                class="cursor-pointer w-7 h-7 rounded-full border border-black flex justify-center items-center">
+                                                <div class="text-3xl text-black">
+                                                    -
+                                                </div>
+                                            </div>
                                             <span>1</span>
-                                            <span class="cursor-pointer">+</span>
+                                            <div
+                                                class="cursor-pointer w-7 h-7 rounded-full border border-black flex justify-center items-center">
+                                                <div class="text-3xl text-black">
+                                                    +
+                                                </div>
+                                            </div>
                                         </div>
                                     </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sml align-middle">Member</td>
+                                    <td class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle">
+                                        7€
+                                    </td>
                                 </tr>
                                 {{-- bottom --}}
                                 <tr>
                                     <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
-
                                     </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle">
-                                        <span>
+                                    <td class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle"></td>
+                                    <td class="whitespace-nowrap py-4 px-3 text-lg align-middle"></td>
+                                    <td class="whitespace-nowrap py-4 px-3 text-sml align-middle text-xl">
+                                        <span class="text-black font-bold">
                                             Sous-total
                                         </span>
-                                        <span>7€</span>
+                                        <span class="text-black font-bold">7€</span>
                                     </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-lg align-middle">
-
+                                </tr>
+                                {{--  --}}
+                                <tr>
+                                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
                                     </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-sml align-middle">Member</td>
+                                    <td class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle"></td>
+                                    <td class="whitespace-nowrap py-4 px-3 text-lg align-middle"></td>
+                                    <td class="whitespace-nowrap py-4 px-3 text-sml align-middle">
+                                        <button type="button"
+                                            class="rounded-md bg-cyan-800 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                            Paaser la commande
+                                        </button>
+                                    </td>
                                 </tr>
                                 <!-- More people... -->
                             </tbody>
