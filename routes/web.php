@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // * HOMEPAGE
-Route::view('/', "pages/frontoffice/homepage")->name("homepage");
+Route::get('/', function () {
+    return view("pages/frontoffice/homepage");
+})->name("homepage");
 // * SHOPPING CART
 // Route::controller(ShoppingCartController::class)->group(function () {
 //     Route::get('/shopping-cart', function () {
