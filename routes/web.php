@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ShoppingCartController;
+use App\Models\Products;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,14 +16,12 @@ use Illuminate\Support\Facades\Route;
 */
 // * HOMEPAGE
 Route::get('/', function () {
-    return view("pages/frontoffice/homepage");
+    $data = Products::getProductsWith();
+    dump($data[0]);
+    return view("pages/frontoffice/homepage")->with("products", $data);
 })->name("homepage");
 // * SHOPPING CART
-// Route::controller(ShoppingCartController::class)->group(function () {
-//     Route::get('/shopping-cart', function () {
-//         return view("pages.frontoffice.shopping-cart");
-//     }, ["name" => "shopping-cart"]);
-// });
 Route::name('shopping-cart.')->group(function () {
     Route::get('/shopping-cart', [ShoppingCartController::class, 'shoppingCart'])->name('');
+    Route::get("/shopping-cart/{product_id}/{quantity}", [ShoppingCartController::class, "addItem"])->name("add-item");
 });

@@ -25,44 +25,47 @@
                             </thead>
                             <tbody class="divide-y divide-gray-200">
                                 {{-- main data --}}
-                                <tr>
-                                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
-                                        <div class="flex gap-10 items-center">
-                                            <div class="w-56">
-                                                <img class="h-full w-full object-contain"
-                                                    src="{{ asset('images/scranchies/HairClip PackS HD-20.jpg') }}"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <p class="text-2xl font-bold">Hair clip noir</p>
-                                                <p class="underline text-cyan-900">Supprimer</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle">
-                                        7€
-                                    </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-lg align-middle">
-                                        <div class="flex gap-8">
-                                            <div
-                                                class="cursor-pointer w-7 h-7 rounded-full border border-black flex justify-center items-center">
-                                                <div class="text-3xl text-black">
-                                                    -
+                                @foreach ($cart_items as $cart_item)
+                                    <tr>
+                                        <td
+                                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+                                            <div class="flex gap-10 items-center">
+                                                <div class="w-56">
+                                                    <img class="h-full w-full object-contain"
+                                                        src="{{ asset('images/scranchies/HairClip PackS HD-20.jpg') }}"
+                                                        alt="">
+                                                </div>
+                                                <div>
+                                                    <p class="text-2xl font-bold">Hair clip noir</p>
+                                                    <p class="underline text-cyan-900">Supprimer</p>
                                                 </div>
                                             </div>
-                                            <span>1</span>
-                                            <div
-                                                class="cursor-pointer w-7 h-7 rounded-full border border-black flex justify-center items-center">
-                                                <div class="text-3xl text-black">
-                                                    +
+                                        </td>
+                                        <td class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle">
+                                            7€
+                                        </td>
+                                        <td class="whitespace-nowrap py-4 px-3 text-lg align-middle">
+                                            <div class="flex gap-8">
+                                                <div
+                                                    class="cursor-pointer w-7 h-7 rounded-full border border-black flex justify-center items-center">
+                                                    <div class="text-3xl text-black">
+                                                        -
+                                                    </div>
+                                                </div>
+                                                <span>1</span>
+                                                <div
+                                                    class="cursor-pointer w-7 h-7 rounded-full border border-black flex justify-center items-center">
+                                                    <div class="text-3xl text-black">
+                                                        +
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle">
-                                        7€
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle">
+                                            7€
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 {{-- bottom --}}
                                 <tr>
                                     <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">

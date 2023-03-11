@@ -12,8 +12,10 @@ class HairClipCard extends Component
      * Create a new component instance.
      */
     public function __construct(
+        public string $id,
         public string $name,
         public string $colorValue,
+        public string $price,
         public string $preview,
         public string $description,
     ) {

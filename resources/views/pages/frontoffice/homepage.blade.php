@@ -26,12 +26,17 @@
         <h2 class="text-5xl">Nos Coloris</h2>
         <div class="flex justify-center items-center gap-8">
             <x-gmdi-arrow-back-ios-new-r class="h-36 w-36" />
-            <x-hair-clip-card name="Framboise" colorValue="#8A0326" preview="c1.png"
+            @foreach ($products as $product)
+                <x-hair-clip-card id="{{ $product->id }}" name="{{ $product->name }}" colorValue="{{ $product->value }}"
+                    price="{{ $product->price }}" preview="{{ $product->file_name }}"
+                    description="Pour une couleur qui se marie avec tout." />
+            @endforeach
+            {{-- <x-hair-clip-card name="Framboise" colorValue="#8A0326" preview="c1.png"
                 description="Pour une couleur qui se marie avec tout." />
             <x-hair-clip-card name="Framboise" colorValue="#838F8C" preview="c2.png"
                 description="Pour une couleur qui se marie avec tout." />
             <x-hair-clip-card name="Framboise" colorValue="#827A31" preview="c3.png"
-                description="Pour une couleur qui se marie avec tout." />
+                description="Pour une couleur qui se marie avec tout." /> --}}
             <x-gmdi-arrow-back-ios-new-r style="transform: scaleX(-1);" class="h-36 w-36" />
         </div>
     </div>
