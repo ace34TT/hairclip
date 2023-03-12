@@ -10,6 +10,8 @@ class Products extends Model
 {
     use HasFactory;
 
+    public $timestamps = true;
+
     public static function getProductsWith()
     {
         return DB::table('products')

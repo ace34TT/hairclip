@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,11 +15,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        DB::table('images')->delete();
+        DB::statement('ALTER TABLE images AUTO_INCREMENT = 1');
+        // DB::table('images')->delete();
+        DB::table('products')->delete();
+        DB::statement('ALTER TABLE products AUTO_INCREMENT = 1');
+        // DB::table('products')->delete();
 
+        $this->call(ProductsTableSeeder::class);
+
+        // \App\Models\User::factory(10)->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
+        // 'password' => Hash::make('password'),
         // ]);
     }
 }

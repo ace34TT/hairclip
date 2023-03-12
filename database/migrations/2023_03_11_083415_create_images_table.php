@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->enum('type', ['top_view', 'front_view']);
             $table->string('file_name');
-            $table->timestamps();
         });
     }
     /**
