@@ -26,19 +26,23 @@
     {{-- end-section-1 --}}
     <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
     {{-- start-section-2 --}}
-    <div id="products"
-        class="products h-screen w-screen py-4 bg-stone-200 flex flex-col items-center justify-center prose max-w-none">
+    <div class="h-screen w-screen py-4 bg-stone-200 flex flex-col items-center justify-center prose max-w-none">
         <h2 class="text-5xl">Nos Coloris</h2>
         <div class="flex justify-center items-center gap-8">
-            <x-gmdi-arrow-back-ios-new-r class="h-36 w-36" />
-            <div class="products whitespace-nowrap gap-4 overflow-x-auto p-10 " style="width: 50%">
+            <div>
+                <x-gmdi-arrow-back-ios-new-r class="h-10 w-10" onclick="scrollProducts('l')" />
+            </div>
+            <div id="products" class="products flex gap-11 overflow-x-auto p-10" style="width: 40%">
                 @foreach ($products as $product)
                     <x-hair-clip-card id="{{ $product->id }}" name="{{ $product->name }}"
                         colorValue="{{ $product->value }}" price="{{ $product->price }}" preview="{{ $product->file_name }}"
                         description="Pour une couleur qui se marie avec tout." />
                 @endforeach
             </div>
-            <x-gmdi-arrow-back-ios-new-r style="transform: scaleX(-1);" class="h-36 w-36" />
+            <div>
+                <x-gmdi-arrow-back-ios-new-r style="transform: scaleX(-1);" class="h-10 w-10"
+                    onclick="scrollProducts('r')" />
+            </div>
         </div>
     </div>
     {{-- end-section-2 --}}
@@ -99,5 +103,16 @@
 
         </div>
     </div>
-    {{-- end-section-5 --}}
+@endsection
+
+@section('script')
+    <script>
+        function scrollProducts(direction) {
+            var productsContaier = document.getElementById("products");
+            productsContaier.scrollTo({
+                left: (direction === "r" ? productsContaier.scrollLeft : productsContaier.scrollRight) + 700,
+                behavior: "smooth"
+            });
+        }
+    </script>
 @endsection

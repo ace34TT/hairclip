@@ -1,11 +1,13 @@
 <div class="inline-block">
     <div style="background-color: {{ $colorValue }}" style="min-width: 384px ; "
-        class=" flex w-96 p-6 flex-col items-center rounded-3xl prose hover:scale-105 hover:shadow-md transition ease-in-out cursor-pointer"
+        class=" flex w-96 p-6 flex-col items-center rounded-3xl prose hover:scale-105 hover:shadow-md transition ease-in-out cursor-pointer break-words"
         onclick="">
         <h2 class="text-white">{{ $name }}</h2>
-        <img src="{{ asset('images/scranchies/' . $preview) }}" class="rounded-3xl" style="width:400px;height:400px;"
+        <img src="{{ asset('images/scranchies/' . $preview) }}" class="rounded-3xl" style="width:300px;height:300px;"
             alt="">
-        <p class="text-slate-300 m-0 text-center"> {{ $description }}</p>
+        <div class="text-slate-50 w-10/12 text-center break-words break-all" style="word-wrap: break-word;">
+            {{ $description }}
+        </div>
         <p class="text-white font-bold m-3">7e</p>
         <button
             onclick="window.location.href='{{ route('shopping-cart.add-item', ['product_id' => $id, 'quantity' => 1]) }}'"

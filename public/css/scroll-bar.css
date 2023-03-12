@@ -1,17 +1,4 @@
 /* Style for the scrollbar */
 .products::-webkit-scrollbar {
-    width: 5px; /* width of the scrollbar */
     display: none;
-}
-
-/* Style for the scrollbar track */
-.products::-webkit-scrollbar-track {
-    background-color: #f1f1f100; /* color of the track */
-}
-
-/* Style for the scrollbar thumb */
-
-.products::-webkit-scrollbar-thumb {
-    background-color: #9c9c9c; /* color of the thumb */
-    border-radius: 10px;
 }
