@@ -3,6 +3,7 @@
 use App\Http\Controllers\ShoppingCartController;
 use App\Models\Products;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // * HOMEPAGE
 Route::get('/', function () {
     $data = Products::getProductsWith();
-    dump($data[0]);
+    dump(Session::get("shopping-cart"));
     return view("pages/frontoffice/homepage")->with("products", $data);
 })->name("homepage");
 // * SHOPPING CART

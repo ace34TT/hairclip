@@ -32,11 +32,11 @@
                                             <div class="flex gap-10 items-center">
                                                 <div class="w-56">
                                                     <img class="h-full w-full object-contain"
-                                                        src="{{ asset('images/scranchies/HairClip PackS HD-20.jpg') }}"
+                                                        src="{{ asset('images/scranchies/' . $cart_item->file_name) }}"
                                                         alt="">
                                                 </div>
                                                 <div>
-                                                    <p class="text-2xl font-bold">Hair clip noir</p>
+                                                    <p class="text-2xl font-bold">{{ $cart_item->name }}</p>
                                                     <p class="underline text-cyan-900">Supprimer</p>
                                                 </div>
                                             </div>
@@ -62,7 +62,7 @@
                                             </div>
                                         </td>
                                         <td class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle">
-                                            7€
+                                            {{ $cart_item->price }}
                                         </td>
                                     </tr>
                                 @endforeach
