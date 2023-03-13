@@ -39,6 +39,7 @@ class ShoppingCartController extends Controller
         $this->checkShoppingCart();
         //
         $cartItems = Session::get("shopping-cart");
+        // $cartItems = session()->get('shopping-cart');
         !$this->checkIfItemExists($cartItems, $product_id) ? array_push($cartItems, ["product_id" => $product_id, "quantity" => $quantity]) : null;
         Session::put("shopping-cart", $cartItems);
         return redirect()->back();
@@ -50,17 +51,11 @@ class ShoppingCartController extends Controller
     // API
     public function updateItems(Request $request)
     {
-        // init session if not initialized
-        $this->checkShoppingCart();
         $data = $request->all();
-        $currentData = Session::get("shopping-cart");
-        $allSessionData = Session::all();
         Session::put("shopping-cart", $data);
         return response()->json([
             'message' => 'User created successfully',
             "data" => $data,
-            "current_data" => $currentData,
-            "all_session_data" => $allSessionData
         ], 201);
     }
     // helper functions
