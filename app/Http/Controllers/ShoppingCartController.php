@@ -6,6 +6,7 @@ use App\Models\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class ShoppingCartController extends Controller
 {
@@ -33,15 +34,16 @@ class ShoppingCartController extends Controller
          ....
         ];
     */
-    public function addItem($product_id, $quantity)
+    public function addItem($product_id)
     {
-        // init session if not initialized
-        $this->checkShoppingCart();
-        //
-        $cartItems = Session::get("shopping-cart");
-        // $cartItems = session()->get('shopping-cart');
-        !$this->checkIfItemExists($cartItems, $product_id) ? array_push($cartItems, ["product_id" => $product_id, "quantity" => $quantity]) : null;
-        Session::put("shopping-cart", $cartItems);
+        // check if item is already in cart
+        $duplicated =  Cart::search(function ($cartItem, $rowId) use ($product_id) {
+            return $cartItem->id === $product_id;
+        });
+        if (!$duplicated->isNotEmpty()) return redirect()->back();
+        // if not , insert
+        $product = Products::find($product_id);
+        Cart::add($product->id, $product->name, 1, $product->price)->associate('Products');
         return redirect()->back();
     }
     public function removeItem(): View

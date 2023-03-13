@@ -12,8 +12,10 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('shopping-cart.') }}">
+            <a href="{{ route('shopping-cart.') }}" class="flex gap-4">
                 <x-bx-cart class="h-9 w-9" />
+                <span
+                    class="inline-flex items-center rounded-full bg-gray-100 px-3 py-0.5 text-sm font-medium text-gray-800">{{ Cart::count() }}</span>
             </a>
         </li>
     </ul>

@@ -24,6 +24,6 @@ Route::get('/', function () {
 // * SHOPPING CART
 Route::name('shopping-cart.')->group(function () {
     Route::get('/shopping-cart', [ShoppingCartController::class, 'shoppingCart'])->name('');
-    Route::get("/shopping-cart/{product_id}/{quantity}", [ShoppingCartController::class, "addItem"])->name("add-item");
+    Route::get("/shopping-cart/{product_id}", [ShoppingCartController::class, "addItem"])->name("add-item");
     Route::post("shopping-cart/update", [ShoppingCartController::class, "updateCart"])->name("update-cart");
 });
