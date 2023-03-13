@@ -7,10 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
 
+
 class ShoppingCartController extends Controller
 {
+    use Cart;
     public function shoppingCart(): View
     {
+
         if (Session::has("shopping-cart")) {
             $cartItems = Session::get("shopping-cart");
             dump(Session::all());
@@ -33,15 +36,12 @@ class ShoppingCartController extends Controller
          ....
         ];
     */
-    public function addItem($product_id, $quantity)
+    public function addItem($product_id)
     {
-        // init session if not initialized
-        $this->checkShoppingCart();
-        //
-        $cartItems = Session::get("shopping-cart");
-        // $cartItems = session()->get('shopping-cart');
-        !$this->checkIfItemExists($cartItems, $product_id) ? array_push($cartItems, ["product_id" => $product_id, "quantity" => $quantity]) : null;
-        Session::put("shopping-cart", $cartItems);
+        $itemExists = Cart::search(function ($cartItem, $rowId) {
+            return $cartItem->id === 123;
+        });
+        Cart::add('293ad', 'Product 1', 1, 9.99, ['size' => 'large'])->associate('Product');
         return redirect()->back();
     }
     public function removeItem(): View
