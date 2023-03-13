@@ -12,20 +12,8 @@ class ShoppingCartController extends Controller
 {
     public function shoppingCart(): View
     {
-        if (Session::has("shopping-cart")) {
-            $cartItems = Session::get("shopping-cart");
-            dump(Session::all());
-            $data = [];
-            $ids = [];
-            foreach ($cartItems as $cartItem) {
-                $data[] = ['id' => $cartItem['product_id'], 'name' => $cartItem['quantity']];
-                $ids[] = $cartItem['product_id'];
-            }
-            $data = Products::getShoppingCartItem($ids);
-            // Session::put("shopping-cart", []);
-            return view('pages.frontoffice.shopping-cart')->with("cart_items", $data);
-        }
-        return view('pages.frontoffice.shopping-cart')->with("cart_items", []);
+        dump(Cart::content());
+        return view('pages.frontoffice.shopping-cart');
     }
     /*
         shopping cart item will be stored as an array in both session and cookies
@@ -36,15 +24,15 @@ class ShoppingCartController extends Controller
     */
     public function addItem($product_id)
     {
-        // check if item is already in cart
-        $duplicated =  Cart::search(function ($cartItem, $rowId) use ($product_id) {
-            return $cartItem->id === $product_id;
+        $duplicated = Cart::search(function ($cartItem, $rowId) use ($product_id) {
+            return $cartItem->id === (int) $product_id;
         });
-        if (!$duplicated->isNotEmpty()) return redirect()->back();
-        // if not , insert
-        $product = Products::find($product_id);
-        Cart::add($product->id, $product->name, 1, $product->price)->associate('Products');
-        return redirect()->back();
+        if ($duplicated->isNotEmpty()) return redirect()->back();
+        else {
+            $product = Products::getWithTopViewPic($product_id);
+            Cart::add($product->id, $product->name, 1, $product->price, ["top_view" => $product->file_name])->associate(Products::class);
+            return redirect()->back();
+        }
     }
     public function removeItem(): View
     {
@@ -59,20 +47,5 @@ class ShoppingCartController extends Controller
             'message' => 'User created successfully',
             "data" => $data,
         ], 201);
-    }
-    // helper functions
-    private function checkShoppingCart()
-    {
-        if (Session::exists("shopping-cart")) {
-            return;
-        }
-        Session::put("shopping-cart", []);
-    }
-    private function checkIfItemExists($items, $key)
-    {
-        foreach ($items as $item) {
-            if ($item["product_id"] === $key) return true;
-        }
-        return false;
     }
 }

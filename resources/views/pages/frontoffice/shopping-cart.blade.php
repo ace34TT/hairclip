@@ -26,18 +26,18 @@
                             </thead>
                             <tbody class="divide-y divide-gray-200">
                                 {{-- main data --}}
-                                @foreach ($cart_items as $cart_item)
+                                @foreach (Cart::content() as $cart_item)
                                     <tr>
                                         <td
                                             class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
                                             <div class="flex gap-10 items-center">
                                                 <div class="w-56">
                                                     <img class="h-full w-full object-contain"
-                                                        src="{{ asset('images/scranchies/' . $cart_item->file_name) }}"
+                                                        src="{{ asset('images/scranchies/' . $cart_item->options['top_view']) }}"
                                                         alt="">
                                                 </div>
                                                 <div>
-                                                    <p class="text-2xl font-bold">{{ $cart_item->name }}
+                                                    <p class="text-2xl font-bold">{{ $cart_item->model->name }}
                                                         <span data-id="{{ $cart_item->id }}"
                                                             class="product_id hidden"></span>
                                                     </p>

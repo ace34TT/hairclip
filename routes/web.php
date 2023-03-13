@@ -2,9 +2,8 @@
 
 use App\Http\Controllers\ShoppingCartController;
 use App\Models\Products;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Session;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,8 +16,9 @@ use Illuminate\Support\Facades\Session;
 */
 // * HOMEPAGE
 Route::get('/', function () {
-    $data = Products::getProductsWith();
-    dump(Session::get("shopping-cart"));
+    $data = Products::getWithTopViewPic();
+    // Cart::destroy();
+    dump(Cart::content());
     return view("pages/frontoffice/homepage")->with("products", $data);
 })->name("homepage");
 // * SHOPPING CART
