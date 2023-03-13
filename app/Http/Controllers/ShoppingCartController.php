@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Products;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
 
@@ -12,7 +13,7 @@ class ShoppingCartController extends Controller
     {
         if (Session::has("shopping-cart")) {
             $cartItems = Session::get("shopping-cart");
-            dump($cartItems);
+            dump(Session::all());
             $data = [];
             $ids = [];
             foreach ($cartItems as $cartItem) {
@@ -40,18 +41,29 @@ class ShoppingCartController extends Controller
         $cartItems = Session::get("shopping-cart");
         !$this->checkIfItemExists($cartItems, $product_id) ? array_push($cartItems, ["product_id" => $product_id, "quantity" => $quantity]) : null;
         Session::put("shopping-cart", $cartItems);
-        // dump($cartItems);
         return redirect()->back();
     }
     public function removeItem(): View
     {
         return view();
     }
-    public function updateItem(): View
+    // API
+    public function updateItems(Request $request)
     {
-        return view();
+        // init session if not initialized
+        $this->checkShoppingCart();
+        $data = $request->all();
+        $currentData = Session::get("shopping-cart");
+        $allSessionData = Session::all();
+        Session::put("shopping-cart", $data);
+        return response()->json([
+            'message' => 'User created successfully',
+            "data" => $data,
+            "current_data" => $currentData,
+            "all_session_data" => $allSessionData
+        ], 201);
     }
-    //
+    // helper functions
     private function checkShoppingCart()
     {
         if (Session::exists("shopping-cart")) {
