@@ -17,13 +17,19 @@ use Illuminate\Support\Facades\Route;
 // * HOMEPAGE
 Route::get('/', function () {
     $data = Products::getWithTopViewPic();
-    // Cart::destroy();
     dump(Cart::content());
     return view("pages/frontoffice/homepage")->with("products", $data);
 })->name("homepage");
+
 // * SHOPPING CART
-Route::name('shopping-cart.')->group(function () {
-    Route::get('/shopping-cart', [ShoppingCartController::class, 'shoppingCart'])->name('');
-    Route::get("/shopping-cart/{product_id}", [ShoppingCartController::class, "addItem"])->name("add-item");
-    Route::post("shopping-cart/update", [ShoppingCartController::class, "updateCart"])->name("update-cart");
+Route::group(["prefix" => "shopping-cart", "as" => "shopping-cart."], function () {
+    Route::get('/', [ShoppingCartController::class, 'shoppingCart'])->name('index');
+    Route::get("/{product_id}", [ShoppingCartController::class, "addItem"])->name("add-item");
+    Route::post("/", [ShoppingCartController::class, "updateItems"])->name("update-items");
+});
+
+// * PAYMENT
+Route::group(["prefix" => "payment", "as" => "payment."], function () {
+    Route::view('/payment', 'pages/frontoffice/payment')->name('index');;
+    // Route::view("/payment", [ShoppingCartController::class, 'payment'])->name("index");
 });

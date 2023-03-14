@@ -7,6 +7,13 @@
     <div class="h-fit flex flex-col justify-center items-center prose max-w-none">
         <h2>Mon panier</h2>
         <a class="text-cyan-800" href="">Retrour sur la page d'accueil</a>
+        <br>
+        {{-- hidden form that will contains all the data to update or to proceed form payment --}}
+        <form action="{{ route('shopping-cart.update-items') }}" method="POST">
+            @csrf
+            <input id="rows-json-data" style="border: solid black 1px" type="text" name="updated_data">
+            <input type="submit" id="proceed-to-payment">
+        </form>
         <div class="px-4 w-10/12 sm:px-6 lg:px-8">
             <div class="mt-8 flow-root">
                 <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -27,7 +34,8 @@
                             <tbody class="divide-y divide-gray-200">
                                 {{-- main data --}}
                                 @foreach (Cart::content() as $cart_item)
-                                    <tr>
+                                    <tr class="cart-item-row" data-quantity="{{ $cart_item->qty }}"
+                                        data-row-id="{{ $cart_item->rowId }}">
                                         <td
                                             class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
                                             <div class="flex gap-10 items-center">
@@ -55,16 +63,16 @@
                                                 <div class="cursor-pointer w-7 h-7 rounded-full border border-black flex justify-center items-center"
                                                     onclick="">
                                                     <div class="text-3xl text-black"
-                                                        onclick="updateQuantity({{ $cart_item->id }} , -1)">
+                                                        onclick="updateQuantity('{{ $cart_item->rowId }}', {{ $cart_item->id }} , -1)">
                                                         -
                                                     </div>
                                                 </div>
                                                 <span data-quantity=""
-                                                    id={{ 'product_' . $cart_item->id . '_quantity' }}>1</span>
+                                                    id={{ 'product_' . $cart_item->id . '_quantity' }}>{{ $cart_item->qty }}</span>
                                                 <div
                                                     class="cursor-pointer w-7 h-7 rounded-full border border-black flex justify-center items-center">
                                                     <div class="text-3xl text-black"
-                                                        onclick="updateQuantity({{ $cart_item->id }} , 1)">
+                                                        onclick="updateQuantity('{{ $cart_item->rowId }}', {{ $cart_item->id }} , 1)">
                                                         +
                                                     </div>
                                                 </div>
@@ -101,7 +109,7 @@
                                     </td>
                                     <td class="whitespace-nowrap py-4 px-3 text-lg align-middle"></td>
                                     <td class="whitespace-nowrap py-4 px-3 text-sml align-middle">
-                                        <button type="button"
+                                        <button onclick="proceedToPayment()" type="button"
                                             class="rounded-md bg-cyan-800 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                             onclick="postData()">
                                             <span id="is-not-loading"> Paaser la commande</span>
@@ -121,11 +129,14 @@
 @section('script')
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            console.log(window.onpagehide !== undefined ? "pagehide is supported" : "pagehide is not supported");
+
+            initJsondata()
             // define total price on page load
             updateTotalPrice()
         })
 
-        function updateQuantity(productId, increment) {
+        function updateQuantity($rowId, productId, increment) {
             let data = {
                 price: {
                     value: parseFloat(document.getElementById("product_" + productId + "_price").textContent)
@@ -141,9 +152,11 @@
             }
             //check if quantity is equal to 1 so we avoid quantity 0 or negativ value while dicreasing quantity
             if (data.quantity.value === 1 && increment === -1) return;
-            //incrementing quantity
+            // update json
+            updateJSONData($rowId, increment);
+            // incrementing quantity
             data.quantity.value += increment;
-            // updating quantity
+            // updating quantity in the DOM
             data.quantity.element.textContent = data.quantity.value;
             data.total.element.textContent = data.price.value * data.quantity.value;
             //
@@ -164,53 +177,34 @@
             });
             document.getElementById("total_price").textContent = total;
         }
+
+        function initJsondata() {
+            let rows = document.querySelectorAll(".cart-item-row");
+            let data = [];
+            rows.forEach(cartItem => {
+                data.push({
+                    "rowId": cartItem.dataset.rowId,
+                    "quantity": cartItem.dataset.quantity,
+                })
+            });
+            document.getElementById("rows-json-data").value = JSON.stringify(data);
+        }
+
+        function updateJSONData(rowId, increment) {
+            const data = JSON.parse(document.getElementById("rows-json-data").value);
+            const index = data.findIndex((obj => obj.rowId === rowId));
+            data[index].quantity = parseInt(data[index].quantity) + parseInt(increment);
+            document.getElementById("rows-json-data").value = JSON.stringify(data);
+            // update total items
+            const sum = data.reduce((acc, obj) => {
+                return parseInt(acc) + parseInt(obj.quantity);
+            }, 0);
+            document.getElementById("total-cart-items").textContent = sum;
+        }
     </script>
     <script>
-        function postData() {
-            const xhr = new XMLHttpRequest();
-            1
-            xhr.open('POST', 'http://127.0.0.1:8000/api/shopping-cart/update');
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.onload = function() {
-                if (xhr.status === 200 || xhr.status === 201) {
-                    const response = JSON.parse(xhr.responseText);
-                    console.log(response);
-                } else {
-                    console.log("Error:" + xhr.status);
-                    console.error('Error:', xhr.statusText);
-                }
-            };
-            xhr.onerror = function() {
-                console.error('Network error');
-            };
-            xhr.addEventListener("loadstart", () => {
-                showLoadingScrenn()
-            });
-
-            xhr.addEventListener("load", () => {
-                hideLoadingScrenn()
-            });
-            //
-            const data = generateData()
-            const jsonData = JSON.stringify(data);
-            xhr.send(jsonData);
-        }
-
-        function generateData() {
-            let data = [];
-            let items = document.querySelectorAll(".product_id");
-            items.forEach((item) => {
-                data.push({
-                    product_id: item.getAttribute("data-id"),
-                    quantity: parseInt(
-                        document.getElementById(
-                            "product_" + item.getAttribute("data-id") + "_quantity"
-                        ).textContent
-                    ),
-                });
-            });
-            return data;
+        function proceedToPayment() {
+            document.getElementById("proceed-to-payment").click();
         }
     </script>
-
 @endsection
