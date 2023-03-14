@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ShoppingCartController;
+use App\Models\Order;
 use App\Models\Products;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +32,22 @@ Route::group(["prefix" => "shopping-cart", "as" => "shopping-cart."], function (
 
 // * PAYMENT
 Route::group(["prefix" => "payment", "as" => "payment."], function () {
-    Route::view('/payment', 'pages/frontoffice/payment')->name('index');;
+    Route::view('/', 'pages/frontoffice/payment')->name('index');
+    Route::post("/", [PaymentCont::class, 'pay']);
     // Route::view("/payment", [ShoppingCartController::class, 'payment'])->name("index");
+});
+
+// * ORDER
+Route::group(["prefix" => "order", "as" => "order."], function () {
+    Route::get("/set-cart", [OrderController::class, "setCart"])->name("set-cart");
+    Route::view('/pay', 'pages/frontoffice/order-payment')->name('pay');
+    Route::get("/payment-info", [OrderController::class, 'pay'])->name("do-pay");
+    Route::get("/payment/success", [OrderController::class, "success"])->name("payment.success");
+    // Route::view("/payment/success", "pages/frontoffice/success",)->name("payment.success");
+});
+// * ADMIN
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::view('/login', 'pages/backoffice/login')->name('login');
+    Route::view("/dashboard", "")->name("dashboard");
+    // Route::get("/login", [OrderController::class, 'pay'])->name("do-pay");
 });

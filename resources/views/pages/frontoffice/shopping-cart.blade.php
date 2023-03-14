@@ -15,7 +15,7 @@
             <input type="submit" id="proceed-to-payment">
         </form>
         <div class="px-4 w-10/12 sm:px-6 lg:px-8">
-            <div class="mt-8 flow-root">
+            <div class="mt-8 flow-root">0
                 <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                         <table class="min-w-full divide-y divide-gray-300">
@@ -81,7 +81,7 @@
                                         <td class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle">
                                             <span data-subtotal="" id="{{ 'product_' . $cart_item->id . '_total' }}"
                                                 class="sub_total_price">
-                                                {{ $cart_item->price }}</span> €
+                                                {{ $cart_item->price * $cart_item->qty }}</span> €
                                         </td>
                                     </tr>
                                 @endforeach
@@ -130,7 +130,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             console.log(window.onpagehide !== undefined ? "pagehide is supported" : "pagehide is not supported");
-
             initJsondata()
             // define total price on page load
             updateTotalPrice()

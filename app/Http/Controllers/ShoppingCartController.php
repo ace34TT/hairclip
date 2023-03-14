@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Products;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
@@ -37,6 +36,6 @@ class ShoppingCartController extends Controller
         foreach ($updated_cart_items as $key => $cart_item) {
             Cart::update($cart_item->rowId, (int)$cart_item->quantity);
         }
-        return redirect()->route('payment.index');
+        return redirect()->route('order.pay');
     }
 }
