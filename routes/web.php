@@ -24,8 +24,9 @@ Route::get('/', function () {
 // * SHOPPING CART
 Route::group(["prefix" => "shopping-cart", "as" => "shopping-cart."], function () {
     Route::get('/', [ShoppingCartController::class, 'shoppingCart'])->name('index');
-    Route::get("/{product_id}", [ShoppingCartController::class, "addItem"])->name("add-item");
+    Route::get("/{product_id}", [ShoppingCartController::class, "addItem"])->name("add-item")->where('product_id', '[0-9]+');;
     Route::post("/", [ShoppingCartController::class, "updateItems"])->name("update-items");
+    Route::view("/details", "pages/frontoffice/shopping-cart-details")->name("details");
 });
 
 // * PAYMENT
