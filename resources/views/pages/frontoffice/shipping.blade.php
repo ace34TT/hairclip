@@ -4,9 +4,11 @@
 
 @section('content')
     <div class="flex justify-center items-cente h-fit py-5">
-        <div class="flex h-screen w-11/12">
+        <div class="flex h-fit w-11/12">
             <div class="flex-1 flex flex-col gap-7 prose max-w-none justify-center items-start  px-16">
-                <h1>Details et livraison </h1>
+                <h3><span class="text-black"> <span class="text-d-green">Panier > </span> <span class="underline text-black">
+                            livraison</span> > Paiement </span></h3>
+                <h1>Contact et livraison </h1>
                 <form action="{{ route('order.set-shipping') }}" method="POST">
                     @csrf
                     <div class="flex gap-4">
@@ -48,9 +50,8 @@
                         </div>
                     </div>
                     <br>
-                    <div class="flex-1">
-                        <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Addresse de la
-                            livraison</label>
+                    <div class="flex-1 hidden absolute top-0 left-0">
+                        <label for="email" class="block text-sm font-medium leading-6 text-gray-900"></label>
                         <div class="mt-2">
                             <input type="text" name="carts" id="address"
                                 class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
@@ -59,8 +60,8 @@
                     </div>
                     <br>
                     <button type="submit"
-                        class="rounded-md bg-d-green py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-900-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Button
-                        text</button>
+                        class="rounded-md bg-d-green py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-900-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        Suivant</button>
                 </form>
             </div>
             <div class="flex-1 bg-slate-100 px-10">
@@ -93,7 +94,6 @@
                                                                 alt="">
                                                             <span
                                                                 class="absolute top-0 right-0 px-2 py-1 bg-[#03524C] text-white text-xs font-bold rounded">{{ $cart_item->qty }}</span>
-
                                                         </div>
                                                     </div>
                                                     <div>
@@ -124,7 +124,7 @@
                                                 class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle text-end">
                                                 <span data-subtotal="" id="{{ 'product_' . $cart_item->id . '_total' }}"
                                                     class="sub_total_price">
-                                                    {{ $cart_item->price }}</span> €
+                                                    {{ $cart_item->price * $cart_item->qty }}</span> €
                                             </td>
                                         </tr>
                                     @endforeach
@@ -141,7 +141,7 @@
                                                 Montont total :
                                             </span>
                                             <span data-total="" class="text-black font-bold underline">
-                                                <span id="total_price"></span>
+                                                <span id="total_price"> {{ Cart::total() }} </span>
                                                 €</span>
                                         </td>
                                     </tr>

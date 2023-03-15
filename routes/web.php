@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ShoppingCartController;
 use App\Models\Order;
@@ -19,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 // * HOMEPAGE
 Route::get('/', function () {
     $data = Products::getWithTopViewPic();
-    dump(Cart::content());
     return view("pages/frontoffice/homepage")->with("products", $data);
 })->name("homepage");
 
@@ -45,11 +45,13 @@ Route::group(["prefix" => "order", "as" => "order."], function () {
     Route::view('/payment', 'pages/frontoffice/order-payment')->name('payment');
     Route::get("/payment-info", [OrderController::class, 'pay'])->name("do-pay");
     Route::get("/payment/success", [OrderController::class, "success"])->name("payment.success");
-    // Route::view("/payment/success", "pages/frontoffice/success",)->name("payment.success");
 });
 // * ADMIN
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::view('/login', 'pages/backoffice/login')->name('login');
-    Route::view("/dashboard", "")->name("dashboard");
+    Route::post("/login", [AdminController::class, 'authenticate'])->name("do-login");
+    Route::view("/dashboard", "pages/backoffice/dashboard")->name("dashboard");
+    Route::get("/orders", [AdminController::class, "orderList"])->name("order-list");
+    Route::view("/profile", "pages/backoffice/profile")->name("profile");
     // Route::get("/login", [OrderController::class, 'pay'])->name("do-pay");
 });
