@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "hairclip-380704",
+  "private_key_id": "a0d312580eeb139fc18eab6193ab8fb8ce9afa67",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCeFyI+b975dhjh\nmtzlbh5LEl6dMi75JMJnHSLuOs4Ge/ICzHg+SOh8hS88B6/xDd1FvlABtcPNrePF\n+L8KGJ5YuDsCSk7SPVp6oaep5Vy8angGlbalejPW8olel8zVP3lQxuCbge9pBIog\nht/5I1FihhTUdgAe5GtbVnracVwK/hBh8pKJUYYKGuME8585LgprmYBLBRZjwLlV\nsUXmyDmNEWdRI3lM6hRP8WqlqOBF84HjaWi8Ug/1yjBAY1RUD331POyTbxMY4kDw\naU4e4To2EYY7pxLSNdtnbZf91m+MHo+207CkW2sw9t5XhToKUXlNX1Vc3qgcEHxU\n4hp8CgX3AgMBAAECggEAOpBrWSHsQhGjyf+qkTun8TuO3UD38cfSVIyQohwasoA7\n+Rlx+fDcXzSfeOeIIA54yBtmXBvPu2QNmws5Ci5wioFFKuYIKQ4ddIxqJiAXqJzw\nddAEZ2zLw3b5uJcXhHANKwVhs3oBDLBn0wDj+9E/lvYAxWwpQ0hvFNkGjeGsrU03\ncZfyEoA6XgrgbyR63PZ6n0tmvrL0U9YFYJPBk8HouHToFq4Qg3Bt58VTTCp+EG0H\nBphOF1p2OmI/2wtGq8QeJAmp1MOBSHaRnbEoCraa0Km7SsdueQf7nC18YuYjt3ZI\n4EIGFWiU4wNroERUf2tXAWOp3xmGNBqpzgL7aq4+gQKBgQDcD66xcKcFYUDlt5Xx\nppQLm8kTAP5f5ZenzwQMcAXVthzhDuBCayAehBU2w9cFIiF958gpbiSNlrcdtXss\n748CPrKrZJaQvQJ6aZRqgrL26DdpVmk+LZF51XglOu3uzdpWHBGAOSgZV0QijpEH\ndLG+7lSFhMXEymlT77UxRTLIoQKBgQC36JLBgA/+uiGlIPFX75cRf8KHYBFEhO0k\nRJe7rD8gb2lvuBB7jZzQvaIXT9KMrdDMVTkk/Wafcbu4E/lH/DqzWCXERJ3cLXAG\nFho7kupyC5A3oYm87yUaGQBjNvSqL/qJS1lJ4RTM/l5pquGhlCumPp8N/Era81Vl\ngRFlU6xPlwKBgC205CfeqhIn/P65ft9OJfmzRbQ4xJzOZw1npgOfUNbumFj2agXh\nki5EaNOTIZnjWOl5ts1EHzt5TldRVmAi8aUZuKp4nf06BMXAIB9vPhSibr/mPr23\nYTvY5rd04e5zuyGfetMTDA0XXwN+cQkHZ9OsVMnWpe0VzYKtiwjMwpuBAoGAJreC\ntdPlCiZbUO03geDBuABijqdt2zP0zK7YFr1zaLurwcZJSgmNGvDhP/EhDVbGX04N\nwrjKMwT5lQ43a60xGnKTONeNOD4kmFNs4F/UlX/Ts7KBUdIyyGS9DSYTqgSBxQek\n24XUIDfo3mwIJkEQU2ZZi9MyWxfhQYZDiEZuPy8CgYEAxu0uZTYRhUsdbFE5Zlrj\n4tCOiE/4y0a2I4+x4d7CaTQ+J7EiFqMlwnPPVFBaz3MwCmxh+eIKXj1276PalrB3\nCNyfl9AWh9PN9YEcU8vVY8x+Rp1TR+ZfIhKwTpE3NC5aByUONAOlPBMAXxvwdhBl\nuhDqLFCBkQB6Yjo/QntPiNc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "hairclip@hairclip-380704.iam.gserviceaccount.com",
+  "client_id": "100741277173611968483",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/hairclip%40hairclip-380704.iam.gserviceaccount.com"
+}
