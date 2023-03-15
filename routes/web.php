@@ -7,6 +7,8 @@ use App\Models\Order;
 use App\Models\Products;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Route;
+use Revolution\Google\Sheets\Facades\Sheets;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +21,9 @@ use Illuminate\Support\Facades\Route;
 */
 // * HOMEPAGE
 Route::get('/', function () {
+    Sheets::sheet('Sheet 1')->append([['3', 'name3', 'mail3']]);
+    $values = Sheets::all();
+    //
     $data = Products::getWithTopViewPic();
     return view("pages/frontoffice/homepage")->with("products", $data);
 })->name("homepage");
