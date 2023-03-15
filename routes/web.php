@@ -39,8 +39,9 @@ Route::group(["prefix" => "payment", "as" => "payment."], function () {
 
 // * ORDER
 Route::group(["prefix" => "order", "as" => "order."], function () {
-    Route::get("/set-cart", [OrderController::class, "setCart"])->name("set-cart");
-    Route::view('/pay', 'pages/frontoffice/order-payment')->name('pay');
+    Route::view("/shipping", "pages/frontoffice/shipping")->name("shipping");;
+    Route::post("/shipping", [OrderController::class, "shipping"])->name("set-shipping");
+    Route::view('/payment', 'pages/frontoffice/order-payment')->name('payment');
     Route::get("/payment-info", [OrderController::class, 'pay'])->name("do-pay");
     Route::get("/payment/success", [OrderController::class, "success"])->name("payment.success");
     // Route::view("/payment/success", "pages/frontoffice/success",)->name("payment.success");

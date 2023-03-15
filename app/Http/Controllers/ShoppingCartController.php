@@ -36,6 +36,6 @@ class ShoppingCartController extends Controller
         foreach ($updated_cart_items as $key => $cart_item) {
             Cart::update($cart_item->rowId, (int)$cart_item->quantity);
         }
-        return redirect()->route('order.pay');
+        return redirect()->route('order.shipping');
     }
 }

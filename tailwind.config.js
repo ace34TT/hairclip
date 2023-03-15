@@ -6,7 +6,11 @@ module.exports = {
         "./resources/**/*.vue",
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                "d-green": "#03524C",
+            },
+        },
     },
     plugins: [require("@tailwindcss/typography")],
 };
