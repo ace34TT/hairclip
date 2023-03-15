@@ -15,15 +15,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('images')->delete();
-        DB::statement('ALTER TABLE images AUTO_INCREMENT = 1');
         // DB::table('images')->delete();
-        DB::table('products')->delete();
-        DB::statement('ALTER TABLE products AUTO_INCREMENT = 1');
+        // DB::statement('ALTER TABLE images AUTO_INCREMENT = 1');
+        // DB::table('products')->delete();
+        // DB::statement('ALTER TABLE products AUTO_INCREMENT = 1');
         // DB::table('products')->delete();
 
-        $this->call(ProductsTableSeeder::class);
-
+        // $this->call(ProductsTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
         // \App\Models\User::factory(10)->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
