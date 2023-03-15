@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Bill;
 use Error;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
@@ -39,12 +40,9 @@ class OrderController extends Controller
             ];
         }
         try {
-            // retrieve JSON from POST body
-            // Create a PaymentIntent with amount and currency
-            // dd(Cart::content());
             Stripe::setApiKey(env(key: "SK_STRIPE"));
             $paymentIntent = PaymentIntent::create([
-                "amount" => 7 * 100,
+                "amount" => 10 * 100,
                 'currency' => 'eur',
             ]);
             $output = [
@@ -57,11 +55,15 @@ class OrderController extends Controller
     }
     public function success(Request $request)
     {
-        dd(Cart::content());
-        $session = $request->query->all();
-
-        Mail::to($request->user())->send(new OrderShipped($order));
-        Stripe::setApiKey(env(key: "SK_STRIPE"));
-        $paymentIntent = PaymentIntent::retrieve($session["payment_intent"],  ['expand' => ['payment_method']]);
+        try {
+            $session = $request->query->all();
+            Mail::to("tafinasoa35@gmail.com")->send(new Bill());
+            Stripe::setApiKey(env(key: "SK_STRIPE"));
+            $paymentIntent = PaymentIntent::retrieve($session["payment_intent"],  ['expand' => ['payment_method']]);
+        } catch (\Exception $e) {
+            // Handle exception
+            dump($e);
+            // return back()->with('error', 'An error occurred while sending the email.');
+        }
     }
 }
