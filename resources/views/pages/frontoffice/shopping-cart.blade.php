@@ -9,13 +9,13 @@
         <a class="text-cyan-800" href="">Retrour sur la page d'accueil</a>
         <br>
         {{-- hidden form that will contains all the data to update or to proceed form payment --}}
-        <form action="{{ route('shopping-cart.update-items') }}" method="POST">
+        <form class="hidden absolute top-0 left-0" action="{{ route('shopping-cart.update-items') }}" method="POST">
             @csrf
             <input id="rows-json-data" style="border: solid black 1px" type="text" name="updated_data">
             <input type="submit" id="proceed-to-payment">
         </form>
         <div class="px-4 w-10/12 sm:px-6 lg:px-8">
-            <div class="mt-8 flow-root">0
+            <div class="mt-8 flow-root">
                 <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                         <table class="min-w-full divide-y divide-gray-300">

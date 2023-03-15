@@ -12,6 +12,7 @@
         "codeat3/blade-carbon-icons": "^2.12",
         "codeat3/blade-google-material-design-icons": "^1.17",
         "codeat3/blade-teeny-icons": "^1.9",
+        "codeat3/blade-uiw-icons": "^1.4",
         "google/apiclient": "^2.13",
         "guzzlehttp/guzzle": "^7.2",
         "hardevine/shoppingcart": "^3.2",

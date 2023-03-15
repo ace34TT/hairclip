@@ -29,22 +29,21 @@ class OrderController extends Controller
     }
     public function pay()
     {
-        $items = Cart::content();
-        // dd(Cart::total());
-        $lineItems = [];
-        foreach ($items as $key => $item) {
-            $lineItems[] = [
-                "price_data" => [
-                    'amount' => $item->price * $item->qty,
-                    'currency' => 'euro',
-                    'product_data' => [
-                        "data" => $item->name
-                    ],
-                    "unit_amount" => $item->price
-                ],
-                "quantity" => $item->qty,
-            ];
-        }
+        // $items = Cart::content();
+        // $lineItems = [];
+        // foreach ($items as $key => $item) {
+        //     $lineItems[] = [
+        //         "price_data" => [
+        //             'amount' => $item->price * $item->qty,
+        //             'currency' => 'euro',
+        //             'product_data' => [
+        //                 "data" => $item->name
+        //             ],
+        //             "unit_amount" => $item->price
+        //         ],
+        //         "quantity" => $item->qty,
+        //     ];
+        // }
         try {
             Stripe::setApiKey(env(key: "SK_STRIPE"));
             $paymentIntent = PaymentIntent::create([
@@ -91,7 +90,6 @@ class OrderController extends Controller
                     'updated_at' => now(),
                 ];
             }
-
             // dd($orderDetails);
             OrderDetail::insert($orderDetails);
             // $data = $users = DB::table('sheet_data')->get();
@@ -105,7 +103,8 @@ class OrderController extends Controller
             // // Append multiple rows at once
             // Sheets::sheet('sheetTitle')->append($rows);
             // Create a new instance of the Google API client
-
+            Cart::destroy();
+            return view("pages.frontoffice.success");
         } catch (Exception $e) {
             // Handle exception
             dump($e);

@@ -12,9 +12,9 @@
 
 @section('content')
     <div class="flex justify-center items-cente h-fit ">
-        <div class="flex h-screen w-11/12">
+        <div class="flex h-fit min-h-screen w-11/12">
             <div class="flex-1 flex flex-col justify-center items-center prose max-w-none">
-                <h2>This is an order payment form {{ Cart::total() }} </h2>
+                <h2> Methode de paiement </h2>
                 <br>
                 <!-- Display a payment form -->
                 <form id="payment-form" class="py-4">
@@ -26,7 +26,7 @@
                     </div>
                     <button id="submit">
                         <div class="spinner hidden" id="spinner"></div>
-                        <span id="button-text">Pay now</span>
+                        <span id="button-text">Payer maintenant</span>
                     </button>
                     <div id="payment-message" class="hidden"></div>
                 </form>
@@ -60,9 +60,7 @@
                                                                 src="{{ asset('images/scranchies/' . $cart_item->options['top_view']) }}"
                                                                 alt="">
                                                             <span
-                                                                class="absolute top-0 right-0 px-2 py-1 bg-[#] text-white text-xs font-bold rounded">{{ $cart_item->qty }}</span>
-                                                            <span
-                                                                class="absolute top-0 right-0 px-2 py-1 bg-red text-white text-xs font-bold rounded">{{ $cart_item->qty }}</span>
+                                                                class="absolute top-0 right-0 px-2 py-1 bg-[#03524C] text-white text-xs font-bold rounded">{{ $cart_item->qty }}</span>
                                                         </div>
                                                     </div>
                                                     <div>
@@ -93,7 +91,7 @@
                                                 class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle text-end">
                                                 <span data-subtotal="" id="{{ 'product_' . $cart_item->id . '_total' }}"
                                                     class="sub_total_price">
-                                                    {{ $cart_item->price }}</span> €
+                                                    {{ $cart_item->price * $cart_item->qty }}</span> €
                                             </td>
                                         </tr>
                                     @endforeach
@@ -110,7 +108,7 @@
                                                 Montont total :
                                             </span>
                                             <span data-total="" class="text-black font-bold underline">
-                                                <span id="total_price"></span>
+                                                <span id="total_price"> {{ Cart::total() }} </span>
                                                 €</span>
                                         </td>
                                     </tr>
