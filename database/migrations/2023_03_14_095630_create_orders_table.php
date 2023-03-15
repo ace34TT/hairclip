@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger("status")->default(0);
+            $table->string("payment_intent_id");
+            $table->string("customer_first_name");
+            $table->string("customer_last_name");
+            $table->string("customer_emil");
+            $table->string("shipping_address");
+            $table->string("billing_address");
+            $table->tinyInteger("quantity")->min(1);
+            $table->decimal("amount", 8, 2);
             $table->timestamps();
         });
     }

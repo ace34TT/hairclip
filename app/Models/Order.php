@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+    public $timestamps = true;
+    // protected $dateFormat = 'U';
+    protected $fillable = ['status', 'payment_intent_id', 'customer_first_name', "customer_last_name", "customer_emil", "shipping_address", "billing_address", "quantity", "amount", "created_at", "updated_at"];
 }
