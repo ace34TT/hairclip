@@ -7,6 +7,8 @@
     <title>Laravel</title>
     @vite('resources/css/app.css')
     @stack('styles')
+
+    @yield('extra-js')
 </head>
 
 <body class="antialiased overflow-x-hidden">

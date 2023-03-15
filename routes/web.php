@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ShoppingCartController;
+use App\Models\Order;
 use App\Models\Products;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Route;
@@ -24,13 +26,30 @@ Route::get('/', function () {
 // * SHOPPING CART
 Route::group(["prefix" => "shopping-cart", "as" => "shopping-cart."], function () {
     Route::get('/', [ShoppingCartController::class, 'shoppingCart'])->name('index');
-    Route::get("/{product_id}", [ShoppingCartController::class, "addItem"])->name("add-item")->where('product_id', '[0-9]+');;
+    Route::get("/{product_id}", [ShoppingCartController::class, "addItem"])->name("add-item")->where('product_id', '[0-9]+');;;
     Route::post("/", [ShoppingCartController::class, "updateItems"])->name("update-items");
     Route::view("/details", "pages/frontoffice/shopping-cart-details")->name("details");
 });
 
 // * PAYMENT
 Route::group(["prefix" => "payment", "as" => "payment."], function () {
-    Route::view('/payment', 'pages/frontoffice/payment')->name('index');;
+    Route::view('/', 'pages/frontoffice/payment')->name('index');
+    Route::post("/", [PaymentCont::class, 'pay']);
     // Route::view("/payment", [ShoppingCartController::class, 'payment'])->name("index");
+});
+
+// * ORDER
+Route::group(["prefix" => "order", "as" => "order."], function () {
+    Route::view("/shipping", "pages/frontoffice/shipping")->name("shipping");;
+    Route::post("/shipping", [OrderController::class, "shipping"])->name("set-shipping");
+    Route::view('/payment', 'pages/frontoffice/order-payment')->name('payment');
+    Route::get("/payment-info", [OrderController::class, 'pay'])->name("do-pay");
+    Route::get("/payment/success", [OrderController::class, "success"])->name("payment.success");
+    // Route::view("/payment/success", "pages/frontoffice/success",)->name("payment.success");
+});
+// * ADMIN
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::view('/login', 'pages/backoffice/login')->name('login');
+    Route::view("/dashboard", "")->name("dashboard");
+    // Route::get("/login", [OrderController::class, 'pay'])->name("do-pay");
 });
