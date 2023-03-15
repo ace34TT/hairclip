@@ -2,290 +2,511 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite('resources/css/app.css')
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, AdminWrap lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, AdminWrap lite design, AdminWrap lite dashboard bootstrap 5 dashboard template">
+    <meta name="description"
+        content="AdminWrap Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <title>AdminWrap Lite Template by WrapPixel</title>
+    <link rel="canonical" href="https://www.wrappixel.com/templates/adminwrap-lite/" />
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ asset('admin-template/assets/node_modules/bootstrap/css/bootstrap.min.css') }} " rel="stylesheet">
+    <link href=" {{ asset('admin-template/assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css') }}"
+        rel="stylesheet">
+    <!-- This page CSS -->
+    <!-- chartist CSS -->
+    <link href="{{ asset('admin-template/assets/node_modules/morrisjs/morris.css') }} rel="stylesheet">
+    <!--c3 CSS -->
+    <link href=" {{ asset('admin-template/assets/node_modules/c3-master/c3.min.css') }}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ asset('admin-template/html/css/style.css') }}" rel="stylesheet">
+    <!-- Dashboard 1 Page CSS -->
+    <link href="{{ asset('admin-template/html/css/pages/dashboard1.css') }}  rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href=" {{ asset('admin-template/html/css/colors/default.css') }}" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 </head>
 
-<body>
-    <!--
-  This example requires updating your template:
-
-  ```
-  <html class="h-full bg-gray-100">
-  <body class="h-full">
-  ```
--->
-    <div>
-        <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
-        <div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
-            <!--
-      Off-canvas menu backdrop, show/hide based on off-canvas menu state.
-
-      Entering: "transition-opacity ease-linear duration-300"
-        From: "opacity-0"
-        To: "opacity-100"
-      Leaving: "transition-opacity ease-linear duration-300"
-        From: "opacity-100"
-        To: "opacity-0"
-    -->
-            <div class="fixed inset-0 bg-gray-600 bg-opacity-75"></div>
-
-            <div class="fixed inset-0 z-40 flex">
-                <!--
-        Off-canvas menu, show/hide based on off-canvas menu state.
-
-        Entering: "transition ease-in-out duration-300 transform"
-          From: "-translate-x-full"
-          To: "translate-x-0"
-        Leaving: "transition ease-in-out duration-300 transform"
-          From: "translate-x-0"
-          To: "-translate-x-full"
-      -->
-                <div class="relative flex w-full max-w-xs flex-1 flex-col bg-white">
-                    <!--
-          Close button, show/hide based on off-canvas menu state.
-
-          Entering: "ease-in-out duration-300"
-            From: "opacity-0"
-            To: "opacity-100"
-          Leaving: "ease-in-out duration-300"
-            From: "opacity-100"
-            To: "opacity-0"
-        -->
-                    <div class="absolute top-0 right-0 -mr-12 pt-2">
-                        <button type="button"
-                            class="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                            <span class="sr-only">Close sidebar</span>
-                            <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-
-                    <div class="h-0 flex-1 overflow-y-auto pt-5 pb-4">
-                        <div class="flex flex-shrink-0 items-center px-4">
-                            <img class="h-8 w-auto"
-                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                                alt="Your Company">
-                        </div>
-                        <nav class="mt-5 space-y-1 px-2">
-                            <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
-                            <a href="#"
-                                class="bg-gray-100 text-gray-900 group flex items-center rounded-md px-2 py-2 text-base font-medium">
-                                <!-- Current: "text-gray-500", Default: "text-gray-400 group-hover:text-gray-500" -->
-                                <svg class="text-gray-500 mr-4 h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                                </svg>
-                                Dashboard
-                            </a>
-
-                            <a href="#"
-                                class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-base font-medium">
-                                <svg class="text-gray-400 group-hover:text-gray-500 mr-4 h-6 w-6 flex-shrink-0"
-                                    fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-                                </svg>
-                                Team
-                            </a>
-
-                            <a href="#"
-                                class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-base font-medium">
-                                <svg class="text-gray-400 group-hover:text-gray-500 mr-4 h-6 w-6 flex-shrink-0"
-                                    fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
-                                </svg>
-                                Projects
-                            </a>
-
-                            <a href="#"
-                                class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-base font-medium">
-                                <svg class="text-gray-400 group-hover:text-gray-500 mr-4 h-6 w-6 flex-shrink-0"
-                                    fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                                </svg>
-                                Calendar
-                            </a>
-
-                            <a href="#"
-                                class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-base font-medium">
-                                <svg class="text-gray-400 group-hover:text-gray-500 mr-4 h-6 w-6 flex-shrink-0"
-                                    fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M2.25 13.5h3.86a2.25 2.25 0 012.012 1.244l.256.512a2.25 2.25 0 002.013 1.244h3.218a2.25 2.25 0 002.013-1.244l.256-.512a2.25 2.25 0 012.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 00-2.15-1.588H6.911a2.25 2.25 0 00-2.15 1.588L2.35 13.177a2.25 2.25 0 00-.1.661z" />
-                                </svg>
-                                Documents
-                            </a>
-
-                            <a href="#"
-                                class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-base font-medium">
-                                <svg class="text-gray-400 group-hover:text-gray-500 mr-4 h-6 w-6 flex-shrink-0"
-                                    fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-                                </svg>
-                                Reports
-                            </a>
-                        </nav>
-                    </div>
-                    <div class="flex flex-shrink-0 border-t border-gray-200 p-4">
-                        <a href="#" class="group block flex-shrink-0">
-                            <div class="flex items-center">
-                                <div>
-                                    <img class="inline-block h-10 w-10 rounded-full"
-                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                        alt="">
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-base font-medium text-gray-700 group-hover:text-gray-900">Tom Cook
-                                    </p>
-                                    <p class="text-sm font-medium text-gray-500 group-hover:text-gray-700">View profile
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="w-14 flex-shrink-0">
-                    <!-- Force sidebar to shrink to fit close icon -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Static sidebar for desktop -->
-        <div class="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
-            <!-- Sidebar component, swap this element with another sidebar if you like -->
-            <div class="flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-white">
-                <div class="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
-                    <div class="flex flex-shrink-0 items-center px-4">
-                        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                            alt="Your Company">
-                    </div>
-                    <nav class="mt-5 flex-1 space-y-1 bg-white px-2">
-                        <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
-                        <a href="#"
-                            class="bg-gray-100 text-gray-900 group flex items-center rounded-md px-2 py-2 text-sm font-medium">
-                            <!-- Current: "text-gray-500", Default: "text-gray-400 group-hover:text-gray-500" -->
-                            <svg class="text-gray-500 mr-3 h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                            </svg>
-                            Dashboard
-                        </a>
-
-                        <a href="#"
-                            class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-sm font-medium">
-                            <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6 flex-shrink-0"
-                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-                            </svg>
-                            Team
-                        </a>
-
-                        <a href="#"
-                            class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-sm font-medium">
-                            <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6 flex-shrink-0"
-                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
-                            </svg>
-                            Projects
-                        </a>
-
-                        <a href="#"
-                            class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-sm font-medium">
-                            <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6 flex-shrink-0"
-                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                            </svg>
-                            Calendar
-                        </a>
-
-                        <a href="#"
-                            class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-sm font-medium">
-                            <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6 flex-shrink-0"
-                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M2.25 13.5h3.86a2.25 2.25 0 012.012 1.244l.256.512a2.25 2.25 0 002.013 1.244h3.218a2.25 2.25 0 002.013-1.244l.256-.512a2.25 2.25 0 012.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 00-2.15-1.588H6.911a2.25 2.25 0 00-2.15 1.588L2.35 13.177a2.25 2.25 0 00-.1.661z" />
-                            </svg>
-                            Documents
-                        </a>
-
-                        <a href="#"
-                            class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-sm font-medium">
-                            <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6 flex-shrink-0"
-                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-                            </svg>
-                            Reports
-                        </a>
-                    </nav>
-                </div>
-                <div class="flex flex-shrink-0 border-t border-gray-200 p-4">
-                    <a href="#" class="group block w-full flex-shrink-0">
-                        <div class="flex items-center">
-                            <div>
-                                <img class="inline-block h-9 w-9 rounded-full"
-                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                    alt="">
-                            </div>
-                            <div class="ml-3">
-                                <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">Tom Cook</p>
-                                <p class="text-xs font-medium text-gray-500 group-hover:text-gray-700">View profile</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="flex flex-1 flex-col lg:pl-64">
-            <div class="sticky top-0 z-10 bg-gray-100 pl-1 pt-1 sm:pl-3 sm:pt-3 lg:hidden">
-                <button type="button"
-                    class="-ml-0.5 -mt-0.5 inline-flex h-12 w-12 items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                    <span class="sr-only">Open sidebar</span>
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                </button>
-            </div>
-            <main class="flex-1">
-                <div class="py-6">
-                    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                        <h1 class="text-2xl font-semibold text-gray-900">Dashboard</h1>
-                    </div>
-                    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                        @yield('content')
-                    </div>
-                </div>
-            </main>
+<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Admin Wrap</p>
         </div>
     </div>
-
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">
+                        <!-- Logo icon -->
+                        <b>
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <img src="{{ asset('images/logo/1_transparent_logo_black.png') }}" alt="homepage"
+                                class="dark-logo" style="height: 50px; width: 50px" />
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span>
+                            <!-- dark Logo text -->
+                            Hairclip
+                        </span>
+                    </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark"
+                                href="javascript:void(0)"><i class="fa fa-bars"></i></a> </li>
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item hidden-xs-down search-box"> <a
+                                class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i
+                                    class="fa fa-search"></i></a>
+                            <form class="app-search">
+                                <input type="text" class="form-control" placeholder="Search & enter"> <a
+                                    class="srh-btn"><i class="fa fa-times"></i></a>
+                            </form>
+                        </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- User profile and search -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav my-lg-0">
+                        <!-- ============================================================== -->
+                        <!-- Profile -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown u-pro">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="#"
+                                id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user"
+                                    class="" /> <span class="hidden-md-down">Mark Sanders &nbsp;</span> </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i
+                                    class="fa fa-tachometer"></i><span class="hide-menu">Dashboard</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="pages-profile.html" aria-expanded="false"><i
+                                    class="fa fa-user-circle-o"></i><span class="hide-menu">Profile</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="table-basic.html" aria-expanded="false"><i
+                                    class="fa fa-table"></i><span class="hide-menu">Tables</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="icon-fontawesome.html" aria-expanded="false"><i
+                                    class="fa fa-smile-o"></i><span class="hide-menu">Icons</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i
+                                    class="fa fa-globe"></i><span class="hide-menu">Map</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i
+                                    class="fa fa-bookmark-o"></i><span class="hide-menu">Blank</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i
+                                    class="fa fa-question-circle"></i><span class="hide-menu">404</span></a>
+                        </li>
+                    </ul>
+                    <div class="text-center mt-4">
+                        <a href="https://www.wrappixel.com/templates/adminwrap/"
+                            class="btn waves-effect waves-light btn-info hidden-md-down text-white"> Upgrade to Pro</a>
+                    </div>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h3 class="text-themecolor">Dashboard</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                    </div>
+                    <div class="col-md-7 align-self-center">
+                        <a href="https://www.wrappixel.com/templates/adminwrap/"
+                            class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down text-white">
+                            Upgrade to
+                            Pro</a>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Sales Chart and browser state-->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex no-block">
+                                    <div>
+                                        <h5 class="card-title mb-0">Sales Chart</h5>
+                                    </div>
+                                    <div class="ms-auto">
+                                        <ul class="list-inline text-center font-12">
+                                            <li><i class="fa fa-circle text-success"></i> SITE A</li>
+                                            <li><i class="fa fa-circle text-info"></i> SITE B</li>
+                                            <li><i class="fa fa-circle text-primary"></i> SITE C</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="" id="sales-chart" style="height: 355px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex mb-4 no-block">
+                                    <h5 class="card-title mb-0 align-self-center">Our Visitors</h5>
+                                    <div class="ms-auto">
+                                        <select class="form-select b-0">
+                                            <option selected="">Today</option>
+                                            <option value="1">Tomorrow</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div id="visitor" style="height:260px; width:100%;"></div>
+                                <ul class="list-inline mt-4 text-center font-12">
+                                    <li><i class="fa fa-circle text-purple"></i> Tablet</li>
+                                    <li><i class="fa fa-circle text-success"></i> Desktops</li>
+                                    <li><i class="fa fa-circle text-info"></i> Mobile</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Sales Chart -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Projects of the Month -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-8 d-flex align-items-stretch">
+                        <div class="card w-100">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div>
+                                        <h5 class="card-title">Projects of the Month</h5>
+                                    </div>
+                                    <div class="ms-auto">
+                                        <select class="form-select b-0">
+                                            <option selected="">January</option>
+                                            <option value="1">February</option>
+                                            <option value="2">March</option>
+                                            <option value="3">April</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="table-responsive mt-3 no-wrap">
+                                    <table class="table vm no-th-brd pro-of-month">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Assigned</th>
+                                                <th>Name</th>
+                                                <th>Budget</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="width:50px;"><span class="round">S</span></td>
+                                                <td>
+                                                    <h6>Sunil Joshi</h6><small class="text-muted">Web Designer</small>
+                                                </td>
+                                                <td>Elite Admin</td>
+                                                <td>$3.9K</td>
+                                            </tr>
+                                            <tr class="active">
+                                                <td><span class="round"><img src="../assets/images/users/2.jpg"
+                                                            alt="user" width="50"></span></td>
+                                                <td>
+                                                    <h6>Andrew</h6><small class="text-muted">Project Manager</small>
+                                                </td>
+                                                <td>Real Homes</td>
+                                                <td>$23.9K</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="round round-success">B</span></td>
+                                                <td>
+                                                    <h6>Bhavesh patel</h6><small class="text-muted">Developer</small>
+                                                </td>
+                                                <td>MedicalPro Theme</td>
+                                                <td>$12.9K</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="round round-primary">N</span></td>
+                                                <td>
+                                                    <h6>Nirav Joshi</h6><small class="text-muted">Frontend Eng</small>
+                                                </td>
+                                                <td>Elite Admin</td>
+                                                <td>$10.9K</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="round round-warning">M</span></td>
+                                                <td>
+                                                    <h6>Micheal Doe</h6><small class="text-muted">Content
+                                                        Writer</small>
+                                                </td>
+                                                <td>Helping Hands</td>
+                                                <td>$12.9K</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-4 d-flex align-items-stretch">
+                        <div class="card w-100">
+                            <div class="up-img" style="background-image:url(../assets/images/big/img1.jpg)"></div>
+                            <div class="card-body">
+                                <h5 class=" card-title">Business development of rules</h5>
+                                <span class="label label-info label-rounded">Technology</span>
+                                <p class="mb-0 mt-3">Titudin venenatis ipsum aciat. Vestibu ullamer quam. nenatis
+                                    ipsum ac feugiat. Ibulum ullamcorper.</p>
+                                <div class="d-flex mt-3">
+                                    <a class="link" href="javascript:void(0)">Read more</a>
+                                    <div class="ms-auto align-self-center">
+                                        <a href="javascript:void(0)" class="link me-2"><i
+                                                class="fa fa-heart-o"></i></a>
+                                        <a href="javascript:void(0)" class="link me-2"><i
+                                                class="fa fa-share-alt"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Projects of the Month -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Notification And Feeds -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- Start Notification -->
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card card-body mailbox">
+                            <h5 class="card-title">Notification</h5>
+                            <div class="message-center" style="height: 420px !important;">
+                                <!-- Message -->
+                                <a href="#">
+                                    <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
+                                    <div class="mail-contnet">
+                                        <h6 class="text-dark font-medium mb-0">Luanch Admin</h6> <span
+                                            class="mail-desc">Just see the my new admin!</span>
+                                        <span class="time">9:30 AM</span>
+                                    </div>
+                                </a>
+                                <!-- Message -->
+                                <a href="#">
+                                    <div class="btn btn-success btn-circle"><i class="fa fa-calendar-check-o"></i>
+                                    </div>
+                                    <div class="mail-contnet">
+                                        <h6 class="text-dark font-medium mb-0">Event today</h6> <span
+                                            class="mail-desc">Just a reminder that you have
+                                            event</span> <span class="time">9:10 AM</span>
+                                    </div>
+                                </a>
+                                <!-- Message -->
+                                <a href="#">
+                                    <div class="btn btn-info btn-circle"><i class="fa fa-cog text-white"></i></div>
+                                    <div class="mail-contnet">
+                                        <h6 class="text-dark font-medium mb-0">Settings</h6> <span
+                                            class="mail-desc">You can customize this template as you
+                                            want</span> <span class="time">9:08 AM</span>
+                                    </div>
+                                </a>
+                                <!-- Message -->
+                                <a href="#">
+                                    <div class="btn btn-primary btn-circle"><i class="fa fa-user"></i></div>
+                                    <div class="mail-contnet">
+                                        <h6 class="text-dark font-medium mb-0">Pavan kumar</h6> <span
+                                            class="mail-desc">Just see the my admin!</span> <span class="time">9:02
+                                            AM</span>
+                                    </div>
+                                </a>
+                                <!-- Message -->
+                                <a href="#">
+                                    <div class="btn btn-info btn-circle"><i class="fa fa-cog text-white"></i></div>
+                                    <div class="mail-contnet">
+                                        <h6 class="text-dark font-medium mb-0">Customize Themes</h6> <span
+                                            class="mail-desc">You can customize this template as you
+                                            want</span> <span class="time">9:08 AM</span>
+                                    </div>
+                                </a>
+                                <!-- Message -->
+                                <a href="#">
+                                    <div class="btn btn-primary btn-circle"><i class="fa fa-user"></i></div>
+                                    <div class="mail-contnet">
+                                        <h6 class="text-dark font-medium mb-0">Pavan kumar</h6> <span
+                                            class="mail-desc">Just see the my admin!</span> <span class="time">9:02
+                                            AM</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Notification -->
+                    <!-- Start Feeds -->
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Feeds</h5>
+                                <ul class="feeds">
+                                    <li>
+                                        <div class="bg-light-info"><i class="fa fa-bell-o"></i></div> You have 4
+                                        pending
+                                        tasks. <span class="text-muted">Just Now</span>
+                                    </li>
+                                    <li>
+                                        <div class="bg-light-success"><i class="fa fa-server"></i></div> Server #1
+                                        overloaded.<span class="text-muted">2 Hours ago</span>
+                                    </li>
+                                    <li>
+                                        <div class="bg-light-warning"><i class="fa fa-shopping-cart"></i></div> New
+                                        order received.<span class="text-muted">31 May</span>
+                                    </li>
+                                    <li>
+                                        <div class="bg-light-danger"><i class="fa fa-user"></i></div> New user
+                                        registered.<span class="text-muted">30 May</span>
+                                    </li>
+                                    <li>
+                                        <div class="bg-light-inverse"><i class="fa fa-bell-o"></i></div> New Version
+                                        just arrived. <span class="text-muted">27 May</span>
+                                    </li>
+                                    <li>
+                                        <div class="bg-light-info"><i class="fa fa-bell-o"></i></div> You have 4
+                                        pending
+                                        tasks. <span class="text-muted">Just Now</span>
+                                    </li>
+                                    <li>
+                                        <div class="bg-light-danger"><i class="fa fa-user"></i></div> New user
+                                        registered.<span class="text-muted">30 May</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Feeds -->
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Notification And Feeds -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- End Page Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer"> © 2021 Adminwrap by <a href="https://www.wrappixel.com/">wrappixel.com</a>
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="{{ asset('admin-template/assets/node_modules/jquery/jquery.min.js') }} "></script>
+    <!-- Bootstrap popper Core JavaScript -->
+    <script src="{{ asset('admin-template/assets/node_modules/bootstrap/js/bootstrap.bundle.min.js') }} "></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="{{ asset('admin-template/html/js/perfect-scrollbar.jquery.min.js') }} "></script>
+    <!--Wave Effects -->
+    <script src="{{ asset('admin-template/html/js/waves.js') }}"></script>
+    <!--Menu sidebar -->
+    <script src="{{ asset('admin-template/html/js/sidebarmenu.js') }}"></script>
+    <!--Custom JavaScript -->
+    <script src="{{ asset('admin-template/html/js/custom.min.js') }} "></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!--morris JavaScript -->
+    <script src="{{ asset('admin-template/assets/node_modules/raphael/raphael-min.js') }} "></script>
+    <script src="{{ asset('admin-template/assets/node_modules/morrisjs/morris.min.js') }} "></script>
+    <!--c3 JavaScript -->
+    <script src="{{ asset('admin-template/assets/node_modules/d3/d3.min.js') }}"></script>
+    <script src="{{ asset('admin-template/assets/node_modules/c3-master/c3.min.js') }} "></script>
+    <!-- Chart JS -->
+    <script src="{{ asset('admin-template/html/js/dashboard1.js') }} "></script>
 </body>
 
 </html>

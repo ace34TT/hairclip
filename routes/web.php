@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ShoppingCartController;
 use App\Models\Order;
@@ -49,6 +50,8 @@ Route::group(["prefix" => "order", "as" => "order."], function () {
 // * ADMIN
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::view('/login', 'pages/backoffice/login')->name('login');
-    Route::view("/dashboard", "")->name("dashboard");
+    Route::post("/login", [AdminController::class, 'authenticate'])->name("do-login");
+    Route::view("/dashboard", "pages/backoffice/dashboard")->name("dashboard");
+    Route::get("/orders", [AdminController::class, "orderList"])->name("order-list");
     // Route::get("/login", [OrderController::class, 'pay'])->name("do-pay");
 });
