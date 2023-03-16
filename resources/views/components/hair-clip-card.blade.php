@@ -8,9 +8,9 @@
         <div class="text-slate-50 w-10/12 text-center break-words break-all" style="word-wrap: break-word;">
             {{ $description }}
         </div>
-        <p class="text-white font-bold m-3">7e</p>
+        <p class="text-white font-bold m-3"> {{ $price }} €</p>
         <button onclick="window.location.href='{{ route('product-overview', ['product_id' => $id]) }}'" type="button"
-            class="rounded-md bg-white bg-opacity-0 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 hover:shadow-lg transition ease-in-out">
+            class="hover:filter hover:brightness-120 rounded-md bg-white bg-opacity-0 hover:bg-opacity-50 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 hover:shadow-lg transition ease-in-out">
             Ajouter au panier</button>
     </div>
 </div>

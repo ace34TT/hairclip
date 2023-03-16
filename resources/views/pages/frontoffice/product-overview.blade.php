@@ -25,27 +25,19 @@
                     <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $product->name }}</h1>
                     <div class="mt-3">
                         <h2 class="sr-only">Information du produit</h2>
-                        <p class="text-3xl tracking-tight text-gray-900">{{ $product->price }}</p>
+                        <p class="text-3xl tracking-tight text-gray-900">{{ $product->price }} €</p>
                     </div>
                     <br>
                     <div class="flex gap-8">
-                        <div class="cursor-pointer w-7 h-7 rounded-full border border-black flex justify-center items-center"
-                            onclick="">
-                            <div onclick="updateQuantity(-1)" class="text-3xl text-black" onclick="">
-                                -
-                            </div>
-                        </div>
-                        <span data-quantity="" id="quantity">1</span>
-                        <div
-                            class="cursor-pointer w-7 h-7 rounded-full border border-black flex justify-center items-center">
-                            <div onclick="updateQuantity(1)" class="text-3xl text-black" onclick="">
-                                +
-                            </div>
-                        </div>
+                        <x-ei-minus class="cursor-pointer w-7 h-7 flex justify-center items-center text-3xl text-black "
+                            onclick="updateQuantity(-1)" />
+                        <span data-quantity="" id="quantity">1
+                        </span>
+                        <x-ei-plus class="cursor-pointer w-7 h-7  text-3xl text-black" onclick="updateQuantity(1)" />
                     </div>
                     <section aria-labelledby="details-heading" class="mt-12">
                         <h2 id="details-heading" class="sr-only">Additional details</h2>
-                        <div class="divide-y divide-gray-200 border-t">
+                        <div class="divide-y divide-gray-200">
                             <div class="prose prose-sm pb-6" id="disclosure-1">
                                 <ul role="list">
                                     <li>Multiple strap configurations</li>
@@ -59,7 +51,9 @@
                     <form class="mt-6">
                         <!-- Colors -->
                         <div>
-                            <h3 class="text-sm text-gray-600">Color</h3>
+                            <h3 class="text-sm text-gray-600">Coulleur
+
+                            </h3>
                             <fieldset class="mt-2">
                                 <legend class="sr-only">Couleurs</legend>
                                 <span class="flex items-center space-x-3">

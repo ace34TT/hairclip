@@ -63,28 +63,21 @@
                                             </td>
                                             <td
                                                 class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle">
-                                                <span data-price="" id="{{ 'product_' . $cart_item->id . '_price' }}">
+                                                <span class="text-center" data-price=""
+                                                    id="{{ 'product_' . $cart_item->id . '_price' }}">
                                                     {{ $cart_item->price }}</span>
                                                 €
                                             </td>
                                             <td class="whitespace-nowrap py-4 px-3 text-lg align-middle">
                                                 <div class="flex gap-8">
-                                                    <div class="cursor-pointer w-7 h-7 rounded-full border border-black flex justify-center items-center"
-                                                        onclick="">
-                                                        <div class="text-3xl text-black"
-                                                            onclick="updateQuantity('{{ $cart_item->rowId }}', {{ $cart_item->id }} , -1)">
-                                                            -
-                                                        </div>
-                                                    </div>
+                                                    <x-ei-minus
+                                                        class="cursor-pointer w-7 h-7 flex justify-center items-center text-3xl text-black "
+                                                        onclick="updateQuantity('{{ $cart_item->rowId }}', {{ $cart_item->id }} , -1)" />
                                                     <span data-quantity=""
-                                                        id={{ 'product_' . $cart_item->id . '_quantity' }}>{{ $cart_item->qty }}</span>
-                                                    <div
-                                                        class="cursor-pointer w-7 h-7 rounded-full border border-black flex justify-center items-center">
-                                                        <div class="text-3xl text-black"
-                                                            onclick="updateQuantity('{{ $cart_item->rowId }}', {{ $cart_item->id }} , 1)">
-                                                            +
-                                                        </div>
-                                                    </div>
+                                                        id={{ 'product_' . $cart_item->id . '_quantity' }}>{{ $cart_item->qty }}
+                                                    </span>
+                                                    <x-ei-plus class="cursor-pointer w-7 h-7  text-3xl text-black"
+                                                        onclick="updateQuantity('{{ $cart_item->rowId }}', {{ $cart_item->id }} , 1)" />
                                                 </div>
                                             </td>
                                             <td

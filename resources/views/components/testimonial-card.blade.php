@@ -1,4 +1,4 @@
-<div class="flex flex-col justify-center items-center px-7 md:p-14  bg-white ">
+<div class="flex w flex-col justify-center items-center px-5 bg-white ">
     <img class="rounded-full w-40 h-fit md:h-40" src="{{ asset('images/' . $customerProfile) }}" alt="image description">
     <div class="flex justify-center h-14 w-full ">
         @for ($i = 0; $i < 5; $i++)
@@ -9,7 +9,7 @@
             @endif
         @endfor
     </div>
-    <p class="text-center m-0 md:m-10">{{ $message }}</p>
+    <p class="text-center m-0 md:m-5">{{ $message }}</p>
     <p>{{ $customerName }}</p>
     <!-- Let all your things have their places; let each part of your business have its time. - Benjamin Franklin -->
 </div>

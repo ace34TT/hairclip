@@ -1,4 +1,4 @@
-<footer class="h-fit p-5 gap-5 md:p-10 bg-neutral-700">
+<footer id="footer" class="h-fit p-5 gap-5 md:p-10 bg-neutral-700">
     {{-- main item --}}
     <div class="h-6/5 flex flex-col justify-around items-center ">
         {{-- logo --}}

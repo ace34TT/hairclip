@@ -14,7 +14,7 @@
     <div class="flex justify-center items-cente h-fit ">
         <div class="flex flex-col md:flex-row h-fit min-h-screen w-11/12">
             <div class="flex-1 flex flex-col justify-center items-center prose max-w-none">
-                <h2> Methode de paiement </h2>
+                <h2>Mode de paiement </h2>
                 <br>
                 <!-- Display a payment form -->
                 <form id="payment-form" class="py-4">
@@ -76,7 +76,6 @@
                                                                 {{ $cart_item->price }}</span>
                                                             €
                                                         </span>
-
                                                     </div>
                                                 </div>
                                             </td>

@@ -17,6 +17,7 @@
         @yield('content')
     </main>
     <x-footer />
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     @yield('script')
 </body>
 
