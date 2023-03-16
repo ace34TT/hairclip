@@ -3,6 +3,8 @@
 @section('title', 'Home')
 
 @section('content')
+    <button onclick="ExportToExcel('xlsx')" type="button" class="btn btn-primary">Exporter les donnees</button>
+    <br>
     <div class="row">
         <!-- column -->
         <div class="col-12">
@@ -11,13 +13,15 @@
                     <h4 class="card-title">Liste des commandes</h4>
                     {{-- <h6 class="card-subtitle">Add class <code>.table</code></h6> --}}
                     <div class="table-responsive">
-                        <table class="table">
+                        <table id="orders" class="table">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Username</th>
+                                    <th>Paiement</th>
+                                    <th>Client</th>
+                                    <th>Mail</th>
+                                    <th>Addresse</th>
+                                    <th>Quantite</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,9 +45,7 @@
                                         <td>
                                             {{ $order['quantity'] }}
                                         </td>
-                                        <td>
-                                            <button type="button">Select<span class="sr-only">, Hobby</span></button>
-                                        </td>
+
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -53,4 +55,20 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+    <script>
+        function ExportToExcel(type, fn, dl) {
+            var elt = document.getElementById('orders');
+            var wb = XLSX.utils.table_to_book(elt, {
+                sheet: "sheet1"
+            });
+            return dl ?
+                XLSX.write(wb, {
+                    bookType: type,
+                    bookSST: true,
+                    type: 'base64'
+                }) :
+                XLSX.writeFile(wb, fn || ('commandes.' + (type || 'xlsx')));
+        }
+    </script>
 @endsection

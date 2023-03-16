@@ -25,7 +25,7 @@ class AdminController extends Controller
 
     public function orderList()
     {
-        $data = Order::paginate(25);
+        $data = Order::all();
         return view('pages/backoffice/order-list')->with('orders', $data);
     }
 }
