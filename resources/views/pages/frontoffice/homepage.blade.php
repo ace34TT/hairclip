@@ -16,11 +16,13 @@
                 semper. Netus nullam eros nisi volutpat nibh ex ultricies. Pharetra
                 sagittis sit aliquet at. Magna nam platea justo.</p>
             <button type="button"
-                class="self-center rounded-md w-5/6 md:w-2/5 bg-white py-2.5 px-3.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+                class="self-center  rounded-md w-5/6 md:w-2/5 bg-white py-2.5 px-3.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                 Voir plus</button>
         </div>
         <div class="flex-1">
-            <img src="{{ asset('images/chouchou_video.png') }}" alt="">
+            <iframe src="https://drive.google.com/file/d/18bNS-Dh_KZczUoFnQ85EYILPfnCa8Npt/preview"
+                class="h-full w-full md:min-h-[400px]" allow="autoplay"></iframe>
+            {{-- <img src="{{ asset('images/chouchou_video.png') }}" alt=""> --}}
         </div>
     </div>
     {{-- end-section-1 --}}

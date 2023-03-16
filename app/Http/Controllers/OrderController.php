@@ -27,8 +27,9 @@ class OrderController extends Controller
         Session::put("shipping", json_encode($data));
         return redirect()->route('order.payment');
     }
-    public function pay()
+    public function pay(Request $request)
     {
+        $total = request('total');
         // $items = Cart::content();
         // $lineItems = [];
         // foreach ($items as $key => $item) {
@@ -47,7 +48,7 @@ class OrderController extends Controller
         try {
             Stripe::setApiKey(env(key: "SK_STRIPE"));
             $paymentIntent = PaymentIntent::create([
-                "amount" => 10 * 100,
+                "amount" => $total * 100,
                 'currency' => 'eur',
             ]);
             $output = [

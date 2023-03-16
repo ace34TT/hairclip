@@ -35,13 +35,13 @@ class ShoppingCartController extends Controller
     {
         $data = $request->all();
         $updated_cart_items = json_decode($data["updated_data"]);
-        dump($updated_cart_items);
-        dump(Cart::content());
-        dump(Cart::total());
+        // dump($updated_cart_items);
+        // dump(Cart::content());
+        // dump(Cart::total());
         foreach ($updated_cart_items as $key => $cart_item) {
             Cart::update($cart_item->rowId, (int)$cart_item->quantity);
         }
-        dump(Cart::total());
-        // return redirect()->route('order.shipping');
+        // dump(Cart::total());
+        return redirect()->route('order.shipping');
     }
 }

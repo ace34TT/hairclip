@@ -62,5 +62,4 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::view("/dashboard", "pages/backoffice/dashboard")->name("dashboard");
     Route::get("/orders", [AdminController::class, "orderList"])->name("order-list");
     Route::view("/profile", "pages/backoffice/profile")->name("profile");
-    // Route::get("/login", [OrderController::class, 'pay'])->name("do-pay");
 });
