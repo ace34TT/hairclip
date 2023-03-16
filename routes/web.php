@@ -21,17 +21,21 @@ use Revolution\Google\Sheets\Facades\Sheets;
 */
 // * HOMEPAGE
 Route::get('/', function () {
-    // Sheets::sheet('Sheet 1')->append([['3', 'name3', 'mail3']]);
-    // $values = Sheets::all();
-    //
     $data = Products::getWithTopViewPic();
     return view("pages/frontoffice/homepage")->with("products", $data);
 })->name("homepage");
 
+Route::get("/product-overview/{product_id}", function ($product_id) {
+    $data = Products::getWithTopViewPic($product_id);
+    $colors = Products::getWithTopViewPic();
+    return view("pages.frontoffice.product-overview")->with("product", $data)->with("colors", $colors);
+})->name("product-overview");
+
+
 // * SHOPPING CART
 Route::group(["prefix" => "shopping-cart", "as" => "shopping-cart."], function () {
     Route::get('/', [ShoppingCartController::class, 'shoppingCart'])->name('index');
-    Route::get("/{product_id}", [ShoppingCartController::class, "addItem"])->name("add-item")->where('product_id', '[0-9]+');;;
+    Route::get("/{product_id}/{quantity?}", [ShoppingCartController::class, "addItem"])->name("add-item")->where('product_id', '[0-9]+');;;
     Route::post("/", [ShoppingCartController::class, "updateItems"])->name("update-items");
     Route::view("/details", "pages/frontoffice/shopping-cart-details")->name("details");
 });

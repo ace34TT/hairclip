@@ -3,9 +3,9 @@
 @section('title', 'Home')
 
 @section('content')
-    <div class="flex justify-center items-cente h-fit py-5">
-        <div class="flex h-fit w-11/12">
-            <div class="flex-1 flex flex-col gap-7 prose max-w-none justify-center items-start  px-16">
+    <div class="flex justify-center items-cente h-fit py-16">
+        <div class="flex flex-col md:flex-row gap-4 md:gap-0 h-fit w-11/12">
+            <div class="flex-1 flex flex-col gap-7 prose max-w-none justify-center items-start  md:px-16">
                 <h3><span class="text-black"> <span class="text-d-green">Panier > </span> <span class="underline text-black">
                             livraison</span> > Paiement </span></h3>
                 <h1>Contact et livraison </h1>
