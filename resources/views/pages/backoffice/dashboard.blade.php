@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="bg-slate-200 w-full h-full">
-        <h1>Laravel 10 ChartJS Chart Example - ItSolutionStuff.com</h1>
+        <h1>Commandes des 7 derniers jours </h1>
         <canvas id="myChart" height="100px"></canvas>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -15,10 +15,11 @@
         const data = {
             labels: labels,
             datasets: [{
-                label: 'My First dataset',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
+                label: 'last orders',
+                backgroundColor: 'rgb(52, 149, 235)',
+                borderColor: 'rgb(52, 149, 235)',
                 data: users,
+                lineTension: 0.5
             }]
         };
         const config = {

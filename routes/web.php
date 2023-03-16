@@ -3,11 +3,9 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ShoppingCartController;
-use App\Models\Order;
 use App\Models\Products;
-use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Route;
-use Revolution\Google\Sheets\Facades\Sheets;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -59,7 +57,9 @@ Route::group(["prefix" => "order", "as" => "order."], function () {
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::view('/login', 'pages/backoffice/login')->name('login');
     Route::post("/login", [AdminController::class, 'authenticate'])->name("do-login");
-    Route::view("/dashboard", "pages/backoffice/dashboard")->name("dashboard");
+    Route::get("/dashboard", [AdminController::class, "dashboard"])->name("dashboard");
     Route::get("/orders", [AdminController::class, "orderList"])->name("order-list");
+    Route::get("/order-details/{order_id}", [AdminController::class, "orderDetails"])->name("order-details");
     Route::view("/profile", "pages/backoffice/profile")->name("profile");
+    Route::get("/logout", [AdminController::class, "logout"])->name("logout");
 });

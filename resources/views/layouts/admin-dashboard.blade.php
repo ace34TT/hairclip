@@ -138,6 +138,10 @@
                                 aria-expanded="false"><i class="fa fa-user-circle-o"></i><span
                                     class="hide-menu">Commandes</span></a>
                         </li>
+                        <li> <a class="waves-effect waves-dark" href="{{ route('admin.logout') }}"
+                                aria-expanded="false"><i class="fa-solid fa-right-from-bracket"></i><span
+                                    class="hide-menu">Deconnexion</span></a>
+                        </li>
                     </ul>
 
                 </nav>

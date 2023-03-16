@@ -40,8 +40,8 @@
                         Voir plus</button>
                 </div>
                 <div class="flex-1">
-                    {{-- <iframe src="https://drive.google.com/file/d/18bNS-Dh_KZczUoFnQ85EYILPfnCa8Npt/preview"
-                        class="h-full w-full md:min-h-[400px]" allow="autoplay"></iframe> --}}
+                    <iframe src="https://drive.google.com/file/d/18bNS-Dh_KZczUoFnQ85EYILPfnCa8Npt/preview"
+                        class="h-full w-full md:min-h-[400px]" allow="autoplay"></iframe>
                     {{-- <img src="{{ asset('images/chouchou_video.png') }}" alt=""> --}}
                 </div>
             </div>

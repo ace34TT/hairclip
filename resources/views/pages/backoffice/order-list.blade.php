@@ -3,14 +3,14 @@
 @section('title', 'Home')
 
 @section('content')
-    <button onclick="ExportToExcel('xlsx')" type="button" class="btn btn-primary">Exporter les donnees</button>
-    <br>
     <div class="row">
         <!-- column -->
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Liste des commandes</h4>
+                    <button onclick="ExportToExcel('xlsx')" type="button" class="btn btn-primary">Exporter les
+                        donnees</button>
                     {{-- <h6 class="card-subtitle">Add class <code>.table</code></h6> --}}
                     <div class="table-responsive">
                         <table id="orders" class="table">
@@ -26,7 +26,8 @@
                             </thead>
                             <tbody>
                                 @foreach ($orders as $order)
-                                    <tr>
+                                    <tr onclick="window.location.href = '{{ route('admin.order-details', ['order_id' => $order['id']]) }}'"
+                                        style="" class="hover-bg-secondary-subtle">
                                         <td>
                                             {{ $order['id'] }}
                                         </td>
