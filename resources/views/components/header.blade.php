@@ -1,9 +1,10 @@
-<header class="h-28 flex justify-between items-center ">
-    <div class="flex cursor-pointer gap-5 items-center pl-16" onclick="window.location.href='{{ route('homepage') }}'">
+<header class="lg:h-28 flex justify-between items-center ">
+    <div class="flex cursor-pointer lg:gap-5 items-center pl-0 lg:pl-16"
+        onclick="window.location.href='{{ route('homepage') }}'">
         <img src="{{ asset('images/logo/1_transparent_logo_black.png') }}" height="120px" width="120px" alt="">
         <h2 class="uppercase text-4xl">HairClip</h2>
     </div>
-    <ul class="flex gap-10 pr-40 items-center">
+    <ul class="hidden sm:hidden lg:visible md:flex gap-10 pr-40 items-center">
         <li><a href="#">A propos</a></li>
         <li><a href="#">Contact</a></li>
         <li>

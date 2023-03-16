@@ -21,8 +21,8 @@ use Revolution\Google\Sheets\Facades\Sheets;
 */
 // * HOMEPAGE
 Route::get('/', function () {
-    Sheets::sheet('Sheet 1')->append([['3', 'name3', 'mail3']]);
-    $values = Sheets::all();
+    // Sheets::sheet('Sheet 1')->append([['3', 'name3', 'mail3']]);
+    // $values = Sheets::all();
     //
     $data = Products::getWithTopViewPic();
     return view("pages/frontoffice/homepage")->with("products", $data);

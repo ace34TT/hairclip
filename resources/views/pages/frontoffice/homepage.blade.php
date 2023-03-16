@@ -8,25 +8,26 @@
 
 @section('content')
     {{-- stert-section-1 --}}
-    <div class="h-screen flex items-center justify-around">
-        <div class="prose">
-            <h2 class="text-4xl font-bold">Nouvelle génération de chouchou</h2>
-            <p>Penatibus sem vitae mollis luctus mi tellus. Maximus eu eleifend
+    <div class="h-fit min-h-screen flex flex-col lg:flex-row items-center justify-around gap-4">
+        <div class="flex flex-1 flex-col gap-4 justify-center items-center md:items-start prose max-w-none md:px-10">
+            <h2 class="text-center lg:text-left text-4xl font-bold">Nouvelle génération de chouchou</h2>
+            <p class="text-center lg:text-left">Penatibus sem vitae mollis luctus mi tellus. Maximus eu eleifend
                 aptent dapibus metus maecenas consequat. Elementum interdum a
                 semper. Netus nullam eros nisi volutpat nibh ex ultricies. Pharetra
                 sagittis sit aliquet at. Magna nam platea justo.</p>
             <button type="button"
-                class="rounded-md bg-white py-2.5 px-3.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+                class="self-center rounded-md w-5/6 md:w-2/5 bg-white py-2.5 px-3.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                 Voir plus</button>
         </div>
-        <div>
+        <div class="flex-1">
             <img src="{{ asset('images/chouchou_video.png') }}" alt="">
         </div>
     </div>
     {{-- end-section-1 --}}
     <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
     {{-- start-section-2 --}}
-    <div class="h-fit w-screen py-4 bg-stone-200 flex flex-col items-center justify-center prose max-w-none">
+    <div
+        class="h-fit w-screen py-4 bg-stone-200 flex flex-col items-center justify-center prose max-w-none overflow-x-hidden">
         <h2 class="text-5xl">Nos Coloris</h2>
         <div class="flex justify-center items-center gap-8">
             <div>
@@ -48,10 +49,10 @@
     {{-- end-section-2 --}}
     <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
     {{-- start-section-3 --}}
-    <div class="h-fit py-16 flex justify-center items-center gap-8 ">
+    <div class="h-fit py-16 flex flex-col lg:flex-row justify-center items-center gap-8 ">
         <div class="prose h-full max-w-none flex flex-col justify-center items-center">
             <div class="w-11/12 h-full flex flex-col justify-center">
-                <h2 class="text-6xl my-10">Rétractable, souple <br>
+                <h2 class="text-5xl text-center lg:text-6xl my-10">Rétractable, souple <br>
                     et résistant.</h2>
                 <h2 class="text-cyan-900">Crée pour vous simplifier la vie </h2>
                 <ul>
@@ -70,7 +71,7 @@
     <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
     {{-- start-section-4 --}}
     <div class="h-fit py-10 my-10 flex flex-col items-center justify-center prose max-w-none">
-        <h2 class="text-5xl my-10">Rétractable, souple et résistant.</h2>
+        <h2 class="text-center text-5xl  my-10">Rétractable, souple et résistant.</h2>
         <button type="button"
             class="rounded-md bg-white py-2.5 px-3.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
             Voir plus</button>
@@ -90,17 +91,16 @@
     {{-- end-section-4 --}}
     <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
     {{-- start-section-5 --}}
-    <div class="h-fit bg-stone-200 flex flex-col justify-center items-center prose max-w-none py-14">
-        <h2>Témoignages</h2>
-        <p class="text-cyan-800">Nos clients sont ravis, c’est à votre tour !</p>
-        <div class="w-10/12 flex  justify-around">
+    <div class="h-fit min-h-screen bg-stone-200 flex flex-col justify-center items-center prose max-w-none py-14">
+        <h2 class="text-5xl text-center">Témoignages</h2>
+        <p class="text-center text-cyan-800">Nos clients sont ravis, c’est à votre tour !</p>
+        <div class="w-10/12 flex flex-col md:flex-row justify-around gap-2">
             <x-testimonial-card customerName="Luisa" customerProfile="messages-1.jpg"
                 message="Je l’adore, je ne m’en sépare plus" stars=4 />
             <x-testimonial-card customerName="Edoardo" customerProfile="messages-3.jpg"
                 message="Je le recommande pour toutes" stars=3 />
             <x-testimonial-card customerName="Mart" customerProfile="profile-img.jpg"
                 message="Simple, efficace et de qualité" stars=5 />
-
         </div>
     </div>
 @endsection

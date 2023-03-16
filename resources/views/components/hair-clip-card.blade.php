@@ -1,6 +1,6 @@
 <div class="inline-block">
-    <div style="background-color: {{ $colorValue }}" style="min-width: 384px ; "
-        class=" flex w-96 p-6 flex-col items-center rounded-3xl prose hover:scale-105 hover:shadow-md transition ease-in-out cursor-pointer break-words"
+    <div style="background-color: {{ $colorValue }}" style="min-width: 384px; "
+        class=" flex  w-96 p-6 flex-col items-center rounded-3xl prose hover:scale-105 hover:shadow-md transition ease-in-out cursor-pointer break-words"
         onclick="">
         <h2 class="text-white">{{ $name }}</h2>
         <img src="{{ asset('images/scranchies/' . $preview) }}" class="rounded-3xl" style="width:300px;height:300px;"
