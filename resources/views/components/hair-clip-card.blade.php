@@ -5,7 +5,7 @@
         <h2 class="text-white">{{ $name }}</h2>
         <img src="{{ asset('images/scranchies/' . $preview) }}" class="rounded-3xl" style="width:300px;height:300px;"
             alt="">
-        <div class="text-slate-50 w-10/12 text-center break-words break-all" style="word-wrap: break-word;">
+        <div class="text-slate-50 w-10/12 text-center inline-block">
             {{ $description }}
         </div>
         <p class="text-white font-bold m-3"> {{ $price }} €</p>

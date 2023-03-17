@@ -23,8 +23,7 @@
 
 @section('content')
     {{-- stert-section-1 --}}
-
-    <div class="-mt-24 container mx-auto">
+    <div class="md:-mt-24 container mx-auto">
         <div class="h-fit min-h-screen flex justify-center items-center">
             <div class=" h-fit flex flex-col lg:flex-row items-start justify-around gap-4 px-6">
                 <div class="flex flex-1 flex-col gap-4 justify-center items-center md:items-start prose max-w-none md:px-10">
@@ -39,10 +38,9 @@
                         class="self-center  rounded-md w-5/6 md:w-2/5 bg-white py-2.5 px-3.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                         Voir plus</button>
                 </div>
-                <div class="flex-1">
+                <div class="flex-1 flex justify-center mb-5 :mb-0 ">
                     <iframe src="https://drive.google.com/file/d/18bNS-Dh_KZczUoFnQ85EYILPfnCa8Npt/preview"
                         class="h-full w-full md:min-h-[400px]" allow="autoplay"></iframe>
-                    {{-- <img src="{{ asset('images/chouchou_video.png') }}" alt=""> --}}
                 </div>
             </div>
         </div>
@@ -76,7 +74,7 @@
         <div class="h-fit py-12 flex flex-col lg:flex-row justify-center items-center gap-8 ">
             <div class="flex-1 prose h-full max-w-none flex flex-col justify-center items-center">
                 <div class="w-11/12 h-full flex flex-col justify-center">
-                    <h2 class="text-5xl mt-0">Rétractable, souple <br>
+                    <h2 class="text-5xl mt-0 text-left md:text-center ">Rétractable, souple <br>
                         et résistant.</h2>
                     <h2 class="text-cyan-900">Crée pour vous simplifier la vie </h2>
                     <ul>
@@ -97,25 +95,28 @@
     {{-- start-section-3 --}}
     <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
     {{-- start-section-4 --}}
-    <div class="h-screen py-12 flex flex-col items-center justify-center prose max-w-none">
-        <h2 class="text-5xl mt-0">Rétractable, souple et résistant.</h2>
-        <button onclick="window.location.href='{{ route('product-overview', ['product_id' => 1]) }}'" type="button"
-            class="rounded-md bg-white py-2.5 px-3.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-            Voir plus</button>
-        <br>
-        <div class="gallery w-10/12 overflow-hidden grid grid-rows-2 place-content-center gap-7 grid-flow-col h-500 ">
-            <div> <img style="width: 100%;height: 100%;object-fit: cover;" class="my-0 rounded-2xl"
-                    src="{{ asset('images/images/HairClip-02.jpg') }}" alt=""></div>
-            <div class="col-span-2"> <img style="width: 100%;height: 100%;object-fit: cover;" class="my-0 rounded-2xl"
-                    src="{{ asset('images/images/HairClip-06.jpg') }}" alt="">
-            </div>
-            <div> <img style="width: 100%;height: 100%;object-fit: cover;" class="my-0  rounded-2xl"
-                    src="{{ asset('images/images/HairClip-10.jpg') }}" alt=""></div>
-            <div class="row-span-2"> <img style="width: 100%;height: 100%;object-fit: cover;" class="my-0  rounded-2xl"
-                    src="{{ asset('images/images/HairClip-07.jpg') }}" alt="">
+    <div class="container mx-auto">
+        <div class="h-screen py-12 flex flex-col items-center justify-center prose max-w-none">
+            <h2 class="text-5xl mt-0 mx-5">Rétractable, souple et résistant.</h2>
+            <button onclick="window.location.href='{{ route('product-overview', ['product_id' => 1]) }}'" type="button"
+                class="rounded-md bg-white py-2.5 px-3.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+                Voir plus</button>
+            <br>
+            <div class="gallery w-10/12 overflow-hidden grid grid-rows-2 place-content-center gap-7 grid-flow-col h-500 ">
+                <div> <img style="width: 100%;height: 100%;object-fit: cover;" class="my-0 rounded-2xl"
+                        src="{{ asset('images/images/HairClip-02.jpg') }}" alt=""></div>
+                <div class="col-span-2"> <img style="width: 100%;height: 100%;object-fit: cover;" class="my-0 rounded-2xl"
+                        src="{{ asset('images/images/HairClip-06.jpg') }}" alt="">
+                </div>
+                <div> <img style="width: 100%;height: 100%;object-fit: cover;" class="my-0  rounded-2xl"
+                        src="{{ asset('images/images/HairClip-10.jpg') }}" alt=""></div>
+                <div class="row-span-2"> <img style="width: 100%;height: 100%;object-fit: cover;" class="my-0  rounded-2xl"
+                        src="{{ asset('images/images/HairClip-07.jpg') }}" alt="">
+                </div>
             </div>
         </div>
     </div>
+
     {{-- end-section-4 --}}
     <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
     {{-- start-section-5 --}}
@@ -165,10 +166,8 @@
             link.addEventListener('click', function(event) {
                 // Prevent the default behavior of the link
                 event.preventDefault();
-
                 // Get the target element based on the href attribute
                 const targetElement = document.querySelector(this.getAttribute('href'));
-
                 // Scroll smoothly to the target element
                 targetElement.scrollIntoView({
                     behavior: 'smooth'

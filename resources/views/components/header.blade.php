@@ -1,4 +1,4 @@
-<header class="static w-full md:h-24 flex justify-between items-center bg-white">
+<header class="flex justify-between items-center w-full md:h-24 bg-white">
     <div class="flex cursor-pointer lg:gap-5 items-center pl-0 lg:pl-16"
         onclick="window.location.href='{{ route('homepage') }}'">
         <img src="{{ asset('images/logo/1_transparent_logo_black.png') }}" class="h-20 md:h-32" alt="">
