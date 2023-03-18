@@ -188,7 +188,6 @@
 @endsection
 
 @section('script')
-
     <script>
         const element = document.getElementById("video-preview");
         const videoContainer = document.getElementById("videoPlayerContainer");
