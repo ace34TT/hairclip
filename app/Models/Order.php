@@ -11,5 +11,5 @@ class Order extends Model
     use HasFactory;
     public $timestamps = true;
     // protected $dateFormat = 'U';
-    protected $fillable = ['status', 'payment_intent_id', 'customer_first_name', "customer_last_name", "customer_emil", "shipping_address", "billing_address", "quantity", "amount", "created_at", "updated_at"];
+    protected $fillable = ['status', 'payment_intent_id', 'customer_first_name', "customer_last_name", "customer_emil", "customer_phone", "shipping_address", "shipping_city", "shipping_state", 'shipping_postal_code', "billing_address", "quantity", "amount", "shipping", "created_at", "updated_at"];
 }

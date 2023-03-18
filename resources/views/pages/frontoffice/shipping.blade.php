@@ -3,14 +3,15 @@
 @section('title', 'Home')
 
 @section('content')
-    <div class="flex justify-center items-cente h-fit py-16">
+    <div class="flex justify-center items-cente h-fit ">
         <div class="flex flex-col md:flex-row gap-4 md:gap-0 h-fit w-11/12">
-            <div class="flex-1 flex flex-col gap-7 prose max-w-none justify-center items-start  md:px-16">
+            <div class="flex-1 flex flex-col gap-7 prose max-w-none justify-center items-start my-7 md:px-16">
                 <h3><span class="text-black"> <span class="text-d-green">Panier > </span> <span class="underline text-black">
                             livraison</span> > Paiement </span></h3>
                 <h1>Contact et livraison </h1>
                 <form action="{{ route('order.set-shipping') }}" method="POST">
                     @csrf
+                    {{-- name --}}
                     <div class="flex gap-4">
                         <div class="flex-1">
                             <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Nom</label>
@@ -30,37 +31,78 @@
                         </div>
                     </div>
                     <br>
-                    <div class="flex-1">
-                        <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Addresse
-                            email</label>
-                        <div class="mt-2">
-                            <input type="email" name="email" id="email"
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
-                                aria-describedby="email-description">
+                    {{-- contact --}}
+                    <div class="flex gap-4">
+                        <div class="flex-1">
+                            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Addresse
+                                email</label>
+                            <div class="mt-2">
+                                <input type="email" name="email" id="email"
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                                    aria-describedby="email-description">
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <label for="phone"
+                                class="block text-sm font-medium leading-6 text-gray-900">Telephone</label>
+                            <div class="mt-2">
+                                <input type="text" name="phone" id="phone"
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                                    aria-describedby="email-description">
+                            </div>
                         </div>
                     </div>
                     <br>
+                    {{-- shipping address --}}
                     <div class="flex-1">
                         <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Addresse de la
                             livraison</label>
                         <div class="mt-2">
-                            <input type="text" name="address" id="shipping_address"
+                            <input type="text" name="shipping_address" id="shipping_address"
                                 class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                                 aria-describedby="email-description">
                         </div>
                     </div>
                     <br>
+                    {{--  --}}
+                    <div class="flex gap-4">
+                        <div class="flex-1">
+                            <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">Province
+                            </label>
+                            <div class="mt-2">
+                                <input type="text" name="province" id="province"
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                                    aria-describedby="email-description">
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Ville</label>
+                            <div class="mt-2">
+                                <input type="town" name="town" id="town"
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                                    aria-describedby="email-description">
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">Code Zip</label>
+                            <div class="mt-2">
+                                <input type="text" name="zip_code" id="zip_code"
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                                    aria-describedby="email-description">
+                            </div>
+                        </div>
+                    </div>
                     <div class="flex-1 hidden absolute top-0 left-0">
                         <label for="email" class="block text-sm font-medium leading-6 text-gray-900"></label>
                         <div class="mt-2">
-                            <input type="text" name="carts" id="address"
+                            <input type="text" name="address" id="address"
                                 class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                                 aria-describedby="email-description" value="{{ json_encode(Cart::content()) }}">
                         </div>
                     </div>
                     <br>
                     <button type="submit"
-                        class="rounded-md bg-d-green py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-900-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        class="float-right rounded-md bg-d-green py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-900-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         Suivant</button>
                 </form>
             </div>
@@ -109,7 +151,6 @@
                                                                 {{ $cart_item->price }}</span>
                                                             €
                                                         </span>
-
                                                     </div>
                                                 </div>
                                             </td>

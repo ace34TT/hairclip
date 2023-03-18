@@ -15,38 +15,38 @@ class ProductsTableSeeder extends Seeder
     {
         DB::table('products')->insert([
             [
-                'name' => "product 1",
+                'name' => "Givré",
                 'value' => "#838F8C",
                 "description" => "",
                 "price" => 7.0,
             ],
             [
-                'name' => "Product 2",
+                'name' => "Vert kaki",
                 'value' => "#665b07",
                 "description" => "",
                 "price" => 7.0,
             ], [
-                'name' => "Product 3",
+                'name' => "Bordeaux",
                 'value' => "#560006",
                 "description" => "",
                 "price" => 7.0,
             ], [
-                'name' => "Product 4",
+                'name' => "Incarnation",
                 'value' => "#fd978a",
                 "description" => "",
                 "price" => 7.0,
             ], [
-                'name' => "Product 5",
+                'name' => "Doriant",
                 'value' => "#121619",
                 "description" => "",
                 "price" => 7.0,
             ], [
-                'name' => "Product 6",
+                'name' => "Saumon",
                 'value' => "#c46835",
                 "description" => "",
                 "price" => 7.0,
             ], [
-                'name' => "Product 7",
+                'name' => "Terracotta",
                 'value' => "#d66148",
                 "description" => "",
                 "price" => 7.0,

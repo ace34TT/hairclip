@@ -51,8 +51,7 @@
                     <form class="mt-6">
                         <!-- Colors -->
                         <div>
-                            <h3 class="text-sm text-gray-600">Coulleur
-
+                            <h3 class="text-sm text-gray-600">Couleurs
                             </h3>
                             <fieldset class="mt-2">
                                 <legend class="sr-only">Couleurs</legend>
@@ -71,12 +70,6 @@
                                 </span>
                             </fieldset>
                         </div>
-                        @if (session('success'))
-                            <br>
-                            <div class="text-green-700 font-bold">
-                                Ajout effecte
-                            </div>
-                        @endif
                         <div class="sm:flex-col1 mt-10 flex">
                             <button type="button"
                                 class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-black py-3 px-8 text-base font-medium text-white hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-700 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
