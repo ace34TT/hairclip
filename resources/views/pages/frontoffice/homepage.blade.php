@@ -30,7 +30,6 @@
             background-position: center center;
         }
 
-
         #videoPlayerContainer {
             visibility: hidden;
             position: absolute;
@@ -133,26 +132,30 @@
                 Voir plus</button>
             <br>
             <div class="gallery w-10/12 overflow-hidden grid grid-rows-2 place-content-center gap-7 grid-flow-col h-500 ">
-                <div class="cursor-pointer rounded-2x">
+                <div class=" img-to-display cursor-pointer rounded-2x">
                     <img style="width: 100%;height: 100%;object-fit: cover;"
-                        class="my-0 l hover:scale-105 transition ease-in-out"
+                        class=" my-0 l hover:scale-105 transition ease-in-out"
                         src="{{ asset('images/images/HairClip-16.jpg') }}" alt="">
                 </div>
-                <div class="col-span-2 rounded-2xl hover:scale-105 transition ease-in-out">
+                <div class=" col-span-2 rounded-2xl hover:scale-105 transition ease-in-out">
                     {{-- <iframe src="https://drive.google.com/file/d/18bNS-Dh_KZczUoFnQ85EYILPfnCa8Npt/preview" class="h-full"
                         allow="autoplay"></iframe> --}}
-                    <img style="width: 100%;height: 100%;object-fit: cover;" class="my-0 cursor-pointer"
+                    <img id="video-preview" style="width: 100%;height: 100%;object-fit: cover;" class="my-0 cursor-pointer"
                         src="{{ asset('images/images/HairClip-03.jpg') }}" alt="">
                 </div>
-                <div class="cursor-pointer rounded-2xl hover:scale-105 transition ease-in-out"> <img
+                <div class="img-to-display cursor-pointer rounded-2xl hover:scale-105 transition ease-in-out"> <img
                         style="width: 100%;height: 100%;object-fit: cover;" class="my-0 "
                         src="{{ asset('images/images/HairClip-15.jpg') }}" alt=""></div>
-                <div class="row-span-2 rounded-2xl cursor-pointer hover:scale-105 transition ease-in-out"> <img
-                        style="width: 100%;height: 100%;object-fit: cover;" class="my-0"
+                <div class="img-to-display row-span-2 rounded-2xl cursor-pointer hover:scale-105 transition ease-in-out">
+                    <img style="width: 100%;height: 100%;object-fit: cover;" class="my-0"
                         src="{{ asset('images/images/HairClip-07.jpg') }}" alt="">
                 </div>
             </div>
         </div>
+    </div>
+    <div onclick="closeVideo()" id="videoPlayerContainer">
+        <iframe src="https://drive.google.com/file/d/18bNS-Dh_KZczUoFnQ85EYILPfnCa8Npt/preview"
+            class="h-full w-10/12 md:min-h-[400px]" allow="autoplay"></iframe>
     </div>
     <div id="fullpage" class="flex justify-around gap-10">
         <div class="left-arrow h-96 flex items-center hover:bg-white hover:bg-opacity-10 transition ease-in-out">
@@ -165,6 +168,8 @@
                 onclick="scrollProducts('r')" />
         </div>
     </div>
+
+
     {{-- end-section-4 --}}
     <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
     {{-- start-section-5 --}}
@@ -183,6 +188,20 @@
 @endsection
 
 @section('script')
+
+    <script>
+        const element = document.getElementById("video-preview");
+        const videoContainer = document.getElementById("videoPlayerContainer");
+        element.addEventListener("click", function(e) {
+            videoContainer.style.top = document.documentElement.scrollTop + "px"
+            videoContainer.style.visibility = 'visible';
+            disableScroll(e);
+        })
+
+        function closeVideo() {
+            videoContainer.style.visibility = 'hidden';
+        }
+    </script>
     <script>
         function scrollProducts(direction) {
             var productsContaier = document.getElementById("products");
@@ -198,15 +217,15 @@
         const image = document.querySelector("#full_image");
         let current_index = 0;
         //
-        imgs.forEach((img) => {
+        imgs.forEach((img, index) => {
             img.addEventListener('click', function(e) {
                 container.style.top = document.documentElement.scrollTop + "px"
                 container.style.visibility = 'visible';
                 image.style.backgroundImage = 'url(' + img.src + ')';
-                //
                 current_index = Array.prototype.indexOf.call(imgs, img);
                 disableScroll(e);
             });
+
         });
 
         function disableScroll() {
@@ -227,7 +246,6 @@
         const right_arrow = document.querySelector('.right-arrow');
         //
         left_arrow.addEventListener('click', (e) => {
-
             if (current_index === 0) {
                 image.style.backgroundImage = 'url(' + imgs[imgs.length - 1].src + ')';
                 current_index = imgs.length - 1;
@@ -235,7 +253,6 @@
             }
             image.style.backgroundImage = 'url(' + imgs[current_index - 1].src + ')';
             current_index--;
-
         });
         right_arrow.addEventListener('click', (e) => {
             if (current_index === imgs.length - 1) {
