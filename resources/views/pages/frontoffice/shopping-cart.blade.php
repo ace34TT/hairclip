@@ -98,7 +98,7 @@
                                         <td class="whitespace-nowrap py-4 px-3 text-lg align-middle"></td>
                                         <td class="whitespace-nowrap py-4 px-3 text-sml align-middle text-xl">
                                             <span class="text-black font-bold">
-                                                Montont total :
+                                                Sous-total :
                                             </span>
                                             <span data-total="" class="text-black font-bold underline">
                                                 <span id="total_price"></span>

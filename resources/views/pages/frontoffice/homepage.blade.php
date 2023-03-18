@@ -29,6 +29,24 @@
             background-repeat: no-repeat no-repeat;
             background-position: center center;
         }
+
+
+        #videoPlayerContainer {
+            visibility: hidden;
+            position: absolute;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            padding-top: 64px;
+            padding-bottom: 64px;
+            background-color: rgba(0, 0, 0, 0.5);
+            filter: blur(1);
+        }
     </style>
 @endpush
 

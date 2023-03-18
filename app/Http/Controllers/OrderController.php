@@ -23,9 +23,10 @@ class OrderController extends Controller
         Session::put("shipping", json_encode($data));
         return redirect()->route('order.payment');
     }
-    public function pay(Request $request)
+    public function pay()
     {
         $total = request('total');
+        $total = $total <= 21 ? $total + 1.99 : $total + 4.99;
         try {
             Stripe::setApiKey(env(key: "SK_STRIPE"));
             $paymentIntent = PaymentIntent::create([
@@ -65,7 +66,7 @@ class OrderController extends Controller
                 //
                 "quantity" => Cart::count(true),
                 "amount" => Cart::total(),
-                "shipping" => 0,
+                "shipping" => Cart::count(true) <= 3 ? 1.99 : 4.99,
                 'created_at' => now(),
                 'updated_at' => now(),
             ];

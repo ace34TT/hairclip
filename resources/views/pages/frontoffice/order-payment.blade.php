@@ -103,12 +103,37 @@
                                         </td>
                                         <td class="whitespace-nowrap py-4 px-3 text-lg align-middle"></td>
                                         <td class="whitespace-nowrap py-4 px-3 text-sml align-middle text-xl">
-                                            <span class="text-black font-bold">
-                                                Montont total :
+                                            <span data-total="" class="text-black font-bold ">
+                                                Sous-total : {{ Cart::total() }} € </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+                                        </td>
+                                        <td class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle">
+                                        </td>
+                                        <td class="whitespace-nowrap py-4 px-3 text-lg align-middle"></td>
+                                        <td class="whitespace-nowrap py-4 px-3 text-sml align-middle text-xl">
+                                            <span data-total="" class="text-black font-bold ">
+                                                livrison : {{ Cart::count(true) <= 3 ? 1.99 : 4.99 }} € </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+                                        </td>
+                                        <td class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle">
+                                        </td>
+                                        <td class="whitespace-nowrap py-4 px-3 text-lg align-middle"></td>
+                                        <td class="whitespace-nowrap py-4 px-3 text-sml align-middle text-xl">
+                                            <span class="text-black font-bold underline">
+                                                Montont total
                                             </span>
-                                            <span data-total="" class="text-black font-bold underline">
-                                                <span id="total_price"> {{ Cart::total() }} </span>
-                                                €</span>
+                                            <span data-total="" class="text-black font-bold ">
+                                                <span id="total_price"> :
+                                                    {{ Cart::total() + (Cart::count(true) <= 3 ? 1.99 : 4.99) }} </span>
+                                                € </span>
                                         </td>
                                     </tr>
                                 </tbody>
