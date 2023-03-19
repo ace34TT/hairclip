@@ -1,6 +1,6 @@
 @extends('layouts.frontoffice')
 
-@section('title', 'Home')
+@section('title', 'Details produit')
 
 @push('styles')
     <link href="{{ asset('css/confetti.css') }}" rel="stylesheet">
@@ -64,11 +64,9 @@
                                     <label
                                         onclick="window.location.href='{{ route('product-overview', ['product_id' => $color->id]) }}'"
                                         class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ring-gray-700">
-                                        <input type="radio" name="color-choice" value="Washed Black" class="sr-only"
-                                            aria-labelledby="color-choice-0-label">
-                                        <span id="color-choice-0-label" class="sr-only"> Washed Black </span>
-                                        <span aria-hidden="true" style="background-color: {{ $color->value }}"
-                                            class="h-8 w-8  rounded-full border border-black border-opacity-10"></span>
+                                        <span aria-hidden="true"
+                                            style="border : solid 2px @if ($color->id === $product->id) black @else white @endif; background-color: {{ $color->value }}"
+                                            class="h-8 w-8  rounded-full border border-opacity-10"></span>
                                     </label>
                                 @endforeach
                             </span>
@@ -93,7 +91,10 @@
     {{-- <button type="button" class="confetti-button">Click me!</button> --}}
 @endsection
 @section('script')
+
+    {{-- confities js --}}
     <script type="module" src="{{ asset('js/confities.js') }}"></script>
+    {{--  --}}
     <script>
         function updateQuantity(increment) {
             let data = {
