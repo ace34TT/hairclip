@@ -109,8 +109,8 @@
                                         <td class="whitespace-nowrap  pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
                                             <h3>Livraison : </h3>
                                             <ul class="ml-3">
-                                                <li>1.99 pour un achat de moins de 3 chouchou</li>
-                                                <li>4.99 pour un achat de plus de 3 chouchou</li>
+                                                <li>1.99 € pour un achat de moins de 3 chouchou</li>
+                                                <li>4.99 € pour un achat de plus de 3 chouchou</li>
                                                 <li>Expédition en 24h et livraison sous 48 / 72h</li>
                                             </ul>
                                         </td>

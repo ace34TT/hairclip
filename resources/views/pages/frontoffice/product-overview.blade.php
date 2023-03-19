@@ -107,8 +107,8 @@
                         </div>
                         <div class="mt-4 h-0 absolute opacity-0" id="shipping-information">
                             <ul class="ml-3">
-                                <li>1.99 pour un achat de moins de 3 chouchou</li>
-                                <li>4.99 pour un achat de plus de 3 chouchou</li>
+                                <li>1.99 € pour un achat de moins de 3 chouchou</li>
+                                <li>4.99 € pour un achat de plus de 3 chouchou</li>
                             </ul>
                         </div>
                     </div>
