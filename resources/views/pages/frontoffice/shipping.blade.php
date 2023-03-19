@@ -9,23 +9,23 @@
                 <h3><span class="text-black"> <span class="text-d-green">Panier > </span> <span class="underline text-black">
                             Livraison</span> > Paiement </span></h3>
                 <h1>Détails de la livraison </h1>
-                <form action="{{ route('order.set-shipping') }}" method="POST">
+                <form id="shipping-form" action="{{ route('order.set-shipping') }}" method="POST">
                     @csrf
                     {{-- name --}}
                     <div class="flex gap-4">
                         <div class="flex-1">
-                            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Nom</label>
+                            <label for="firstname" class="block text-sm font-medium leading-6 text-gray-900">Nom </label>
                             <div class="mt-2">
-                                <input type="text" name="firstname" id="firstname"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                                <input type="text" required name="firstname" id="firstname"
+                                    class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                                     aria-describedby="email-description">
                             </div>
                         </div>
                         <div class="flex-1">
-                            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Prenom</label>
+                            <label for="lastname" class="block text-sm font-medium leading-6 text-gray-900">Prénom</label>
                             <div class="mt-2">
-                                <input type="text" name="lastname" id="lastname"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                                <input type="text" required name="lastname" id="lastname"
+                                    class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                                     aria-describedby="email-description">
                             </div>
                         </div>
@@ -34,20 +34,20 @@
                     {{-- contact --}}
                     <div class="flex gap-4">
                         <div class="flex-1">
-                            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Addresse
+                            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Adresse
                                 email</label>
                             <div class="mt-2">
-                                <input type="email" name="email" id="email"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                                <input type="email" required name="email" id="email"
+                                    class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                                     aria-describedby="email-description">
                             </div>
                         </div>
                         <div class="flex-1">
-                            <label for="phone"
-                                class="block text-sm font-medium leading-6 text-gray-900">Telephone</label>
+                            <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">Numéro de
+                                téléphone</label>
                             <div class="mt-2">
-                                <input type="tel" name="phone" id="phone" value="+33"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                                <input type="tel" required name="phone" id="phone" value="+33"
+                                    class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                                     aria-describedby="email-description">
                             </div>
                         </div>
@@ -55,11 +55,11 @@
                     <br>
                     {{-- shipping address --}}
                     <div class="flex-1">
-                        <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Addresse de la
+                        <label for="email" class="block text-sm font-medium leading-6 text-gray-900"> Adresse de la
                             livraison</label>
                         <div class="mt-2">
-                            <input type="text" name="shipping_address" id="shipping_address"
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                            <input type="text" required name="shipping_address" id="shipping_address"
+                                class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                                 aria-describedby="email-description">
                         </div>
                     </div>
@@ -69,16 +69,16 @@
                         <div class="flex-1">
                             <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Ville</label>
                             <div class="mt-2">
-                                <input type="town" name="town" id="town"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                                <input type="town" required name="town" id="town"
+                                    class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                                     aria-describedby="email-description">
                             </div>
                         </div>
                         <div class="flex-1">
                             <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">Code Zip</label>
                             <div class="mt-2">
-                                <input type="text" name="zip_code" id="zip_code"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                                <input type="text" required name="zip_code" id="zip_code"
+                                    class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                                     aria-describedby="email">
                             </div>
                         </div>
@@ -86,23 +86,22 @@
                             <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">Département
                             </label>
                             <div class="mt-2">
-                                <input type="text" name="province" id="province"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                                <input type="text" required name="province" id="province"
+                                    class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                                     aria-describedby="email-description">
                             </div>
                         </div>
-
-
-
                     </div>
                     <div class="flex-1 hidden absolute top-0 left-0">
                         <label for="email" class="block text-sm font-medium leading-6 text-gray-900"></label>
                         <div class="mt-2">
-                            <input type="text" name="address" id="address"
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                            <input type="text" required name="carts" id="carts"
+                                class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                                 aria-describedby="email-description" value="{{ json_encode(Cart::content()) }}">
                         </div>
                     </div>
+                    <br>
+                    <p class="my-0 font-bold">Expédition en 24h et livraison sous 48 / 72h</p>
                     <br>
                     <button type="submit"
                         class="float-right rounded-md bg-d-green py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-900-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
@@ -222,4 +221,46 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+    <script>
+        const validator = new JustValidate('#shipping-form');
+        validator
+            .addField('#firstname', [{
+                rule: 'required',
+                errorMessage: 'Ce champs est obligatoire',
+            }, ]).addField("#lastname", [{
+                rule: "required",
+                errorMessage: 'Ce champs est obligatoire',
+            }]).addField("#email", [{
+                rule: "required",
+                errorMessage: 'Ce champs est obligatoire',
+            }, {
+                rule: "email",
+                errorMessage: 'Mail incorrecte',
+            }]).addField("#phone", [{
+                rule: "required",
+                errorMessage: 'Ce champs est obligatoire',
+            }, {
+                rule: 'customRegexp',
+                value: /^(0|\+33)[1-9]([-. ]?\d{2}){4}$/,
+                errorMessage: 'Valeur invalide!',
+            }]).addField("#shipping_address", [{
+                rule: "required",
+                errorMessage: 'Ce champs est obligatoire',
+            }]).addField("#town", [{
+                rule: "required",
+                errorMessage: 'Ce champs est obligatoire',
+            }]).addField("#zip_code", [{
+                rule: "required",
+                errorMessage: 'Ce champs est obligatoire',
+            }]).addField("#province", [{
+                rule: "required",
+                errorMessage: 'Ce champs est obligatoire',
+            }]).onSuccess(() => {
+                document.getElementById("shipping-form").submit();
+                // console.log("success");
+            })
+    </script>
 @endsection

@@ -142,7 +142,7 @@
         let showAdditionGallery = false;
         const col_1 = `<div id="first-gallery-additional-item" class="additional-item w-1/2 p-1 md:p-2 max-h-80">
                 <img alt="gallery"
-                    class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                    class="gallery-item block h-full w-full rounded-lg object-cover object-center "
                     src="{{ asset('images/images/HairClip-04.jpg') }}" />
                 </div>
                 <div class="additional-item w-1/2 p-1 md:p-2 max-h-80">
