@@ -14,29 +14,29 @@
                 Votre panier est vide
             </div>
         @else
-            <form class="hidden absolute top-0 left-0" action="{{ route('shopping-cart.update-items') }}" method="POST">
+            <form class="sr-only" action="{{ route('shopping-cart.update-items') }}" method="POST">
                 @csrf
                 <input id="rows-json-data" style="border: solid black 1px" type="text" name="updated_data">
                 <input type="submit" id="proceed-to-payment">
             </form>
-            <div class="px-4 w-10/12 sm:px-6 lg:px-8">
+            <div class="px-4 w-10/12 overflow-x-hidden sm:px-6 lg:px-8">
                 <div class="mt-8 flow-root">
                     <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                            <table class="min-w-full divide-y divide-gray-300">
+                            <table class="my-0 md:my-8 min-w-full divide-y divide-gray-300">
                                 <thead>
                                     <tr>
                                         <th scope="col"
                                             class="py-3.5 px-3 text-left text-sm font-semibold text-gray-900">
                                             Produit(s)</th>
-                                        <th scope="col"
-                                            class="py-3.5 px-3 text-left text-sm font-semibold text-gray-900">
+                                        <th scope="col" style="alig"
+                                            class=" py-3.5 px-3 righ text-left text-sm font-semibold text-gray-900">
                                             Prix</th>
                                         <th scope="col"
-                                            class="py-3.5 px-3 text-left text-sm font-semibold text-gray-900">
+                                            class=" py-3.5 px-3 text-center text-sm font-semibold text-gray-900">
                                             Quantité</th>
                                         <th scope="col"
-                                            class="py-3.5 px-3 text-left text-sm font-semibold text-gray-900">
+                                            class="only py-3.5 px-3 text-left text-sm font-semibold text-gray-900">
                                             Total</th>
                                     </tr>
                                 </thead>
@@ -46,15 +46,16 @@
                                         <tr class="cart-item-row" data-quantity="{{ $cart_item->qty }}"
                                             data-row-id="{{ $cart_item->rowId }}">
                                             <td
-                                                class="whitespace-nowrap  pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+                                                class="whitespace-nowrap pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
                                                 <div class="flex gap-10 items-center">
-                                                    <div class="w-56">
+                                                    <div class="w-fit md:w-56">
                                                         <img class="h-28 w-28 object-contain my-0"
                                                             src="{{ asset('images/scranchies/' . $cart_item->options['top_view']) }}"
                                                             alt="">
                                                     </div>
                                                     <div>
-                                                        <p class="text-2xl font-bold">{{ $cart_item->model->name }}
+                                                        <p class="text-2xl mb-0 mt-0 md:mt-8 font-bold">
+                                                            {{ $cart_item->model->name }}
                                                             <span data-id="{{ $cart_item->id }}"
                                                                 class="product_id hidden"></span>
                                                         </p>
@@ -70,7 +71,7 @@
                                                 €
                                             </td>
                                             <td class="whitespace-nowrap  px-3 text-lg align-middle">
-                                                <div class="flex gap-8">
+                                                <div class="flex justify-center gap-4">
                                                     <x-ei-minus
                                                         class="cursor-pointer w-7 h-7 flex justify-center items-center text-3xl text-black "
                                                         onclick="updateQuantity('{{ $cart_item->rowId }}', {{ $cart_item->id }} , -1)" />
@@ -94,7 +95,8 @@
                                         </td>
                                         <td class="whitespace-nowrap  px-3 text-lg font-bold text-black align-middle">
                                         </td>
-                                        <td class="whitespace-nowrap  px-3 text-lg align-middle"></td>
+                                        <td class="whitespace-nowrap  px-3 text-lg align-middle">
+                                        </td>
                                         <td class="whitespace-nowrap  px-3 text-sml align-middle text-xl">
                                             <span class="text-black font-bold">
                                                 Sous-total :
@@ -116,7 +118,8 @@
                                         </td>
                                         <td class="whitespace-nowrap  px-3 text-lg font-bold text-black align-middle">
                                         </td>
-                                        <td class="whitespace-nowrap  px-3 text-lg align-middle"></td>
+                                        <td class="whitespace-nowrap  px-3 text-lg align-middle">
+                                        </td>
                                         <td class="whitespace-nowrap  px-3 text-sml align-middle">
                                             <button onclick="proceedToPayment()" type="button"
                                                 class="rounded-md bg-cyan-800 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

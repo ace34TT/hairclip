@@ -8,15 +8,15 @@
 
 @section('content')
     {{-- stert-section-1 --}}
-    <div class="md:-mt-24 container mx-auto ">
-        <div class="h-fit min-h-screen flex justify-center items-center">
+    <div class="py-10 md:-mt-24 container mx-auto ">
+        <div class="h-fit  md:min-h-screen flex justify-center items-center">
             <div class=" h-fit flex flex-col lg:flex-row items-start justify-around gap-4 px-6">
                 <div class="flex flex-1 flex-col gap-4 justify-center items-center md:items-start prose max-w-none md:px-10">
                     <h2 class="text-left my-1 md:mt-0 text-5xl font-bold">Nouvelle génération
                         <br> de
                         chouchou
                     </h2>
-                    <p class="text-center lg:text-left">Penatibus sem vitae mollis luctus mi tellus. Maximus eu eleifend
+                    <p class="text-left">Penatibus sem vitae mollis luctus mi tellus. Maximus eu eleifend
                         aptent dapibus metus maecenas consequat. Elementum interdum a
                         semper. Netus nullam eros nisi volutpat nibh ex ultricies. Pharetra
                         sagittis sit aliquet at. Magna nam platea justo.</p>

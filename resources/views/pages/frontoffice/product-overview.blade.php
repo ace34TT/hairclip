@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-    <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="mx-auto max-w-2xl py-4 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
             <!-- Image gallery -->
             <div class="flex flex-col-reverse">
@@ -23,11 +23,12 @@
                 </div>
             </div>
             <!-- Product info -->
-            <div class="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-                <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $product->name }}</h1>
-                <div class="mt-3">
-                    <h2 class="sr-only">Information du produit</h2>
-                    <p class="text-3xl tracking-tight text-gray-900">{{ $product->price }} €</p>
+            <div class="mt-4 px-4  sm:px-0 lg:mt-0">
+                <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $product->name }}
+                    <span class="md:sr-only">({{ $product->price }} €)</span>
+                </h1>
+                <div class="md:mt-3">
+                    <p class="text-3xl tracking-tight text-gray-900 sr-only md:not-sr-only">{{ $product->price }} €</p>
                 </div>
                 <br>
                 <div class="flex gap-8">
@@ -90,8 +91,8 @@
                     <div class="sm:flex-1 mt-10 flex">
                         <button type="button" class="confetti-button"
                             onclick="cust_redirect('{{ route('shopping-cart.add-item', ['product_id' => $product->id]) }}')">
-                            Ajouter
-                            au panier</button>
+                            Ajouter au panier
+                        </button>
                     </div>
                 </div>
             </div>
@@ -148,7 +149,7 @@
             } else {
                 gsap.to("#shipping-information", {
                     position: "static",
-                    height: "50px",
+                    height: "75px",
                     opacity: "1",
                 });
                 gsap.to(".horizontal", {
