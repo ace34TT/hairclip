@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\Products;
+use App\Models\StockMovement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -56,16 +58,30 @@ class AdminController extends Controller
     //
     public function stockAvailability()
     {
-        return view("pages.backoffice.stock-availability");
+        $stockStatus = DB::table('stock_status_view')
+            ->select("stock_status_view.*", "products.*")
+            ->join('products', 'products.id', '=', 'stock_status_view.product_id')
+            ->get();
+        return view("pages.backoffice.stock-availability")->with("stock_status", $stockStatus);
     }
-    public function restock()
+    public function restock(Request $request)
     {
-        return redirect()->back();
+        $data = $request->all();
+        $currentDate = now();
+        StockMovement::create([
+            "product_id" => $data["product_id"],
+            "quantity" => $data["quantity"],
+            "type" => 0,
+            "created_at" => $currentDate,
+            "update_at" => $currentDate,
+        ]);
+        return redirect()->back()->with("success", true);
     }
     public function stockMovements()
     {
-
-        return view("pages.backoffice.stock-movements");
+        $data = StockMovement::getStockMovements();
+        $products = Products::all();
+        return view("pages.backoffice.stock-movements")->with("stock_movements", $data)->with("products", $products);
     }
     //
     public function logout()

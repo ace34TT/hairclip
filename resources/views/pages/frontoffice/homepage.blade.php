@@ -12,8 +12,10 @@
         <div class="h-fit min-h-screen flex justify-center items-center">
             <div class=" h-fit flex flex-col lg:flex-row items-start justify-around gap-4 px-6">
                 <div class="flex flex-1 flex-col gap-4 justify-center items-center md:items-start prose max-w-none md:px-10">
-                    <h2 class="text-center mt-10 md:mt-0 lg:text-left text-5xl font-bold">Nouvelle génération <br> de
-                        chouchou</h2>
+                    <h2 class="text-left md:text-center my-1 md:mt-0 text-5xl font-bold">Nouvelle génération
+                        <br> de
+                        chouchou
+                    </h2>
                     <p class="text-center lg:text-left">Penatibus sem vitae mollis luctus mi tellus. Maximus eu eleifend
                         aptent dapibus metus maecenas consequat. Elementum interdum a
                         semper. Netus nullam eros nisi volutpat nibh ex ultricies. Pharetra
@@ -24,8 +26,11 @@
                         Voir plus</button>
                 </div>
                 <div class="flex-1 flex justify-center mb-5 :mb-0 ">
-                    <iframe src="https://drive.google.com/file/d/18bNS-Dh_KZczUoFnQ85EYILPfnCa8Npt/preview"
-                        class="h-full w-full md:min-h-[400px]" allow="autoplay"></iframe>
+                    <div class="cursor-pointer " id="video-preview-1">
+                        <img src="{{ asset('images/video-preview/video-preview-1.png') }}" alt="">
+                    </div>
+                    {{-- <iframe src="https://drive.google.com/file/d/18bNS-Dh_KZczUoFnQ85EYILPfnCa8Npt/preview"
+                        class="h-full w-full md:min-h-[400px]" allow="autoplay"></iframe> --}}
                 </div>
             </div>
         </div>
@@ -100,33 +105,28 @@
             <div>
                 <x-gmdi-arrow-back-ios-new-r class="h-10 w-10" onclick="scrollOpinions('l')" />
             </div>
-            <div id="opinions" class="opinions flex gap-11 overflow-x-auto p-5" style="width: 38%">
+            <div id="opinions" class="opinions flex gap-11 overflow-x-auto p-5" style="width: 48%">
                 <x-testimonial-card customerName="Luisa" customerProfile="messages-1.jpg"
                     message="J'aime tellement mes nouveaux chouchous pour cheveux, je les recommande à tous mes amis !"
                     stars=4 />
-                <x-testimonial-card customerName="Edoardo" customerProfile="messages-3.jpg"
+                <x-testimonial-card customerName="Camille" customerProfile="messages-3.jpg"
                     message="Les chouchous pour cheveux que j'ai achetés sont exactement ce que je cherchais, merci !"
                     stars=3 />
-                <x-testimonial-card customerName="Mart" customerProfile="profile-img.jpg"
+                <x-testimonial-card customerName="Léa" customerProfile="profile-img.jpg"
                     message="Ce chouchou pour cheveux est si doux et confortable, je ne peux plus m'en passer!" stars=5 />
-                <x-testimonial-card customerName="Luisa" customerProfile="messages-1.jpg"
+                <x-testimonial-card customerName="Chloé" customerProfile="messages-1.jpg"
                     message="Je recommande vivement ce chouchou pour cheveux, il est facile à utiliser et très résistant."
                     stars=4 />
-                <x-testimonial-card customerName="Edoardo" customerProfile="messages-3.jpg"
-                    message="Grâce à ce chouchou pour cheveux, j'ai enfin trouvé une solution élégante pour maintenir mes cheveux en place."
+                <x-testimonial-card customerName="Emma" customerProfile="messages-3.jpg"
+                    message="Je suis très content(e) de mon achat de chouchou, ils sont frais et croquants." stars=3 />
+                <x-testimonial-card customerName="Zoé" customerProfile="profile-img.jpg"
+                    message="Ces chouchous sont une excellente collation, je suis heureux(se) de les avoir achetés."
+                    stars=5 />
+                <x-testimonial-card customerName="Manon" customerProfile="profile-img.jpg"
+                    message="Je suis comblé(e) par la qualité de ces chouchous, ils sont vraiment délicieux." stars=5 />
+                <x-testimonial-card customerName="Anaïs" customerProfile="messages-3.jpg"
+                    message="Je suis agréablement surpris(e) par la saveur de ces chouchous, ils sont excellents."
                     stars=3 />
-                <x-testimonial-card customerName="Mart" customerProfile="profile-img.jpg"
-                    message="Je suis ravie de mon achat, ce chouchou pour cheveux est parfait pour les jours où je suis pressée."
-                    stars=5 />
-                <x-testimonial-card customerName="Mart" customerProfile="profile-img.jpg"
-                    message="Ce chouchou pour cheveux est tellement pratique, je l'utilise pour toutes mes activités sportives!"
-                    stars=5 />
-                <x-testimonial-card customerName="Luisa" customerProfile="messages-1.jpg"
-                    message="Je l’adore, je ne m’en sépare plus" stars=4 />
-                <x-testimonial-card customerName="Edoardo" customerProfile="messages-3.jpg"
-                    message="Je le recommande pour toutes" stars=3 />
-                <x-testimonial-card customerName="Mart" customerProfile="profile-img.jpg"
-                    message="Simple, efficace et de qualité" stars=5 />
             </div>
             <div>
                 <x-gmdi-arrow-back-ios-new-r style="transform: scaleX(-1);" class="h-10 w-10"
@@ -241,13 +241,13 @@
                 while (elementsToRemove.length > 0) {
                     elementsToRemove[0].parentNode.removeChild(elementsToRemove[0]);
                 }
-                // btn.textContent("voir plus")
+                gallery_btn.textContent = "Voir plus"
                 showAdditionGallery = false;
             } else {
                 col_1_last_element.insertAdjacentHTML('afterend', col_1);
                 col_2_last_element.insertAdjacentHTML("afterend", col_2);
                 scrollToAdditionalGalleryItems();
-                // btn.textContent("voir moins")
+                gallery_btn.textContent = "Voir moins"
                 showAdditionGallery = true;
             }
         }

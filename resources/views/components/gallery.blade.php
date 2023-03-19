@@ -64,9 +64,9 @@
                  </div>
                  <div class="flex w-1/2 flex-wrap">
                      <div class="w-full p-1 md:p-2 max-h-96">
-                         <img id="video-preview" alt="gallery"
+                         <img id="video-preview-2" alt="gallery"
                              class="block h-full w-full rounded-lg object-cover object-center "
-                             src="{{ asset('images/images/HairClip-13.jpg') }}" />
+                             src="{{ asset('images/video-preview/video-preview-2.png') }}" />
                      </div>
                      <div class="w-1/2 p-1 md:p-2 max-h-80">
                          <img alt="gallery"
@@ -102,9 +102,15 @@
 
      @section('component-script')
          <script>
-             const element = document.getElementById("video-preview");
+             const item_1 = document.getElementById("video-preview-1");
+             const item_2 = document.getElementById("video-preview-2");
              const videoContainer = document.getElementById("video-viewer");
-             element.addEventListener("click", function(e) {
+             item_1.addEventListener("click", function(e) {
+                 videoContainer.style.top = document.documentElement.scrollTop + "px"
+                 videoContainer.style.visibility = 'visible';
+                 disableScroll(e);
+             })
+             item_2.addEventListener("click", function(e) {
                  videoContainer.style.top = document.documentElement.scrollTop + "px"
                  videoContainer.style.visibility = 'visible';
                  disableScroll(e);

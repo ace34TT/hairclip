@@ -70,35 +70,10 @@
                             </span>
                         </fieldset>
                     </div>
-                    {{-- <div class="relative my-4">
-                        <div class="absolute inset-0 flex items-center" aria-hidden="true">
-                            <div class="w-full border-t border-gray-300"></div>
-                        </div>
-                        <div class="flex flex-col">
-                            <div class="relative flex items-center justify-between">
-                                <span class="bg-white pr-3 text-base font-semibold leading-6 text-gray-900">&nbsp;</span>
-                                <button type="button"
-                                    class="inline-flex items-center gap-x-1.5 rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                                    <svg class="-ml-1 -mr-0.5 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"
-                                        aria-hidden="true">
-                                        <path
-                                            d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
-                                    </svg>
-                                    <span>Livraison</span>
-                                </button>
-                            </div>
-                            <div id="shipping-information">
-                                <ul>
-                                    <li>Acaht de moins de 3 chouchoux : <span>1.99</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div> --}}
-
                     <div class="mt-6 py-6 border-t-2 border-b-2">
                         <div class="flex justify-between items-center">
-                            <div class="font-bold">Livraison</div>
-                            <button onclick="handleShippingInformation()">
+                            <div class="font-bold text-lg">Livraison & retours </div>
+                            <button class="mr-9" onclick="handleShippingInformation()">
                                 <div class="plus">
                                     <div class="horizontal h-7 w-1 bg-black"></div>
                                     <div class="vertical h-7 w-1 -mt-7 bg-black rotate-90"></div>
@@ -161,6 +136,7 @@
         function handleShippingInformation() {
             if (shippingVisibility) {
                 gsap.to("#shipping-information", {
+                    position: "absolute",
                     height: "0",
                     opacity: "0",
                 });
