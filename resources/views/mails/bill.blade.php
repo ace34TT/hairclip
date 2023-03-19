@@ -9,34 +9,42 @@
 </head>
 
 <body>
-    Objet: Confirmation de commande
+    <p> Cher(e) {{ $customer_name }},</p>
     <br>
-    Cher(e) [Nom du client],
+    <p> Nous vous remercions pour votre commande passée sur notre site internet hairclip.com
+        le{{ date('d-m-Y', strtotime($order_created_at)) }}.
+        Nous sommes ravis de vous compter parmi nos clients fidèles.</p>
     <br>
-    Nous vous remercions pour votre commande passée sur notre site internet [nom du site ou de la boutique] le [date de
-    la commande]. Nous sommes ravis de vous compter parmi nos clients fidèles.
+
+    <p> Votre commande a été traitée avec succès et nous confirmons que nous avons bien reçu votre paiement. Voici les
+        détails de votre commande:</p>
     <br>
-    Votre commande a été traitée avec succès et nous confirmons que nous avons bien reçu votre paiement. Voici les
-    détails de votre commande:
+
+    <p>
+        <b>Numéro de commande : </b> {{ $order_id }} <br>
+        <b>Date de la commande : </b> {{ date('d-m-Y', strtotime($order_created_at)) }} <br>
+        <b>Total de la commande : </b> {{ $amount }} € + {{ $billing }} € <br>
+    </p>
     <br>
-    Numéro de commande: [numéro de commande]
-    Date de la commande: [date de la commande]
-    Produits commandés: [liste des produits commandés]
-    Total de la commande: [montant total de la commande]
-    Nous sommes actuellement en train de préparer votre commande pour l'expédition. Nous ferons de notre mieux pour
-    expédier votre commande le plus rapidement possible.
+
+    <p> Nous sommes actuellement en train de préparer votre commande pour l'expédition. Nous ferons de notre mieux pour
+        expédier votre commande le plus rapidement possible.</p>
     <br>
-    Nous vous enverrons un autre e-mail dès que votre commande aura été expédiée. Vous pourrez suivre votre colis en
-    utilisant le lien de suivi que nous vous fournirons.
+
+    <p> Nous vous enverrons un autre e-mail dès que votre commande aura été expédiée. Vous pourrez suivre votre colis en
+        utilisant le lien de suivi que nous vous fournirons.</p>
     <br>
-    Si vous avez des questions ou des préoccupations concernant votre commande, n'hésitez pas à nous contacter. Nous
-    serons heureux de vous aider.
+
+    <p> Si vous avez des questions ou des préoccupations concernant votre commande, n'hésitez pas à nous contacter. Nous
+        serons heureux de vous aider.</p>
     <br>
-    Nous vous remercions encore une fois pour votre confiance et votre fidélité envers notre entreprise.
+
+    <p> Nous vous remercions encore une fois pour votre confiance et votre fidélité envers notre entreprise.</p>
     <br>
-    Cordialement,
     <br>
-    [L'équipe de support de la boutique en ligne]
+    <p> Cordialement,</p>
+    <br>
+
 </body>
 
 </html>

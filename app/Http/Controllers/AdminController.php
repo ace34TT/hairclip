@@ -41,21 +41,33 @@ class AdminController extends Controller
         ];
         return view("pages/backoffice/dashboard")->with("labels", $labels)->with("data", $data);
     }
+    //
     public function orderList()
     {
         $data = Order::all();
         return view('pages/backoffice/order-list')->with('orders', $data);
     }
-
     public function orderDetails($order_id)
     {
         $orderDetails = DB::table('sheet_data')->where('order_id', '=', $order_id)->get();
-        // dd($orderDetails);
         $order = Order::find($order_id);
-        // dd($orderDetails);
         return view("pages.backoffice.order-details")->with("order", $order)->with("orderDetails", $orderDetails);
     }
+    //
+    public function stockAvailability()
+    {
+        return view("pages.backoffice.stock-availability");
+    }
+    public function restock()
+    {
+        return redirect()->back();
+    }
+    public function stockMovements()
+    {
 
+        return view("pages.backoffice.stock-movements");
+    }
+    //
     public function logout()
     {
         Session::flush();

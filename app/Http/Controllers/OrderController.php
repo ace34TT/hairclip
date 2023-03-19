@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Mail\Bill;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\StockMovement;
+use App\Models\Bill as BillModel;
 use Error;
 use Exception;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -45,10 +47,10 @@ class OrderController extends Controller
     {
         try {
             $session = $request->query->all();
-            Mail::to("tafinasoa35@gmail.com")->send(new Bill());
             Stripe::setApiKey(env(key: "SK_STRIPE"));
             $paymentIntent = PaymentIntent::retrieve($session["payment_intent"],  ['expand' => ['payment_method']]);
             $shippingDetails = json_decode(Session::get("shipping"), true);
+            $currentDate = now();
             $order = [
                 'payment_intent_id' => $paymentIntent->id,
                 //
@@ -67,20 +69,35 @@ class OrderController extends Controller
                 "quantity" => Cart::count(true),
                 "amount" => Cart::total(),
                 "shipping" => Cart::count(true) <= 3 ? 1.99 : 4.99,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'created_at' => $currentDate,
+                'updated_at' => $currentDate,
             ];
             $orderDoc = Order::create($order);
             $orderDetails = [];
+            $stockMovements = [];
+
             foreach (Cart::content() as $key => $cartDetail) {
                 $orderDetails[] = [
-                    "order_id" => $orderDoc->id, "product_id" => $cartDetail->id, "quantity" => $cartDetail->qty, 'created_at' => now(),
-                    'updated_at' => now(),
+                    "order_id" => $orderDoc->id, "product_id" => $cartDetail->id, "quantity" => $cartDetail->qty, 'created_at' => $currentDate,
+                    'updated_at' => $currentDate,
+                ];
+                $stockMovements[] = [
+                    "product_id" => $cartDetail->id,
+                    "quantity" => $cartDetail->qty,
+                    "type" => 1,
+                    "created_at" => $currentDate,
+                    "updated_at" => $currentDate,
                 ];
             }
+            // dd($stockMovements);
             OrderDetail::insert($orderDetails);
+            StockMovement::insert($stockMovements);
+            BillModel::create([
+                "order_id" => $orderDoc->id,
+            ]);
+            Mail::to($shippingDetails["email"])->send(new Bill(Cart::total(),  $shippingDetails["lastname"] . " " . $shippingDetails["firstname"], $currentDate, $orderDoc->id, Cart::count(true) <= 3 ? 1.99 : 4.99,));
             Cart::destroy();
-            return view("pages.frontoffice.success");
+            return redirect()->route("order.payment.success.page");
         } catch (Exception $e) {
             dump($e);
         }

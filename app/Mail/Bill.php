@@ -16,7 +16,11 @@ class Bill extends Mailable
      * Create a new message instance.
      */
     public function __construct(
-        public $amount = 1000
+        public $amount,
+        public $customer_name,
+        public $order_created_at,
+        public $order_id,
+        public $billing,
     ) {
         //
     }

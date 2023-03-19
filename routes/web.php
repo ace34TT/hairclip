@@ -43,7 +43,6 @@ Route::group(["prefix" => "shopping-cart", "as" => "shopping-cart."], function (
 Route::group(["prefix" => "payment", "as" => "payment."], function () {
     Route::view('/', 'pages/frontoffice/payment')->name('index');
     Route::post("/", [PaymentCont::class, 'pay']);
-    // Route::view("/payment", [ShoppingCartController::class, 'payment'])->name("index");
 });
 
 // * ORDER
@@ -53,14 +52,22 @@ Route::group(["prefix" => "order", "as" => "order."], function () {
     Route::view('/payment', 'pages/frontoffice/order-payment')->name('payment');
     Route::get("/payment-info", [OrderController::class, 'pay'])->name("do-pay");
     Route::get("/payment/success", [OrderController::class, "success"])->name("payment.success");
+    Route::view("/payment/success-page", "pages.frontoffice.success")->name("payment.success.page");
 });
 // * ADMIN
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    // Login
     Route::view('/login', 'pages/backoffice/login')->name('login');
     Route::post("/login", [AdminController::class, 'authenticate'])->name("do-login");
     Route::get("/dashboard", [AdminController::class, "dashboard"])->name("dashboard");
+    // Orders
     Route::get("/orders", [AdminController::class, "orderList"])->name("order-list");
     Route::get("/order-details/{order_id}", [AdminController::class, "orderDetails"])->name("order-details");
     Route::view("/profile", "pages/backoffice/profile")->name("profile");
+    // Stock
+    Route::get("/stock-availability", [AdminController::class, "stockAvailability"])->name("sock-availability");
+    Route::post("/restock", [AdminController::class, "restock"])->name("restock");
+    Route::get("/stock-movements", [AdminController::class, "stockMovements"])->name("stock-movements");
+    // Logout
     Route::get("/logout", [AdminController::class, "logout"])->name("logout");
 });

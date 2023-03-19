@@ -27,7 +27,7 @@
     <!-- Custom CSS -->
     <link href="{{ asset('admin-template/html/css/style.css') }}" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
-    <link href="{{ asset('admin-template/html/css/pages/dashboard1.css') }}  rel="stylesheet">
+    <link href="{{ asset('admin-template/html/css/pages/dashboard1.css') }}" rel="stylesheet">
     <!-- You can change the theme colors from here -->
     <link href=" {{ asset('admin-template/html/css/colors/default.css') }}" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -138,12 +138,20 @@
                                 aria-expanded="false"><i class="fa fa-user-circle-o"></i><span
                                     class="hide-menu">Commandes</span></a>
                         </li>
+                        <li> <a class="waves-effect waves-dark" href="{{ route('admin.sock-availability') }}"
+                                aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Etat de
+                                    stock</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="{{ route('admin.stock-movements') }}"
+                                aria-expanded="false"><i class="fa fa-user-circle-o"></i><span
+                                    class="hide-menu">Mouvements de stock
+                                </span></a>
+                        </li>
                         <li> <a class="waves-effect waves-dark" href="{{ route('admin.logout') }}"
                                 aria-expanded="false"><i class="fa-solid fa-right-from-bracket"></i><span
                                     class="hide-menu">Deconnexion</span></a>
                         </li>
                     </ul>
-
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
