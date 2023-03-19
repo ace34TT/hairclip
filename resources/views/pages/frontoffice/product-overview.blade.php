@@ -1,19 +1,17 @@
 @extends('layouts.frontoffice')
 
-@section('title', 'Home')
+@section('title', 'Details produit')
 
 @push('styles')
     <link href="{{ asset('css/confetti.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
-
     <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
             <!-- Image gallery -->
             <div class="flex flex-col-reverse">
                 <!-- Image selector -->
-
                 <div class="aspect-w-1 aspect-h-1 w-full">
                     <!-- Tab panel, show/hide based on tab state. -->
                     <div id="tabs-1-panel-1" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
@@ -39,10 +37,10 @@
                     </span>
                     <x-ei-plus class="cursor-pointer w-7 h-7  text-3xl text-black" onclick="updateQuantity(1)" />
                 </div>
-                <section aria-labelledby="details-heading" class="mt-12">
+                <section aria-labelledby="details-heading" class="mt-4">
                     <h2 id="details-heading" class="sr-only">Additional details</h2>
                     <div class="divide-y divide-gray-200">
-                        <div class="prose prose-sm pb-6" id="disclosure-1">
+                        <div class="prose prose-sm " id="disclosure-1">
                             <ul role="list">
                                 <li>Multiple strap configurations</li>
                                 <li>Spacious interior with top zip</li>
@@ -64,36 +62,73 @@
                                     <label
                                         onclick="window.location.href='{{ route('product-overview', ['product_id' => $color->id]) }}'"
                                         class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ring-gray-700">
-                                        <input type="radio" name="color-choice" value="Washed Black" class="sr-only"
-                                            aria-labelledby="color-choice-0-label">
-                                        <span id="color-choice-0-label" class="sr-only"> Washed Black </span>
-                                        <span aria-hidden="true" style="background-color: {{ $color->value }}"
-                                            class="h-8 w-8  rounded-full border border-black border-opacity-10"></span>
+                                        <span aria-hidden="true"
+                                            style="border : solid 2px @if ($color->id === $product->id) black @else white @endif; background-color: {{ $color->value }}"
+                                            class="h-8 w-8  rounded-full border border-opacity-10"></span>
                                     </label>
                                 @endforeach
                             </span>
                         </fieldset>
+                    </div>
+                    {{-- <div class="relative my-4">
+                        <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="relative flex items-center justify-between">
+                                <span class="bg-white pr-3 text-base font-semibold leading-6 text-gray-900">&nbsp;</span>
+                                <button type="button"
+                                    class="inline-flex items-center gap-x-1.5 rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+                                    <svg class="-ml-1 -mr-0.5 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"
+                                        aria-hidden="true">
+                                        <path
+                                            d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+                                    </svg>
+                                    <span>Livraison</span>
+                                </button>
+                            </div>
+                            <div id="shipping-information">
+                                <ul>
+                                    <li>Acaht de moins de 3 chouchoux : <span>1.99</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> --}}
 
+                    <div class="mt-6 py-6 border-t-2 border-b-2">
+                        <div class="flex justify-between items-center">
+                            <div class="font-bold">Livraison</div>
+                            <button onclick="handleShippingInformation()">
+                                <div class="plus">
+                                    <div class="horizontal h-7 w-1 bg-black"></div>
+                                    <div class="vertical h-7 w-1 -mt-7 bg-black rotate-90"></div>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="mt-4 h-0 absolute opacity-0" id="shipping-information">
+                            <ul class="ml-3">
+                                <li>1.99 pour un achat de moins de 3 chouchou</li>
+                                <li>4.99 pour un achat de plus de 3 chouchou</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="sm:flex-1 mt-10 flex">
                         <button type="button" class="confetti-button"
                             onclick="cust_redirect('{{ route('shopping-cart.add-item', ['product_id' => $product->id]) }}')">
                             Ajouter
                             au panier</button>
-                        {{-- <button type="button"
-                            class="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-black py-3 px-8 text-base font-medium text-white hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-700 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
-                            onclick="cust_redirect('{{ route('shopping-cart.add-item', ['product_id' => $product->id]) }}')">Ajouter
-                            au panier</button> --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     {{-- <button type="button" class="confetti-button">Click me!</button> --}}
 @endsection
 @section('script')
+    {{-- confities js --}}
     <script type="module" src="{{ asset('js/confities.js') }}"></script>
+
+    {{--  --}}
     <script>
         function updateQuantity(increment) {
             let data = {
@@ -117,8 +152,35 @@
                     value: parseInt(document.getElementById("quantity").textContent)
                 },
             }
-            // console.log(url + "/&quantity=" + data.quantity.value);
             window.location.href = url + "/" + data.quantity.value
+        }
+    </script>
+    <script>
+        let shippingVisibility = false;
+
+        function handleShippingInformation() {
+            if (shippingVisibility) {
+                gsap.to("#shipping-information", {
+                    height: "0",
+                    opacity: "0",
+                });
+                gsap.to(".horizontal", {
+                    opacity: "1",
+                    rotate: "0",
+                });
+                shippingVisibility = false;
+            } else {
+                gsap.to("#shipping-information", {
+                    position: "static",
+                    height: "50px",
+                    opacity: "1",
+                });
+                gsap.to(".horizontal", {
+                    opacity: "0",
+                    rotate: "90",
+                });
+                shippingVisibility = true;
+            }
         }
     </script>
 @endsection

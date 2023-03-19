@@ -1,1 +1,2 @@
-import './bootstrap';
+import "./bootstrap";
+window.gsap = require("gsap");

@@ -14,11 +14,8 @@
                 <h6 class="text-white font-bold">Aide et Informations</h6>
                 <br>
                 <div class="text-gray-400">
-                    <a href="">A propos</a> <br>
-                    <a href="">Mode de paiement</a> <br>
-                    <a href="">Suivre ma commande</a> <br>
-                    <a href="">Disponibilité par pays et <br>
-                        restrictions de livraison</a> <br>
+                    <a href="#">A propos</a> <br>
+                    <a href="#">Mode de paiement</a> <br>
                     <a href="#">Livraison standard</a> <br>
                     <a href="#">CGV</a>
                 </div>

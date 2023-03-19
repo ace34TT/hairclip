@@ -26,9 +26,10 @@ class ShoppingCartController extends Controller
         Session::flash('success', 'Form submitted successfully.');
         return redirect()->route("product-overview", ["product_id" => $product_id]);
     }
-    public function removeItem(): View
+    public function removeItem($rowId)
     {
-        return view();
+        Cart::remove($rowId);
+        return redirect()->back();
     }
     // API
     public function updateItems(Request $request)
