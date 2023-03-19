@@ -18,6 +18,8 @@
                     <a href="#">Mode de paiement</a> <br>
                     <a href="#">Livraison standard</a> <br>
                     <a href="#">CGV</a>
+
+                    <p class="text-white mt-4">Expédition en 24h et livraison sous 48 / 72h</p>
                 </div>
             </div>
             {{-- contacts --}}
