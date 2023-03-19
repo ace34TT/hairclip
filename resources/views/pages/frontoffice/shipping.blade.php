@@ -1,14 +1,14 @@
 @extends('layouts.frontoffice')
 
-@section('title', 'Home')
+@section('title', 'Détail de la livraison')
 
 @section('content')
     <div class="flex justify-center items-cente h-fit ">
         <div class="flex flex-col md:flex-row gap-4 md:gap-0 h-fit w-11/12">
             <div class="flex-1 flex flex-col gap-7 prose max-w-none justify-center items-start my-7 md:px-16">
                 <h3><span class="text-black"> <span class="text-d-green">Panier > </span> <span class="underline text-black">
-                            livraison</span> > Paiement </span></h3>
-                <h1>Contact et livraison </h1>
+                            Livraison</span> > Paiement </span></h3>
+                <h1>Détails de la livraison </h1>
                 <form action="{{ route('order.set-shipping') }}" method="POST">
                     @csrf
                     {{-- name --}}
@@ -46,7 +46,7 @@
                             <label for="phone"
                                 class="block text-sm font-medium leading-6 text-gray-900">Telephone</label>
                             <div class="mt-2">
-                                <input type="text" name="phone" id="phone"
+                                <input type="tel" name="phone" id="phone" value="+33"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                                     aria-describedby="email-description">
                             </div>
@@ -67,15 +67,6 @@
                     {{--  --}}
                     <div class="flex gap-4">
                         <div class="flex-1">
-                            <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">Province
-                            </label>
-                            <div class="mt-2">
-                                <input type="text" name="province" id="province"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
-                                    aria-describedby="email-description">
-                            </div>
-                        </div>
-                        <div class="flex-1">
                             <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Ville</label>
                             <div class="mt-2">
                                 <input type="town" name="town" id="town"
@@ -88,9 +79,21 @@
                             <div class="mt-2">
                                 <input type="text" name="zip_code" id="zip_code"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                                    aria-describedby="email">
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">Département
+                            </label>
+                            <div class="mt-2">
+                                <input type="text" name="province" id="province"
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                                     aria-describedby="email-description">
                             </div>
                         </div>
+
+
+
                     </div>
                     <div class="flex-1 hidden absolute top-0 left-0">
                         <label for="email" class="block text-sm font-medium leading-6 text-gray-900"></label>
@@ -191,7 +194,7 @@
                                         <td class="whitespace-nowrap py-4 px-3 text-lg align-middle"></td>
                                         <td class="whitespace-nowrap py-4 px-3 text-sml align-middle text-xl">
                                             <span data-total="" class="text-black font-bold ">
-                                                livrison : {{ Cart::count(true) <= 3 ? 1.99 : 4.99 }} € </span>
+                                                livraison : {{ Cart::count(true) <= 3 ? 1.99 : 4.99 }} € </span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -203,7 +206,7 @@
                                         <td class="whitespace-nowrap py-4 px-3 text-lg align-middle"></td>
                                         <td class="whitespace-nowrap py-4 px-3 text-sml align-middle text-xl">
                                             <span class="text-black font-bold underline">
-                                                Montont total
+                                                Montant total
                                             </span>
                                             <span data-total="" class="text-black font-bold ">
                                                 <span id="total_price"> :

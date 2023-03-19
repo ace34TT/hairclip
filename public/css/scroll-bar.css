@@ -1,3 +1,4 @@
-.products::-webkit-scrollbar {
+.products::-webkit-scrollbar,
+.opinions::-webkit-scrollbar {
     display: none;
 }
