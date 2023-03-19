@@ -12,7 +12,7 @@
         <div class="h-fit min-h-screen flex justify-center items-center">
             <div class=" h-fit flex flex-col lg:flex-row items-start justify-around gap-4 px-6">
                 <div class="flex flex-1 flex-col gap-4 justify-center items-center md:items-start prose max-w-none md:px-10">
-                    <h2 class="text-left md:text-center my-1 md:mt-0 text-5xl font-bold">Nouvelle génération
+                    <h2 class="text-left my-1 md:mt-0 text-5xl font-bold">Nouvelle génération
                         <br> de
                         chouchou
                     </h2>
@@ -44,7 +44,7 @@
             <div>
                 <x-gmdi-arrow-back-ios-new-r class="h-10 w-10" onclick="scrollProducts('l')" />
             </div>
-            <div id="products" class="products flex gap-3 md:gap-11 overflow-x-auto p-5" style="width: 41%">
+            <div id="products" class="products flex gap-3 md:gap-11 overflow-x-auto p-5">
                 @foreach ($products as $product)
                     <x-hair-clip-card id="{{ $product->id }}" name="{{ $product->name }}"
                         colorValue="{{ $product->value }}" price="{{ $product->price }}" preview="{{ $product->file_name }}"
@@ -106,7 +106,7 @@
             <div>
                 <x-gmdi-arrow-back-ios-new-r class="h-10 w-10" onclick="scrollOpinions('l')" />
             </div>
-            <div id="opinions" class="opinions flex gap-2 md:gap-11 overflow-x-auto p-5" style="width: 48%">
+            <div id="opinions" class="opinions flex items-stretch  gap-2 md:gap-11 overflow-x-auto p-5">
                 <x-testimonial-card customerName="Luisa" customerProfile="messages-1.jpg"
                     message="J'aime tellement mes nouveaux chouchous pour cheveux, je les recommande à tous mes amis !"
                     stars=4 />
@@ -291,5 +291,4 @@
             });
         });
     </script>
-
 @endsection

@@ -84,7 +84,7 @@
      </section>
      {{-- video player --}}
      <div onclick="closeVideo()" id="video-viewer">
-         <iframe src="https://drive.google.com/file/d/18bNS-Dh_KZczUoFnQ85EYILPfnCa8Npt/preview"
+         <iframe id="main-video" src="https://drive.google.com/file/d/18bNS-Dh_KZczUoFnQ85EYILPfnCa8Npt/preview"
              class="h-full w-10/12 md:min-h-[400px]" allow="autoplay"></iframe>
      </div>
      {{-- image viewer --}}
@@ -105,6 +105,8 @@
              const item_1 = document.getElementById("video-preview-1");
              const item_2 = document.getElementById("video-preview-2");
              const videoContainer = document.getElementById("video-viewer");
+             const video = document.getElementById("main-video");
+             var iframeContent = video.contentWindow;
              item_1.addEventListener("click", function(e) {
                  videoContainer.style.top = document.documentElement.scrollTop + "px"
                  videoContainer.style.visibility = 'visible';
@@ -119,6 +121,8 @@
              function closeVideo() {
                  videoContainer.style.visibility = 'hidden';
                  window.onscroll = function() {};
+                 iframeContent.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
+                 video.pause();
              }
          </script>
 
