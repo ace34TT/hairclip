@@ -38,8 +38,8 @@
     {{-- end-section-1 --}}
     {{-- start-section-2 --}}
     <div
-        class="h-fit w-screen py-12 bg-stone-200 flex flex-col items-center justify-center prose max-w-none overflow-x-hidden">
-        <h2 class="text-5xl ">Nos coloris</h2>
+        class="h-fit w-screen  py-4 md:py-12 bg-stone-200 flex flex-col items-center justify-center prose max-w-none overflow-x-hidden">
+        <h2 class="text-5xl mb-4 md:mb-12 ">Nos coloris</h2>
         <div class="flex justify-center items-center gap-8">
             <div>
                 <x-gmdi-arrow-back-ios-new-r class="h-10 w-10" onclick="scrollProducts('l')" />
@@ -60,13 +60,13 @@
     {{-- end-section-2 --}}
     {{-- start-section-3 --}}
     <div id="about" class="container mx-auto">
-        <div class="h-fit py-12 flex flex-col lg:flex-row justify-center items-center gap-8 ">
+        <div class="h-fit py-4 md:py-12 flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-8 ">
             <div class="flex-1 prose h-full max-w-none flex flex-col justify-center items-center">
                 <div class="w-11/12 h-full flex flex-col justify-center">
-                    <h2 class="text-5xl mt-0 text-left">Rétractable, souple <br>
+                    <h2 class="text-5xl mt-0 mb-4 md:mb-12 text-left">Rétractable, souple <br>
                         et résistant.</h2>
-                    <h2 class="text-cyan-900">Crée pour vous simplifier la vie </h2>
-                    <ul>
+                    <h2 class="text-cyan-900 mb-0 md:mb-6">Crée pour vous simplifier la vie </h2>
+                    <ul class="mb-0 md:mb-7">
                         <li>Eco sustainable : All recyclable materials, 0% CO2 emissions</li>
                         <li>Hyphoallergenic : 100% natural, human friendly ingredients</li>
                         <li>Handmade : All candles are craftly made with love.</li>
@@ -86,12 +86,11 @@
     <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
     {{-- start-section-4 --}}
     <div class="container mx-auto">
-        <div class=" max-h-fit py-12 flex flex-col items-center justify-center prose max-w-none">
-            <h2 class="text-5xl mt-0 mx-5">Rétractable, souple et résistant.</h2>
+        <div class=" max-h-fit py-4 md:py-12 flex flex-col items-center justify-center prose max-w-none">
+            <h2 class="text-5xl mt-0 mx-5 mb-6 md:mb-6">Rétractable, souple et résistant.</h2>
             <button id="gallery-btn" onclick="handleAdditionalGalleryImage()" type="button"
                 class="rounded-md bg-white py-2.5 px-3.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
                 Voir plus</button>
-            <br>
             <x-gallery />
         </div>
     </div>
@@ -99,9 +98,9 @@
     <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
     {{-- start-section-5 --}}
     <div
-        class="h-fit px-16 py-12 bg-stone-200 flex flex-col justify-center items-center prose max-w-none overflow-x-hidden">
-        <h2 class="text-5xl text-center">Témoignages</h2>
-        <p class="text-center text-cyan-800">Nos clients sont ravis, c’est à votre tour !</p>
+        class="h-fit px-12 py-4 md:py-12 bg-stone-200 flex flex-col justify-center items-center prose max-w-none overflow-x-hidden">
+        <h2 class="text-5xl text-center mb-4 md:mb-12">Témoignages</h2>
+        <p class="text-center text-cyan-800 mb-0 md:mb-5">Nos clients sont ravis, c’est à votre tour !</p>
         <div class="flex justify-center items-center gap-8">
             <div>
                 <x-gmdi-arrow-back-ios-new-r class="h-10 w-10" onclick="scrollOpinions('l')" />
