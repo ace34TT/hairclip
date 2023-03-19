@@ -44,7 +44,7 @@
             <div>
                 <x-gmdi-arrow-back-ios-new-r class="h-10 w-10" onclick="scrollProducts('l')" />
             </div>
-            <div id="products" class="products flex gap-11 overflow-x-auto p-5" style="width: 41%">
+            <div id="products" class="products flex gap-3 md:gap-11 overflow-x-auto p-5" style="width: 41%">
                 @foreach ($products as $product)
                     <x-hair-clip-card id="{{ $product->id }}" name="{{ $product->name }}"
                         colorValue="{{ $product->value }}" price="{{ $product->price }}" preview="{{ $product->file_name }}"
@@ -98,14 +98,15 @@
     {{-- end-section-4 --}}
     <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
     {{-- start-section-5 --}}
-    <div class="h-fit px-16 py-12 bg-stone-200 flex flex-col justify-center items-center prose max-w-none ">
+    <div
+        class="h-fit px-16 py-12 bg-stone-200 flex flex-col justify-center items-center prose max-w-none overflow-x-hidden">
         <h2 class="text-5xl text-center">Témoignages</h2>
         <p class="text-center text-cyan-800">Nos clients sont ravis, c’est à votre tour !</p>
         <div class="flex justify-center items-center gap-8">
             <div>
                 <x-gmdi-arrow-back-ios-new-r class="h-10 w-10" onclick="scrollOpinions('l')" />
             </div>
-            <div id="opinions" class="opinions flex gap-11 overflow-x-auto p-5" style="width: 48%">
+            <div id="opinions" class="opinions flex gap-2 md:gap-11 overflow-x-auto p-5" style="width: 48%">
                 <x-testimonial-card customerName="Luisa" customerProfile="messages-1.jpg"
                     message="J'aime tellement mes nouveaux chouchous pour cheveux, je les recommande à tous mes amis !"
                     stars=4 />

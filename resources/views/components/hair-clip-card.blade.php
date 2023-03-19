@@ -1,3 +1,6 @@
+@push('styles')
+    <link href="{{ asset('css/hairclip-card.css') }}" rel="stylesheet">
+@endpush
 <div class="inline-block">
     <div style="background-color: {{ $colorValue }}" style="min-width: 384px; "
         class=" flex  w-96 p-6 flex-col items-center rounded-3xl prose hover:scale-105 hover:shadow-md transition ease-in-out cursor-pointer break-words"

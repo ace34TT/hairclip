@@ -1,0 +1,16 @@
+.hairclip-img {
+    width: 150px;
+    height: 150px;
+}
+.hairclip-card-container {
+    min-width: 384px;
+}
+@media (min-width: 768px) {
+    .hairclip-img {
+        width: 300px;
+        height: 300px;
+    }
+    .hairclip-card-container {
+        min-width: 384px;
+    }
+}
