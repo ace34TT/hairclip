@@ -16,11 +16,11 @@
                         <br> de
                         chouchou
                     </h2>
-                    <p class="text-left mb-0">Simple, rapide, facile d'utilisation, et tellement léger qu'une fois mis en
-                        place,
-                        on l'oublie.
+                    <p class="text-left mb-0">
+                        Simple, rapide, facile d'utilisation, et tellement léger qu'une fois mis en
+                        place,on l'oublie. <br>
                         Tient très bien pour tout type de coiffure, chignon, queue de cheval, demie queue etc..
-                        Hair Clip permet de rassembler les cheveux d'un simple clip afin de dégager le contour du visage..
+                        Hair Clip permet de rassembler les cheveux d'un simple clip afin de dégager le contour du visage.
                     </p>
                     <button onclick="window.location.href='{{ route('product-overview', ['product_id' => 1]) }}'"
                         type="button"

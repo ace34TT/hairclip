@@ -25,7 +25,8 @@
                 </button>
             </div>
             <div class="flex-1 invisible top-0 left-0 absolute md:visible md:static">
-                <img src="{{ asset('images/images/HairClip-17.jpg') }}" style="height: 100%; width: 100%;" alt="">
+                <img class="rounded-md" src="{{ asset('images/images/HairClip-17.jpg') }}"
+                    style="height: 100%; width: 100%;" alt="">
             </div>
         </div>
     </div>
