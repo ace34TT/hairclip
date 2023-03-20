@@ -5,20 +5,15 @@
              z-index: 9999;
              top: 0;
              left: 0;
-             display: flex;
-             justify-content: center;
-             align-items: center;
              width: 100vw;
              height: 100vh;
              padding-top: 64px;
              padding-bottom: 64px;
              background-color: rgba(0, 0, 0, 0.5);
-             filter: blur(1);
          }
 
          #main-gallery-item {
-             width: 50vw;
-             height: 80vh;
+
              background-size: cover;
              background-repeat: no-repeat no-repeat;
              background-position: center center;
@@ -85,14 +80,14 @@
      {{-- video player --}}
      <div onclick="closeVideo()" id="video-viewer">
          <iframe id="main-video" src="https://drive.google.com/file/d/18bNS-Dh_KZczUoFnQ85EYILPfnCa8Npt/preview"
-             class="h-full w-10/12 md:min-h-[400px]" allow="autoplay"></iframe>
+             class="md:h-full w-[500px] md:w-10/12 h-[400px]  md:min-h-[400px]" allow="autoplay"></iframe>
      </div>
      {{-- image viewer --}}
-     <div id="gallery-viewer" class="flex justify-around gap-10">
+     <div id="gallery-viewer" class="flex items-center justify-between md:justify-around gap-2 sm:gap-10">
          <div class="left-arrow h-96 flex items-center hover:bg-white hover:bg-opacity-10 transition ease-in-out">
              <x-gmdi-arrow-back-ios-new-r class="h-10 w-10 text-white" onclick="scrollProducts('l')" />
          </div>
-         <div id="main-gallery-item" class="rounded-lg">
+         <div id="main-gallery-item" class="w-[500px] h-[300px] md:w-[50vw] md:h-[80vh] rounded-lg">
          </div>
          <div class="right-arrow h-96 flex items-center hover:bg-white hover:bg-opacity-10 transition ease-in-out">
              <x-gmdi-arrow-back-ios-new-r style="transform: scaleX(-1);" class="h-10 w-10 text-white"

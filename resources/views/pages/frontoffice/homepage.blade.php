@@ -118,15 +118,13 @@
                     message="Je recommande vivement ce chouchou pour cheveux, il est facile à utiliser et très résistant."
                     stars=4 />
                 <x-testimonial-card customerName="Emma" customerProfile="messages-3.jpg"
-                    message="Je suis très content(e) de mon achat de chouchou, ils sont frais et croquants." stars=3 />
+                    message="Je suis très contente de mon achat de chouchou, ils sont frais et pratiques." stars=3 />
                 <x-testimonial-card customerName="Zoé" customerProfile="profile-img.jpg"
-                    message="Ces chouchous sont une excellente collation, je suis heureux(se) de les avoir achetés."
-                    stars=5 />
+                    message="Ces chouchous sont une excellente achat, je suis heureuse de les avoir achetés." stars=5 />
                 <x-testimonial-card customerName="Manon" customerProfile="profile-img.jpg"
-                    message="Je suis comblé(e) par la qualité de ces chouchous, ils sont vraiment délicieux." stars=5 />
+                    message="Je suis comblée par la qualité de ces chouchous, ils sont vraiment top." stars=5 />
                 <x-testimonial-card customerName="Anaïs" customerProfile="messages-3.jpg"
-                    message="Je suis agréablement surpris(e) par la saveur de ces chouchous, ils sont excellents."
-                    stars=3 />
+                    message="J'ai craqué pour toutes les couleurs , ma fille est ravie." stars=3 />
             </div>
             <div>
                 <x-gmdi-arrow-back-ios-new-r style="transform: scaleX(-1);" class="h-10 w-10"

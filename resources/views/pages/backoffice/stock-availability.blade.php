@@ -16,8 +16,8 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Nom du produit</th>
-                                    <th>Sortie</th>
                                     <th>Entrée</th>
+                                    <th>Sortie</th>
                                     <th>En stock</th>
                                 </tr>
                             </thead>

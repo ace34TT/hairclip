@@ -1,6 +1,6 @@
 @extends('layouts.frontoffice')
 
-@section('title', 'Home')
+@section('title', 'Mode paiement')
 
 @push('styles')
     <link href="{{ asset('css/checkout.css') }}" rel="stylesheet">
@@ -14,6 +14,8 @@
     <div class="flex justify-center items-cente h-fit ">
         <div class="flex flex-col md:flex-row h-fit min-h-screen w-11/12">
             <div class="flex-1 flex flex-col justify-center items-center prose max-w-none">
+                {{-- <h3><span class="text-black"> <span class="text-d-green">Panier > </span> <span class="underline text-black">
+                            Livraison</span> > Paiement </span></h3> --}}
                 <h2>Mode de paiement </h2>
                 <br>
                 <!-- Display a payment form -->
@@ -31,7 +33,7 @@
                     <div id="payment-message" class="hidden"></div>
                 </form>
             </div>
-            <div class="flex-1 bg-slate-100 px-10">
+            <div class="flex-1 bg-slate-100 px-5 sm:px-10">
                 <div class="mt-8 flow-root">
                     <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -40,9 +42,11 @@
                                     <tr>
                                         <th scope="col"
                                             class="py-3.5 px-3 text-left text-sm font-semibold text-gray-900">
+
                                         </th>
                                         <th scope="col"
                                             class="py-3.5 px-3 text-left text-sm font-semibold text-gray-900">
+
                                         </th>
                                     </tr>
                                 </thead>
@@ -51,10 +55,10 @@
                                     @foreach (Cart::content() as $cart_item)
                                         <tr class="cart-item-row" data-quantity="{{ $cart_item->qty }}"
                                             data-row-id="{{ $cart_item->rowId }}">
-                                            <td
+                                            <td colspan="2"
                                                 class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
                                                 <div class="flex gap-10 items-center">
-                                                    <div class="w-56">
+                                                    <div class="w-fit sm:w-56">
                                                         <div class="relative" style="height: 150px; width: 150px;">
                                                             <img class="m-0" style="height: 150px; width; 150px"
                                                                 src="{{ asset('images/scranchies/' . $cart_item->options['top_view']) }}"
@@ -80,14 +84,35 @@
                                                 </div>
                                             </td>
                                             <td
-                                                class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle">
-                                            </td>
-                                            <td class="whitespace-nowrap py-4 px-3 text-lg align-middle">
-                                                <div class="flex gap-8 text-center">
+                                                class="hidden sm:table-cell whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+                                                <div class="flex gap-10 items-center">
+                                                    <div class="w-fit sm:w-56">
+                                                        <div class="relative" style="height: 150px; width: 150px;">
+                                                            <img class="m-0" style="height: 150px; width; 150px"
+                                                                src="{{ asset('images/scranchies/' . $cart_item->options['top_view']) }}"
+                                                                alt="">
+                                                            <span
+                                                                class="absolute top-0 right-0 px-2 py-1 bg-[#03524C] text-white text-xs font-bold rounded">{{ $cart_item->qty }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <p class="text-2xl font-bold text-[#03524C]">
+                                                            {{ $cart_item->model->name }}
+                                                            <span data-id="{{ $cart_item->id }}"
+                                                                class="product_id hidden"></span>
+                                                        </p>
+                                                        <br>
+                                                        <span>
+                                                            <span data-price=""
+                                                                id="{{ 'product_' . $cart_item->id . '_price' }}">
+                                                                {{ $cart_item->price }}</span>
+                                                            €
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </td>
                                             <td
-                                                class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle text-end">
+                                                class="hidden sm:table-cell whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle text-end">
                                                 <span data-subtotal="" id="{{ 'product_' . $cart_item->id . '_total' }}"
                                                     class="sub_total_price">
                                                     {{ $cart_item->price * $cart_item->qty }}</span> €
@@ -96,39 +121,21 @@
                                     @endforeach
                                     {{-- bottom --}}
                                     <tr>
-                                        <td
-                                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
-                                        </td>
-                                        <td class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle">
-                                        </td>
-                                        <td class="whitespace-nowrap py-4 px-3 text-lg align-middle"></td>
                                         <td class="whitespace-nowrap py-4 px-3 text-sml align-middle text-xl">
                                             <span data-total="" class="text-black font-bold ">
                                                 Sous-total : {{ Cart::total() }} € </span>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td
-                                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
-                                        </td>
-                                        <td class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle">
-                                        </td>
-                                        <td class="whitespace-nowrap py-4 px-3 text-lg align-middle"></td>
                                         <td class="whitespace-nowrap py-4 px-3 text-sml align-middle text-xl">
                                             <span data-total="" class="text-black font-bold ">
-                                                livrison : {{ Cart::count(true) <= 3 ? 1.99 : 4.99 }} € </span>
+                                                Livraison : {{ Cart::count(true) <= 3 ? 1.99 : 4.99 }} € </span>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td
-                                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
-                                        </td>
-                                        <td class="whitespace-nowrap py-4 px-3 text-lg font-bold text-black align-middle">
-                                        </td>
-                                        <td class="whitespace-nowrap py-4 px-3 text-lg align-middle"></td>
                                         <td class="whitespace-nowrap py-4 px-3 text-sml align-middle text-xl">
                                             <span class="text-black font-bold underline">
-                                                Montont total
+                                                Montant total
                                             </span>
                                             <span data-total="" class="text-black font-bold ">
                                                 <span id="total_price"> :

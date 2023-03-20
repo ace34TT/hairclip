@@ -14,12 +14,12 @@
                 Votre panier est vide
             </div>
         @else
-            <form class="" action="{{ route('shopping-cart.update-items') }}" method="POST">
+            <form class="sr-only" action="{{ route('shopping-cart.update-items') }}" method="POST">
                 @csrf
                 <input id="rows-json-data" style="border: solid black 1px" type="text" name="updated_data">
                 <input type="submit" id="proceed-to-payment">
             </form>
-            <div class="px-4sm:px-6 lg:px-8 w-11/12 md:w-10/12 ">
+            <div class="-mt-5 sm:-mt-0 px-4sm:px-6 lg:px-8 w-11/12 md:w-10/12 ">
                 <div class="-mx-4 flow-root sm:mx-0">
                     <table class="min-w-full divide-y divide-gray-300">
                         <thead>
@@ -42,7 +42,8 @@
                         </thead>
                         <tbody>
                             @foreach (Cart::content() as $cart_item)
-                                <tr class="border-b border-gray-200">
+                                <tr data-quantity="{{ $cart_item->qty }}" data-row-id="{{ $cart_item->rowId }}"
+                                    class="border-b border-gray-200 cart-item-row">
                                     <td class="py-4 pl-4 pr-3 text-sm sm:pl-0">
                                         <div class="font-medium text-gray-900">
                                             <div class=" flex gap-10 items-center">
@@ -96,10 +97,10 @@
                             <tr>
                                 <th scope="row" colspan="3"
                                     class="hidden pl-4 pr-3 pt-4 pb-2 text-right text-sm font-semibold text-gray-900 sm:table-cell sm:pl-0">
-                                    Total</th>
+                                    Sous-total</th>
                                 <th scope="row"
                                     class="pl-6 pr-3 pt-4 pb-2 text-left text-sm font-semibold text-gray-900 sm:hidden">
-                                    Total
+                                    Sous-total
                                 </th>
                                 <td class="pl-3 pr-4 pt-4 text-right text-sm font-semibold text-gray-900 sm:pr-0"> <span
                                         id="total_price"></span>
