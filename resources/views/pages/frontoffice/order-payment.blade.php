@@ -7,7 +7,6 @@
 @endpush
 @section('extra-js')
     <script src="https://js.stripe.com/v3/"></script>
-
 @endsection
 
 @section('content')

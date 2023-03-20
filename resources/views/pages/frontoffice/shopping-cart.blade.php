@@ -39,7 +39,8 @@
                                 <th scope="col"
                                     class="hidden py-4 px-3 text-right text-sm font-semibold text-gray-900 sm:table-cell">
                                     Prix</th>
-                                <th scope="col" class="py-4 px-3 text-right text-sm font-semibold text-gray-900 sm:pr-0">
+                                <th scope="col"
+                                    class="py-4 px-3 text-center text-sm font-semibold text-gray-900 sm:pr-0">
                                     Quantité
                                 </th>
                                 <th scope="col"
@@ -80,7 +81,7 @@
                                         €
                                     </td>
                                     <td class="align-middle py-4 px-3 text-right text-sm text-gray-500 ">
-                                        <div class="flex justify-end items-center gap-4">
+                                        <div class="flex justify-center items-center gap-4">
                                             <x-ei-minus
                                                 class="cursor-pointer w-7 h-7 flex justify-center items-center text-3xl text-black "
                                                 onclick="updateQuantity('{{ $cart_item->rowId }}', {{ $cart_item->id }} , -1)" />
@@ -131,7 +132,7 @@
                         <button onclick="proceedToPayment()" type="button"
                             class="rounded-md bg-cyan-800 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             onclick="postData()">
-                            <span id="is-not-loading"> Paaser la commande</span>
+                            <span id="is-not-loading"> Passer la commande</span>
                             </span>
                         </button>
                     </div>
