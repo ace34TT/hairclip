@@ -65,7 +65,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get("/dashboard", [AdminController::class, "dashboard"])->name("dashboard");
     // Orders
     Route::get("/orders", [AdminController::class, "orderList"])->name("order-list");
+    Route::get("/deliver-order/{order_id}", [AdminController::class, "deliverOrder"])->name("deliver-order");
     Route::get("/order-details/{order_id}", [AdminController::class, "orderDetails"])->name("order-details");
+
     Route::view("/profile", "pages/backoffice/profile")->name("profile");
     // Stock
     Route::get("/stock-availability", [AdminController::class, "stockAvailability"])->name("sock-availability");

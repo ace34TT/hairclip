@@ -18,21 +18,25 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Paiement</th>
+                                    <th>Status</th>
                                     <th>Client</th>
                                     <th>Mail</th>
                                     <th>Addresse</th>
-                                    <th>Quantite</th>
+                                    <th style="">Quantite</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($orders as $order)
-                                    <tr onclick="window.location.href = '{{ route('admin.order-details', ['order_id' => $order['id']]) }}'"
-                                        style="" class="hover-bg-secondary-subtle">
+                                    <tr style="@if ($order['status'] == 1) background-color: #ffe9ad @else '' @endif"
+                                        class="hover-bg-secondary-subtle" style="">
                                         <td>
                                             {{ $order['id'] }}
                                         </td>
                                         <td>
                                             <span>{{ $order['payment_intent_id'] }}</span>
+                                        </td>
+                                        <td>
+                                            <span>{{ $order['status'] }}</span>
                                         </td>
                                         <td>
                                             <span>{{ $order['customer_last_name'] . ' ' . $order['customer_first_name'] }}</span>
@@ -46,7 +50,23 @@
                                         <td>
                                             {{ $order['quantity'] }}
                                         </td>
+                                        <td>
+                                            <button
+                                                onclick="window.location.href = '{{ route('admin.order-details', ['order_id' => $order['id']]) }}'"
+                                                type="button" class="btn btn-success">Details</button>
+                                        </td>
+                                        <td>
+                                            @if ($order['status'] == 1)
+                                            @else
+                                                <button
+                                                    onclick="window.location.href = '{{ route('admin.deliver-order', ['order_id' => $order['id']]) }}'"
+                                                    type="button" class="btn btn-light">Livrer</button>
+                                            @endif
 
+                                            {{-- <button
+                                                onclick="window.location.href='{{ route('admin.deliver-order', ['order_id' => $order['id']]) }}'"
+                                                type="button" class="btn btn-light">Livrer</button> --}}
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

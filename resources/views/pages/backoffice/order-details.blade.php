@@ -1,8 +1,8 @@
 @extends('layouts.admin-dashboard')
 
-@section('title', 'Home')
+@section('title', 'Details commande')
 
-@section('Details de commande')
+@section('content')
     <div class="row">
         <!-- column -->
         <div class="col-12">

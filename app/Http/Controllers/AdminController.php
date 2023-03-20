@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Shipping;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Products;
@@ -9,6 +10,7 @@ use App\Models\StockMovement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
@@ -49,10 +51,21 @@ class AdminController extends Controller
         $data = Order::all();
         return view('pages/backoffice/order-list')->with('orders', $data);
     }
+
+    public function deliverOrder($order_id)
+    {
+        $order = Order::find($order_id);
+        Order::where('id', $order_id)
+            ->update(['status' => 1]);
+        // Mail::to($order["customer_emil"])->send(new Shipping($order_id, $order["amount"]));
+        return redirect()->route("admin.order-list");
+    }
+
     public function orderDetails($order_id)
     {
         $orderDetails = DB::table('sheet_data')->where('order_id', '=', $order_id)->get();
         $order = Order::find($order_id);
+        // dd($orderDetails);
         return view("pages.backoffice.order-details")->with("order", $order)->with("orderDetails", $orderDetails);
     }
     //
