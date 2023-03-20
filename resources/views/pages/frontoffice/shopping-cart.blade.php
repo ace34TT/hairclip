@@ -14,7 +14,7 @@
                 Votre panier est vide
             </div>
         @else
-            <form class="sr-only" action="{{ route('shopping-cart.update-items') }}" method="POST">
+            <form class="" action="{{ route('shopping-cart.update-items') }}" method="POST">
                 @csrf
                 <input id="rows-json-data" style="border: solid black 1px" type="text" name="updated_data">
                 <input type="submit" id="proceed-to-payment">
