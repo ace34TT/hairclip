@@ -5,9 +5,14 @@
 @section('content')
     <div class="flex justify-center items-cente h-fit ">
         <div class="flex flex-col md:flex-row gap-4 md:gap-0 h-fit w-11/12">
-            <div class="flex-1 flex flex-col gap-7 prose max-w-none justify-center items-start my-7 md:px-16">
-                <h3><span class="text-black"> <span class="text-d-green">Panier > Livraison </span> <span
-                            class="underline text-black"> > Paiement </h3>
+            <div class="flex-1 bg-slate-50 flex flex-col gap-7 prose max-w-none justify-center items-start my-7 md:px-16">
+                <h3>
+                    <span class="text-black">
+                        <span class="text-d-green">Panier > </span>
+                        <span class="underline text-black"> Livraison </span>
+                        <span> > Paiement </span>
+                    </span>
+                </h3>
                 <h1>Détails de la livraison </h1>
                 <form id="shipping-form" action="{{ route('order.set-shipping') }}" method="POST">
                     @csrf
@@ -116,11 +121,12 @@
                         Suivant</button>
                 </form>
             </div>
-            <div class="flex-1 bg-slate-100 px-5 sm:px-10">
-                <div class="mt-8 flow-root">
+            <div class="flex-1 bg-slate-100 px-5 sm:px-10 mb-4 prose max-w-none">
+                <h1 class="text-center mx-auto mt-4 mb-0">Récapitulatif</h1>
+                <div class="flow-root">
                     <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                            <table class="min-w-full divide-y divide-gray-300">
+                            <table class="min-w-full divide-y my-0 divide-gray-300">
                                 <thead>
                                     <tr>
                                         <th scope="col"

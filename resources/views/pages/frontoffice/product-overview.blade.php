@@ -33,7 +33,7 @@
                 <div class="mt-3">
                     <p class="text-3xl tracking-tight text-gray-900 sr-only md:not-sr-only">{{ $product->price }} €</p>
                 </div>
-                <br>
+
                 <div class="flex gap-8">
                     <x-ei-minus class="cursor-pointer w-7 h-7 flex justify-center items-center text-3xl text-black "
                         onclick="updateQuantity(-1)" />
@@ -46,9 +46,9 @@
                     <div class="divide-y divide-gray-200">
                         <div class="prose prose-sm " id="disclosure-1">
                             <ul role="list">
-                                <li>Multiple strap configurations</li>
-                                <li>Spacious interior with top zip</li>
-                                <li>Leather handle and tabs</li>
+                                <li class="leading-5">Multiple strap configurations</li>
+                                <li class="leading-5">Spacious interior with top zip</li>
+                                <li class="leading-5">Leather handle and tabs</li>
                             </ul>
                         </div>
                         <!-- More sections... -->
@@ -79,12 +79,12 @@
                             <div class="font-bold text-lg">Livraison & retours </div>
                             <button class="mr-9" onclick="handleShippingInformation()">
                                 <div class="plus">
-                                    <div class="horizontal h-7 w-1 bg-black"></div>
-                                    <div class="vertical h-7 w-1 -mt-7 bg-black rotate-90"></div>
+                                    <div class="horizontal h-7 w-[1px] bg-black"></div>
+                                    <div class="vertical h-7 w-[1px] -mt-7 bg-black rotate-90"></div>
                                 </div>
                             </button>
                         </div>
-                        <div class="mt-4 h-0 absolute opacity-0" id="shipping-information">
+                        <div class="mt-2 md:mt-4 h-0 absolute opacity-0" id="shipping-information">
                             <ul class="ml-3">
                                 <li>1.99 € pour un achat de moins de 3 chouchou</li>
                                 <li>4.99 € pour un achat de plus de 3 chouchou</li>

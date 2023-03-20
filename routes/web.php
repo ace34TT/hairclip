@@ -52,7 +52,10 @@ Route::group(["prefix" => "order", "as" => "order."], function () {
     Route::view('/payment', 'pages/frontoffice/order-payment')->name('payment');
     Route::get("/payment-info", [OrderController::class, 'pay'])->name("do-pay");
     Route::get("/payment/success", [OrderController::class, "success"])->name("payment.success");
-    Route::view("/payment/success-page", "pages.frontoffice.success")->name("payment.success.page");
+    Route::get("/payment/success-page", function () {
+        $data = session('order_id');
+        return view("pages.frontoffice.success")->with("order_id", $data);
+    })->name("payment.success.page");
 });
 // * ADMIN
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {

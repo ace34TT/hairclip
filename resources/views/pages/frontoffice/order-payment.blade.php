@@ -33,20 +33,19 @@
                     <div id="payment-message" class="hidden"></div>
                 </form>
             </div>
-            <div class="flex-1 bg-slate-100 px-5 sm:px-10">
-                <div class="mt-8 flow-root">
+            <div class="flex-1 my-4 bg-slate-100 px-5 sm:px-10 prose max-w-none">
+                <h1 class="text-center mx-auto mt-4 mb-0">Récapitulatif</h1>
+                <div class="mt-8\0 flow-root">
                     <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                            <table class="min-w-full divide-y divide-gray-300">
+                            <table class="min-w-full mt-0 divide-y divide-gray-300">
                                 <thead>
                                     <tr>
                                         <th scope="col"
                                             class="py-3.5 px-3 text-left text-sm font-semibold text-gray-900">
-
                                         </th>
                                         <th scope="col"
                                             class="py-3.5 px-3 text-left text-sm font-semibold text-gray-900">
-
                                         </th>
                                     </tr>
                                 </thead>

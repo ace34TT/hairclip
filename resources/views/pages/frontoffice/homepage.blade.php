@@ -67,15 +67,15 @@
                         et résistant.</h2>
                     <h2 class="text-cyan-900 mb-0 md:mb-6">Crée pour vous simplifier la vie </h2>
                     <ul class="mb-0 md:mb-7">
-                        <li>Eco sustainable : All recyclable materials, 0% CO2 emissions</li>
-                        <li>Hyphoallergenic : 100% natural, human friendly ingredients</li>
-                        <li>Handmade : All candles are craftly made with love.</li>
-                        <li>Long burning : No more waste. Created for last long.</li>
+                        <li class="leading-5">Eco sustainable : All recyclable materials, 0% CO2 emissions</li>
+                        <li class="leading-5">Hyphoallergenic : 100% natural, human friendly ingredients</li>
+                        <li class="leading-5">Handmade : All candles are craftly made with love.</li>
+                        <li class="leading-5">Long burning : No more waste. Created for last long.</li>
                     </ul>
                 </div>
             </div>
             <div class="flex-1 flex justify-center">
-                <div style="max-width: 100%; height: auto;">
+                <div style="max-width: 95%; height: auto;">
                     <img style=" width: 100% ; height: auto;" class="self-center rounded-lg"
                         src="{{ asset('images/images/HairClip-09.jpg') }}" alt="">
                 </div>
@@ -85,7 +85,7 @@
     {{-- start-section-3 --}}
     <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
     {{-- start-section-4 --}}
-    <div class="container mx-auto">
+    <div class="container mx-auto -mt-4">
         <div class=" max-h-fit py-4 md:py-12 flex flex-col items-center justify-center prose max-w-none">
             <h2 class="text-5xl mt-0 mx-5 mb-6 md:mb-6">Rétractable, souple et résistant.</h2>
             <button id="gallery-btn" onclick="handleAdditionalGalleryImage()" type="button"
@@ -239,13 +239,15 @@
                 while (elementsToRemove.length > 0) {
                     elementsToRemove[0].parentNode.removeChild(elementsToRemove[0]);
                 }
-                gallery_btn.textContent = "Voir plus"
+                gallery_btn.textContent = "Voir plus";
+                resetGallery()
                 showAdditionGallery = false;
             } else {
                 col_1_last_element.insertAdjacentHTML('afterend', col_1);
                 col_2_last_element.insertAdjacentHTML("afterend", col_2);
                 scrollToAdditionalGalleryItems();
-                gallery_btn.textContent = "Voir moins"
+                gallery_btn.textContent = "Voir moins";
+                resetGallery();
                 showAdditionGallery = true;
             }
         }

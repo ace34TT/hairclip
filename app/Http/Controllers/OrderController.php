@@ -97,7 +97,7 @@ class OrderController extends Controller
             ]);
             Mail::to($shippingDetails["email"])->send(new Bill(Cart::total(),  $shippingDetails["lastname"] . " " . $shippingDetails["firstname"], $currentDate, $orderDoc->id, Cart::count(true) <= 3 ? 1.99 : 4.99,));
             Cart::destroy();
-            return redirect()->route("order.payment.success.page");
+            return redirect()->route("order.payment.success.page")->with("order_id", $orderDoc->id);
         } catch (Exception $e) {
             dump($e);
         }

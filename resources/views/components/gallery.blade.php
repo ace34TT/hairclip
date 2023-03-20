@@ -79,8 +79,16 @@
      </section>
      {{-- video player --}}
      <div onclick="closeVideo()" id="video-viewer">
-         <iframe id="main-video" src="https://drive.google.com/file/d/18bNS-Dh_KZczUoFnQ85EYILPfnCa8Npt/preview"
+         {{-- <iframe id="main-video" class="md:h-full w-[500px] md:w-10/12 h-[400px]  md:min-h-[400px]"
+             src="https://www.youtube.com/embed/wPZjVg3MioU?modestbranding=1" title="YouTube video player"
+             frameborder="0"
+             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+             allowfullscreen>
+         </iframe> --}}
+         <iframe src="https://drive.google.com/file/d/1-5eXfTUb4q6cA6ljtBNfLA3wefJNJ2sc/preview"
              class="md:h-full w-[500px] md:w-10/12 h-[400px]  md:min-h-[400px]" allow="autoplay"></iframe>
+         {{-- <iframe id="main-video" src="https://drive.google.com/file/d/18bNS-Dh_KZczUoFnQ85EYILPfnCa8Npt/preview"
+             class="md:h-full w-[500px] md:w-10/12 h-[400px]  md:min-h-[400px]" allow="autoplay"></iframe> --}}
      </div>
      {{-- image viewer --}}
      <div id="gallery-viewer" class="flex items-center justify-between md:justify-around gap-2 sm:gap-10">
@@ -100,8 +108,6 @@
              const item_1 = document.getElementById("video-preview-1");
              const item_2 = document.getElementById("video-preview-2");
              const videoContainer = document.getElementById("video-viewer");
-             const video = document.getElementById("main-video");
-             var iframeContent = video.contentWindow;
              item_1.addEventListener("click", function(e) {
                  videoContainer.style.top = document.documentElement.scrollTop + "px"
                  videoContainer.style.visibility = 'visible';
@@ -116,15 +122,14 @@
              function closeVideo() {
                  videoContainer.style.visibility = 'hidden';
                  window.onscroll = function() {};
-                 iframeContent.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
-                 video.pause();
+
              }
          </script>
 
          <script>
-             const imgs = document.querySelectorAll('.gallery .gallery-item');
-             const container = document.querySelector('#gallery-viewer');
-             const image = document.querySelector("#main-gallery-item");
+             let imgs = document.querySelectorAll('.gallery .gallery-item');
+             let container = document.querySelector('#gallery-viewer');
+             let image = document.querySelector("#main-gallery-item");
              let current_index = 0;
              //
              imgs.forEach((img, index) => {
@@ -136,6 +141,19 @@
                      disableScroll(e);
                  });
              });
+
+             function resetGallery() {
+                 imgs = document.querySelectorAll('.gallery .gallery-item');
+                 imgs.forEach((img, index) => {
+                     img.addEventListener('click', function(e) {
+                         container.style.top = document.documentElement.scrollTop + "px"
+                         container.style.visibility = 'visible';
+                         image.style.backgroundImage = 'url(' + img.src + ')';
+                         current_index = Array.prototype.indexOf.call(imgs, img);
+                         disableScroll(e);
+                     });
+                 });
+             }
 
              function disableScroll() {
                  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;

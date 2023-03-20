@@ -12,7 +12,7 @@
             @endif --}}
             @endfor
         </div>
-        <p class="text-left mb-4 mt-0 md:m-5 leading-5">{{ $message }}</p>
+        <p class="text-center md:text-left mb-4 mt-0 md:m-5 leading-5">{{ $message }}</p>
         <!-- Let all your things have their places; let each part of your business have its time. - Benjamin Franklin -->
     </div>
 </div>
