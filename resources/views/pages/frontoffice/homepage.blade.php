@@ -8,7 +8,7 @@
 
 @section('content')
     {{-- stert-section-1 --}}
-    <div class="py-10 md:-mt-24 container mx-auto ">
+    <div class="pt-10 md:-mt-24 container mx-auto ">
         <div class="h-fit md:min-h-screen flex justify-center items-center">
             <div class=" h-fit flex flex-col lg:flex-row items-start justify-around gap-4 px-6">
                 <div class="flex flex-1 flex-col gap-4 justify-center items-center md:items-start prose max-w-none md:px-10">
@@ -16,10 +16,12 @@
                         <br> de
                         chouchou
                     </h2>
-                    <p class="text-left">Penatibus sem vitae mollis luctus mi tellus. Maximus eu eleifend
-                        aptent dapibus metus maecenas consequat. Elementum interdum a
-                        semper. Netus nullam eros nisi volutpat nibh ex ultricies. Pharetra
-                        sagittis sit aliquet at. Magna nam platea justo.</p>
+                    <p class="text-left mb-0">Simple, rapide, facile d'utilisation, et tellement léger qu'une fois mis en
+                        place,
+                        on l'oublie.
+                        Tient très bien pour tout type de coiffure, chignon, queue de cheval, demie queue etc..
+                        Hair Clip permet de rassembler les cheveux d'un simple clip afin de dégager le contour du visage..
+                    </p>
                     <button onclick="window.location.href='{{ route('product-overview', ['product_id' => 1]) }}'"
                         type="button"
                         class="self-center  rounded-md w-5/6 md:w-2/5 bg-white py-2.5 px-3.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
@@ -85,7 +87,7 @@
     {{-- start-section-3 --}}
     <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
     {{-- start-section-4 --}}
-    <div class="container mx-auto -mt-4">
+    <div class="container mx-auto ">
         <div class=" max-h-fit py-4 md:py-12 flex flex-col items-center justify-center prose max-w-none">
             <h2 class="text-5xl mt-0 mx-5 mb-6 md:mb-6">Rétractable, souple et résistant.</h2>
             <button id="gallery-btn" onclick="handleAdditionalGalleryImage()" type="button"

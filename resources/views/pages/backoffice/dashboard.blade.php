@@ -1,6 +1,6 @@
 @extends('layouts.admin-dashboard')
 
-@section('title', 'Home')
+@section('title', 'Tableau de bord')
 
 @section('content')
     <div class="bg-slate-200 w-full h-full">

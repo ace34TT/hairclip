@@ -1,6 +1,6 @@
 @extends('layouts.frontoffice')
 
-@section('title', 'Détail de la livraison')
+@section('title', 'Détails de la livraison')
 
 @section('content')
     <div class="flex justify-center items-cente h-fit ">

@@ -14,7 +14,7 @@
     <title>AdminWrap Lite Template by WrapPixel</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/adminwrap-lite/" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <link rel="icon" href="{{ asset('images/logo/1_transparent_logo_black_scroped.png') }}">
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('admin-template/assets/node_modules/bootstrap/css/bootstrap.min.css') }} " rel="stylesheet">
     <link href=" {{ asset('admin-template/assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css') }}"

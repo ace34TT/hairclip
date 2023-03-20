@@ -2,7 +2,7 @@
 
 @section('title', 'Home')
 
-@section('content')
+@section('Details de commande')
     <div class="row">
         <!-- column -->
         <div class="col-12">
