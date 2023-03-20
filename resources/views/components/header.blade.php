@@ -11,7 +11,7 @@
             <a href="{{ route('shopping-cart.index') }}" class="flex gap-4">
                 <div class="relative p-4">
                     <x-bx-cart class="h-9 w-9" />
-                    <div class="absolute top-0 right-0 ...">
+                    <div class="absolute top-2 md:top-0 md:right-3 right-0">
                         <spa id="total-cart-items"
                             class="inline-flex items-center rounded-full bg-white md:bg-gray-100 md:px-3 py-0.5 text-sm font-medium text-gray-800">
                             {{ Cart::count(true) }}</spa>

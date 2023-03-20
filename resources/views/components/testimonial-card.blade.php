@@ -1,6 +1,7 @@
 <div class="inline-block">
-    <div class="flex w-80 md:w-72 min-h-[280px] flex-col justify-center items-center rounded-lg px-5 bg-white shadow-md">
-        <p class="text-left">
+    <div
+        class="flex w-80 md:w-72 min-h-[200px] sm:min-h-[280px] flex-col justify-center items-center rounded-lg px-5 bg-white shadow-md">
+        <p class="text-left my-0 md:my-5">
             {{ $customerName }}</p>
         <div class="flex justify-center mb-5 md:mb-0 h-fit md:h-14 w-full ">
             @for ($i = 0; $i < 5; $i++)
