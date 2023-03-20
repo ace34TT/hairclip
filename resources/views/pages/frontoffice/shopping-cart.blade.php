@@ -7,7 +7,7 @@
     <div
         class="h-fit sm:min-h-screen mb-5 flex flex-col gap-0 @if (Cart::count() === 0) justify-center @else justify-start @endif items-center prose max-w-none">
         <h2>Mon panier</h2>
-        <a class="text-cyan-800" href="{{ route('homepage') }}">Retrour sur la page d'accueil</a>
+        <a class="text-cyan-800" href="{{ route('homepage') }}">Retour sur la page d'accueil</a>
         <br>
         @if (count(Cart::content()) === 0)
             <div>
@@ -19,6 +19,14 @@
                 <input id="rows-json-data" style="border: solid black 1px" type="text" name="updated_data">
                 <input type="submit" id="proceed-to-payment">
             </form>
+            <div class="leading-5 md:sr-only">
+                <h3 class="mt-0 ml-4">Livraison : </h3>
+                <ul class="mx-4 mb-0 pl-4">
+                    <li>1.99 € pour un achat de moins de 3 chouchou</li>
+                    <li>4.99 € pour un achat de plus de 3 chouchou</li>
+                    <li>Expédition en 24h et livraison sous 48 / 72h</li>
+                </ul>
+            </div>
             <div class="-mt-5 sm:-mt-0 px-4sm:px-6 lg:px-8 w-11/12 md:w-10/12 ">
                 <div class="-mx-4 flow-root sm:mx-0">
                     <table class="min-w-full divide-y divide-gray-300">
@@ -111,7 +119,7 @@
                     </table>
                 </div>
                 <div class="flex flex-col sm:flex-row justify-between items-center sm:items-start mx-4">
-                    <div class="leading-4">
+                    <div class="leading-4 sr-only md:not-sr-only ">
                         <h3 class="mt-0">Livraison : </h3>
                         <ul class="ml-3">
                             <li>1.99 € pour un achat de moins de 3 chouchou</li>
