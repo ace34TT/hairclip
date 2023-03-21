@@ -1,4 +1,4 @@
-<footer id="footer" class="h-fit p-5 gap-5 md:p-10 bg-neutral-700">
+<footer id="footer" class="h-fit p-5 gap-5 md:p-10 bg-d-green">
     {{-- main item --}}
     <div class="h-6/5 flex flex-col justify-around items-center ">
         {{-- logo --}}
@@ -18,8 +18,12 @@
                     <a href="#">Mode de paiement</a> <br>
                     <a href="#">Livraison standard</a> <br>
                     <a href="#">CGV</a>
-
-                    <p class="text-white mt-4">Expédition en 24h et livraison sous 48 / 72h</p>
+                    <div class="flex justify-center items-center gap-5 mt-4">
+                        <x-akar-shipping-box-v2 class="w-10 text-white" />
+                        <p class="text-white">
+                            Expédition en 24h et livraison sous 48h/72h
+                        </p>
+                    </div>
                 </div>
             </div>
             {{-- contacts --}}

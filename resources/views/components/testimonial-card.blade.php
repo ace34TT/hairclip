@@ -1,18 +1,15 @@
 <div class="inline-block">
     <div
-        class="flex w-80 md:w-72 min-h-[200px] sm:min-h-[280px] flex-col justify-center items-center rounded-lg px-5 bg-white shadow-md">
-        <p class="text-left my-0 md:my-5">
-            {{ $customerName }}</p>
-        <div class="flex justify-center mb-5 md:mb-0 h-fit md:h-14 w-full ">
-            @for ($i = 0; $i < 5; $i++)
-                {{-- @if ($i < $stars) --}}
-                <x-tni-star class="h-8 w-8 md:h-12 md:w-12" style="color :rgb(168, 235, 168)" />
-                {{-- @else
-                <x-heroicon-o-star class="h-4 w-4 md:h-12 md:w-12" style="color :rgb(168, 235, 168)" />
-            @endif --}}
-            @endfor
+        class="flex w-80 md:w-96 min-h-[150px] sm:min-h-[150px] flex-col justify-center items-start rounded-lg px-7 bg-d-green text-white shadow-md">
+        <div class="flex justify-start items-center gap-5">
+            <p class="text-left text-lg font-bold p-0 my-0 ">
+                {{ $customerName }}</p>
+            <div class="flex justify-center items-center mb-5 md:mb-0 h-fit w-full ">
+                @for ($i = 0; $i < 5; $i++)
+                    <x-tni-star class="h-5 w-5  md:w-" style="color :rgb(210, 190, 11)" />
+                @endfor
+            </div>
         </div>
-        <p class="text-center md:text-left mb-4 mt-0 md:m-5 leading-5">{{ $message }}</p>
-        <!-- Let all your things have their places; let each part of your business have its time. - Benjamin Franklin -->
+        <p class="text-center md:text-left my-0 leading-5">{{ $message }}</p>
     </div>
 </div>

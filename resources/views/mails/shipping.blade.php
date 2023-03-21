@@ -18,13 +18,13 @@
           border-radius: 32px;
         ">
             <img style="
-            margin-bottom: 50px;
-            width: 100px;
-            height: 100px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-          "
+                    margin-bottom: 50px;
+                    width: 100px;
+                    height: 100px;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                "
                 src="https://i.ibb.co/pPBzPfx/1-transparent-logo-black-scroped.png" alt="1-transparent-logo-black"
                 border="0" />
             <p>Bonjour ,</p>

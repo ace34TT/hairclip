@@ -25,10 +25,10 @@ Route::get('/', function () {
 
 Route::get("/product-overview/{product_id}", function ($product_id) {
     $data = Products::getWithTopViewPic($product_id);
+    $products =  Products::getWithTopViewPic();
     $colors = Products::getWithTopViewPic();
-    return view("pages.frontoffice.product-overview")->with("product", $data)->with("colors", $colors);
+    return view("pages.frontoffice.product-overview")->with("product", $data)->with("colors", $colors)->with("products", $products);
 })->name("product-overview");
-
 
 // * SHOPPING CART
 Route::group(["prefix" => "shopping-cart", "as" => "shopping-cart."], function () {

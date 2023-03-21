@@ -17,7 +17,7 @@
                 <div class="aspect-w-1 aspect-h-1 w-full">
                     <!-- Tab panel, show/hide based on tab state. -->
                     <div id="tabs-1-panel-1" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
-                        <img src="{{ asset('images/scranchies/' . $product->file_name) }}"
+                        <img id="product-preview" src="{{ asset('images/scranchies/' . $product->file_name) }}"
                             alt="Angled front view with bag zipped and handles upright."
                             class="h-full w-full object-cover object-center sm:rounded-lg">
                     </div>
@@ -27,13 +27,13 @@
             <!-- Product info -->
             <div class="mt-4 px-4  sm:px-0 lg:mt-0">
                 <h1 class="text-3xl font-bold tracking-tight text-gray-900">
-                    <span class="sr-only md:not-sr-only"> {{ $product->name }}</span>
-                    <span class="md:sr-only">{{ $product->price }} €</span>
+                    <span class="sr-only md:not-sr-only" id="product-name"> {{ $product->name }}</span>
+                    <span class="md:sr-only" id="product-price">{{ $product->price }} €</span>
                 </h1>
                 <div class="mt-3">
-                    <p class="text-3xl tracking-tight text-gray-900 sr-only md:not-sr-only">{{ $product->price }} €</p>
+                    <p class="text-3xl tracking-tight text-gray-900 sr-only md:not-sr-only" id="product-price">
+                        {{ $product->price }} €</p>
                 </div>
-
                 <div class="flex gap-4 items-center mt-4">
                     <x-ei-minus class="cursor-pointer w-7 h-7 flex justify-center items-center text-3xl text-black "
                         onclick="updateQuantity(-1)" />
@@ -63,12 +63,12 @@
                             <legend class="sr-only">Couleurs</legend>
                             <span class="flex items-center space-x-3">
                                 @foreach ($colors as $color)
-                                    <label
-                                        onclick="window.location.href='{{ route('product-overview', ['product_id' => $color->id]) }}'"
+                                    <label {{-- onclick="window.location.href='{{ route('product-overview', ['product_id' => $color->id]) }}'" --}} onclick="handleItem({{ $color->id }})"
                                         class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ring-gray-700">
                                         <span aria-hidden="true"
                                             style="border : solid 2px @if ($color->id === $product->id) black @else white @endif; background-color: {{ $color->value }}"
-                                            class="h-8 w-8  rounded-full border border-opacity-10"></span>
+                                            class="color-picker h-8 w-8 rounded-full border border-opacity-10"
+                                            data-product="{{ $color->id }}"></span>
                                     </label>
                                 @endforeach
                             </span>
@@ -101,12 +101,36 @@
             </div>
         </div>
     </div>
+    {{-- {{ dd($products->toArray()) }} --}}
     {{-- <button type="button" class="confetti-button">Click me!</button> --}}
 @endsection
 @section('script')
     {{-- confities js --}}
     <script type="module" src="{{ asset('js/confities.js') }}"></script>
 
+    <script>
+        var products = {{ Js::from($products->toArray()) }};
+        var productPreview = document.getElementById("product-preview");
+        var productName = document.getElementById("product-name");
+        var productPrice = document.getElementById("product-price");
+        var colorPicker = document.querySelectorAll(".color-picker")
+        console.log(products);
+
+        function handleItem(itemId) {
+            var clickedItem =
+                products.find(item => item.id === itemId);
+            productPreview.src = "{{ asset('images/scranchies/') }}" + "/" +
+                clickedItem.file_name;
+            productName.innerText = clickedItem.name;
+            colorPicker.forEach(box => {
+                console.log(box.dataset.product, clickedItem.id);
+                if (box.dataset.product === clickedItem.id) {
+                    box.style.border = 'solid 2px black';
+                }
+                box.style.border = 'solid 2px white';
+            });
+        }
+    </script>
     {{--  --}}
     <script>
         function updateQuantity(increment) {

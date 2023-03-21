@@ -3,9 +3,9 @@
 @section('title', 'Détails de la livraison')
 
 @section('content')
-    <div class="flex justify-center items-cente h-fit ">
-        <div class="flex flex-col md:flex-row gap-4 bg-slate-50  md:gap-0 h-fit w-11/12">
-            <div class="flex-1 flex flex-col gap-7 prose max-w-none justify-center items-start px-4 pt-4 md:px-16">
+    <div class="flex justify-center items-cente h-fit my-5 ">
+        <div class="flex flex-col md:flex-row gap-4 bg-slate-50  md:gap-0 h-fit w-11/12 rounded-md">
+            <div class="flex-1 flex flex-col gap-7 prose max-w-none justify-center items-start px-4 py-4 md:px-16">
                 <h3>
                     <span class="text-black">
                         <span class="text-d-green">Panier > </span>
@@ -51,6 +51,7 @@
                             <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">Numéro de
                                 téléphone</label>
                             <div class="mt-2">
+
                                 <div class="flex">
                                     <span
                                         class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
@@ -61,7 +62,7 @@
                                         class="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
                                         aria-describedby="email-description">
                                 </div>
-
+                                <div id="phonenumber-error"></div>
                             </div>
                         </div>
                     </div>
@@ -114,14 +115,14 @@
                         </div>
                     </div>
                     <br>
-                    <p class="my-0 font-bold">Expédition en 24h et livraison sous 48 / 72h</p>
+                    <p class="my-0 font-bold">Expédition en 24h et livraison sous 48h / 72h</p>
                     <br>
                     <button type="submit"
                         class="float-right rounded-md bg-d-green py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-900-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         Suivant</button>
                 </form>
             </div>
-            <div class="flex-1 bg-slate-100 px-5 sm:px-10 mb-4 prose max-w-none">
+            <div class="flex-1 bg-slate-100 px-5 sm:px-10  prose max-w-none rounded-md">
                 <h1 class="text-center mx-auto mt-4 mb-0">Récapitulatif</h1>
                 <div class="flow-root">
                     <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -258,14 +259,17 @@
             }, {
                 rule: "email",
                 errorMessage: 'Mail incorrecte',
-            }]).addField("#phone", [{
-                rule: "required",
-                errorMessage: 'Ce champs est obligatoire',
-            }, {
-                rule: 'customRegexp',
-                value: /^(0|\+33)[1-9]([-. ]?\d{2}){4}$/,
-                errorMessage: 'Valeur invalide!',
-            }]).addField("#shipping_address", [{
+            }])
+            // .addField("#phone", [{
+            //     rule: "required",
+            //     errorMessage: 'Ce champs est obligatoire',
+            // }, {
+            //     rule: 'customRegexp',
+            //     value: /^(0|\+33)[1-9]([-. ]?\d{2}){4}$/,
+            //     errorMessage: 'Valeur invalide!',
+            //     errorsContainer: document.getElementById("")
+            // }])
+            .addField("#shipping_address", [{
                 rule: "required",
                 errorMessage: 'Ce champs est obligatoire',
             }]).addField("#town", [{

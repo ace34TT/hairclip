@@ -43,17 +43,17 @@
                  <div class="flex w-1/2 flex-wrap">
                      <div class="w-1/2 p-1 md:p-2 max-h-80">
                          <img alt="gallery"
-                             class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                             class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item block h-full w-full rounded-lg object-cover object-center "
                              src="{{ asset('images/images/HairClip-02.jpg') }}" />
                      </div>
                      <div class="w-1/2 p-1 md:p-2 max-h-80">
                          <img alt="gallery"
-                             class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                             class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                              src="{{ asset('images/images/HairClip-01.jpg') }}" />
                      </div>
                      <div id="last-col-1-item" class="w-full p-1 md:p-2 max-h-96">
                          <img alt="gallery"
-                             class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                             class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                              src="{{ asset('images/images/HairClip-03.jpg') }}" />
                      </div>
                  </div>
@@ -65,12 +65,12 @@
                      </div>
                      <div class="w-1/2 p-1 md:p-2 max-h-80">
                          <img alt="gallery"
-                             class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                             class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                              src="{{ asset('images/images/HairClip-14.jpg') }}" />
                      </div>
                      <div id="last-col-2-item" class="w-1/2 p-1 md:p-2 max-h-80">
                          <img alt="gallery"
-                             class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                             class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                              src="{{ asset('images/images/HairClip-15.jpg') }}" />
                      </div>
                  </div>
@@ -79,16 +79,8 @@
      </section>
      {{-- video player --}}
      <div onclick="closeVideo()" id="video-viewer">
-         {{-- <iframe id="main-video" class="md:h-full w-[500px] md:w-10/12 h-[400px]  md:min-h-[400px]"
-             src="https://www.youtube.com/embed/wPZjVg3MioU?modestbranding=1" title="YouTube video player"
-             frameborder="0"
-             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-             allowfullscreen>
-         </iframe> --}}
          <iframe src="https://drive.google.com/file/d/1-5eXfTUb4q6cA6ljtBNfLA3wefJNJ2sc/preview"
              class="md:h-full w-[500px] md:w-10/12 h-[400px]  md:min-h-[400px]" allow="autoplay"></iframe>
-         {{-- <iframe id="main-video" src="https://drive.google.com/file/d/18bNS-Dh_KZczUoFnQ85EYILPfnCa8Npt/preview"
-             class="md:h-full w-[500px] md:w-10/12 h-[400px]  md:min-h-[400px]" allow="autoplay"></iframe> --}}
      </div>
      {{-- image viewer --}}
      <div id="gallery-viewer" class="flex items-center justify-between md:justify-around gap-2 sm:gap-10">

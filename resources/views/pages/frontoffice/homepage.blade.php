@@ -8,13 +8,14 @@
 
 @section('content')
     {{-- stert-section-1 --}}
-    <div class="pt-10 md:-mt-24 container mx-auto ">
-        <div class="h-fit md:min-h-screen flex justify-center items-center">
-            <div class=" h-fit flex flex-col lg:flex-row items-start justify-around gap-4 px-6">
+    <div class="pt-10 container mx-auto ">
+        <div class="h-fit flex justify-center items-center">
+            <div class=" h-fit flex flex-col lg:flex-row items-start justify-around gap-4 px-4 md:px-4">
                 <div class="flex flex-1 flex-col gap-4 justify-center items-center md:items-start prose max-w-none md:px-10">
-                    <h2 class="text-left my-1 md:mt-0 text-5xl font-bold">Nouvelle génération
-                        <br> de
-                        chouchou
+                    <h2 class="text-left my-1 md:mt-0 text-5xl font-bold">
+                        Une <span class="text-d-green"> nouvelle génération </span>
+                        <br>
+                        de chouchou
                     </h2>
                     <p class="text-left mb-0">
                         Simple, rapide, facile d'utilisation, et tellement léger qu'une fois mis en
@@ -22,10 +23,20 @@
                         Tient très bien pour tout type de coiffure, chignon, queue de cheval, demie queue etc.. <br>
                         Hair Clip permet de rassembler les cheveux d'un simple clip afin de dégager le contour du visage.
                     </p>
-                    <button onclick="window.location.href='{{ route('product-overview', ['product_id' => 1]) }}'"
-                        type="button"
-                        class="self-center  rounded-md w-5/6 md:w-2/5 bg-white py-2.5 px-3.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-                        Voir plus</button>
+                    <div class="flex items-center">
+                        <button onclick="window.location.href='{{ route('product-overview', ['product_id' => 1]) }}'"
+                            class="self-center bg-d-green hover:bg-d-green text-white font-bold py-2 px-4 rounded-full">
+                            Acheter
+                        </button>
+                        <div class="flex justify-center items-center gap-5 text-zinc-900">
+                            <x-akar-shipping-box-v2 class="w-7 ml-4" />
+                            <p class="">
+                                Recever le {{ date('Y-m-d', strtotime(date('Y-m-d') . ' +7 days')) }}
+                            </p>
+                        </div>
+
+                    </div>
+
                 </div>
                 <div class="flex-1 flex justify-center mb-5 :mb-0 ">
                     <div class="cursor-pointer " id="video-preview-1">
@@ -33,6 +44,27 @@
                     </div>
                     {{-- <iframe src="https://drive.google.com/file/d/18bNS-Dh_KZczUoFnQ85EYILPfnCa8Npt/preview"
                         class="h-full w-full md:min-h-[400px]" allow="autoplay"></iframe> --}}
+                </div>
+            </div>
+        </div>
+        <div class="h-fit py-4 md:py-12 flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-8 ">
+            <div class="flex-1 flex justify-center">
+                <div style="max-width: 95%; height: auto;">
+                    <img style=" width: 100% ; height: auto;" class="self-center rounded-lg"
+                        src="{{ asset('images/images/HairClip-09.jpg') }}" alt="">
+                </div>
+            </div>
+            <div class="flex-1 prose h-full max-w-none flex flex-col justify-center items-center">
+                <div class="w-11/12 h-full flex flex-col justify-center">
+                    <h2 class="text-5xl mt-0 mb-4 md:mb-12 text-left">Rétractable, souple <br>
+                        et résistant.</h2>
+                    <h2 class="text-cyan-900 mb-0 md:mb-6">Crée pour vous simplifier la vie </h2>
+                    <ul class="mb-0 md:mb-7">
+                        <li class="leading-5">Eco sustainable : All recyclable materials, 0% CO2 emissions</li>
+                        <li class="leading-5">Hyphoallergenic : 100% natural, human friendly ingredients</li>
+                        <li class="leading-5">Handmade : All candles are craftly made with love.</li>
+                        <li class="leading-5">Long burning : No more waste. Created for last long.</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -60,31 +92,6 @@
         </div>
     </div>
     {{-- end-section-2 --}}
-    {{-- start-section-3 --}}
-    <div id="about" class="container mx-auto">
-        <div class="h-fit py-4 md:py-12 flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-8 ">
-            <div class="flex-1 prose h-full max-w-none flex flex-col justify-center items-center">
-                <div class="w-11/12 h-full flex flex-col justify-center">
-                    <h2 class="text-5xl mt-0 mb-4 md:mb-12 text-left">Rétractable, souple <br>
-                        et résistant.</h2>
-                    <h2 class="text-cyan-900 mb-0 md:mb-6">Crée pour vous simplifier la vie </h2>
-                    <ul class="mb-0 md:mb-7">
-                        <li class="leading-5">Eco sustainable : All recyclable materials, 0% CO2 emissions</li>
-                        <li class="leading-5">Hyphoallergenic : 100% natural, human friendly ingredients</li>
-                        <li class="leading-5">Handmade : All candles are craftly made with love.</li>
-                        <li class="leading-5">Long burning : No more waste. Created for last long.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="flex-1 flex justify-center">
-                <div style="max-width: 95%; height: auto;">
-                    <img style=" width: 100% ; height: auto;" class="self-center rounded-lg"
-                        src="{{ asset('images/images/HairClip-09.jpg') }}" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- start-section-3 --}}
     <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
     {{-- start-section-4 --}}
     <div class="container mx-auto ">
@@ -101,7 +108,7 @@
     {{-- start-section-5 --}}
     <div
         class="h-fit px-12 py-4 md:py-12 bg-stone-200 flex flex-col justify-center items-center prose max-w-none overflow-x-hidden">
-        <h2 class="text-5xl text-center mb-4 md:mb-12">Témoignages</h2>
+        <h2 class="text-5xl text-center mb-4 md:mb-4">Témoignages</h2>
         <p class="text-center text-cyan-800 mb-0 md:mb-5">Nos clients sont ravis, c’est à votre tour !</p>
         <div class="flex justify-center items-center gap-8">
             <div>
@@ -142,92 +149,92 @@
         let showAdditionGallery = false;
         const col_1 = `<div id="first-gallery-additional-item" class="additional-item w-1/2 p-1 md:p-2 max-h-80">
                 <img alt="gallery"
-                    class="gallery-item block h-full w-full rounded-lg object-cover object-center "
+                    class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item block h-full w-full rounded-lg object-cover object-center "
                     src="{{ asset('images/images/HairClip-04.jpg') }}" />
                 </div>
                 <div class="additional-item w-1/2 p-1 md:p-2 max-h-80">
                     <img alt="gallery"
-                        class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                        class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                         src="{{ asset('images/images/HairClip-05.jpg') }}" />
                 </div>
                 <div class="additional-item w-full p-1 md:p-2 max-h-96">
                     <img alt="gallery"
-                        class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                        class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                         src="{{ asset('images/images/HairClip-06.jpg') }}" />
                 </div>
                 <div class="additional-item w-1/2 p-1 md:p-2 max-h-80">
                     <img alt="gallery"
-                        class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                        class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                         src="{{ asset('images/images/HairClip-07.jpg') }}" />
                 </div>
                 <div class="additional-item w-1/2 p-1 md:p-2 max-h-80">
                     <img alt="gallery"
-                        class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                        class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                         src="{{ asset('images/images/HairClip-08.jpg') }}" />
                 </div>
                 <div class="additional-item w-full p-1 md:p-2 max-h-96">
                     <img alt="gallery"
-                        class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                        class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                         src="{{ asset('images/images/HairClip-09.jpg') }}" />
                 </div>
                 <div class="additional-item w-1/2 p-1 md:p-2 max-h-80">
                     <img alt="gallery"
-                        class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                        class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                         src="{{ asset('images/images/HairClip-10.jpg') }}" />
                 </div>
                 <div class="additional-item w-1/2 p-1 md:p-2 max-h-80">
                     <img alt="gallery"
-                        class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                        class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                         src="{{ asset('images/images/HairClip-11.jpg') }}" />
                 </div>
                 <div class="additional-item w-full p-1 md:p-2 max-h-96">
                     <img alt="gallery"
-                        class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                        class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                         src="{{ asset('images/images/HairClip-12.jpg') }}" />
                 </div>`;
         const col_2 = `<div class="additional-item w-full p-1 md:p-2 max-h-96">
                             <img alt="gallery"
-                                class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                                class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                                 src="{{ asset('images/images/HairClip-16.jpg') }}" />
                             </div>
                             <div class="additional-item w-1/2 p-1 md:p-2 max-h-80">
                                 <img alt="gallery"
-                                    class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                                    class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                                     src="{{ asset('images/images/HairClip-17.jpg') }}" />
                             </div>
                             <div class="additional-item w-1/2 p-1 md:p-2 max-h-80">
                                 <img alt="gallery"
-                                    class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                                    class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                                     src="{{ asset('images/images/HairClip-18.jpg') }}" />
                             </div>
                             <div class="additional-item w-full p-1 md:p-2 max-h-96">
                                 <img alt="gallery"
-                                    class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                                    class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                                     src="{{ asset('images/images/HairClip-19.jpg') }}" />
                             </div>
                             <div class="additional-item w-1/2 p-1 md:p-2 max-h-80">
                                 <img alt="gallery"
-                                    class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                                    class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                                     src="{{ asset('images/images/HairClip-22.jpg') }}" />
                             </div>
                             <div class="additional-item w-1/2 p-1 md:p-2 max-h-80">
                                 <img alt="gallery"
-                                    class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                                    class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                                     src="{{ asset('images/images/HairClip-21.jpg') }}" />
                             </div>
                             <div class="additional-item w-full p-1 md:p-2 max-h-96">
                                 <img alt="gallery"
-                                    class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                                    class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                                     src="{{ asset('images/images/HairClip-22.jpg') }}" />
                             </div>
                             <div class="additional-item w-1/2 p-1 md:p-2 max-h-80">
                                 <img alt="gallery"
-                                    class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                                    class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                                     src="{{ asset('images/images/HairClip-01.jpg') }}" />
                             </div>
                             <div class="additional-item w-1/2 p-1 md:p-2 max-h-80">
                                 <img alt="gallery"
-                                    class="gallery-item  block h-full w-full rounded-lg object-cover object-center "
+                                    class="transition ease-in-out hover:scale-[1.025] hover:shadow-sm gallery-item  block h-full w-full rounded-lg object-cover object-center "
                                     src="{{ asset('images/images/HairClip-10.jpg') }}" />
                             </div>`;
 
