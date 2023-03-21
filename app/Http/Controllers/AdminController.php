@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Products;
 use App\Models\StockMovement;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -31,18 +32,13 @@ class AdminController extends Controller
     }
     public function dashboard()
     {
-        $labels = [
-            "10-02-2023",
-            "11-02-2023",
-            "12-02-2023",
-            "13-02-2023",
-            "14-02-2023",
-            "15-02-2023",
-            "16-02-2023",
-        ];
-        $data = [
-            11, 0, 5, 4, 15, 20, 4
-        ];
+        $lastSevenDaysOrders = DB::table("daily_statistic_view")->orderBy("date", "asc")->get();
+        $labels  = [];
+        $data = [];
+        foreach ($lastSevenDaysOrders->toArray() as $key => $item) {
+            array_push($labels, $item->date);
+            array_push($data, $item->count);
+        }
         return view("pages/backoffice/dashboard")->with("labels", $labels)->with("data", $data);
     }
     //
@@ -55,15 +51,24 @@ class AdminController extends Controller
     public function deliverOrder($order_id)
     {
         $order = Order::find($order_id);
-        Order::where('id', $order_id)
-            ->update(['status' => 1]);
-        // Mail::to($order["customer_emil"])->send(new Shipping($order_id, $order["amount"]));
+        // Order::where('id', $order_id)
+        //     ->update(['status' => 1]);
+        dump($order["customer_emil"]);
+        try {
+            Mail::to($order["customer_emil"])->send(new Shipping($order_id, $order["amount"]));
+        }
+        //catch exception
+        catch (Exception $e) {
+            echo 'Message: ' . $e->getMessage();
+        }
+
         return redirect()->route("admin.order-list");
     }
 
     public function orderDetails($order_id)
     {
         $orderDetails = DB::table('sheet_data')->where('order_id', '=', $order_id)->get();
+        // dd($orderDetails);
         $order = Order::find($order_id);
         // dd($orderDetails);
         return view("pages.backoffice.order-details")->with("order", $order)->with("orderDetails", $orderDetails);

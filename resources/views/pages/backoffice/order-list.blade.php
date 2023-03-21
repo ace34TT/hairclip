@@ -18,7 +18,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Paiement</th>
-                                    <th>Status</th>
+                                    {{-- <th>Status</th> --}}
                                     <th>Client</th>
                                     <th>Mail</th>
                                     <th>Addresse</th>
@@ -27,7 +27,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($orders as $order)
-                                    <tr style="@if ($order['status'] == 1) background-color: #ffe9ad @else '' @endif"
+                                    <tr style="@if ($order['status'] == 1) background-color: #fffaed @else '' @endif"
                                         class="hover-bg-secondary-subtle" style="">
                                         <td>
                                             {{ $order['id'] }}
@@ -35,9 +35,9 @@
                                         <td>
                                             <span>{{ $order['payment_intent_id'] }}</span>
                                         </td>
-                                        <td>
+                                        {{-- <td>
                                             <span>{{ $order['status'] }}</span>
-                                        </td>
+                                        </td> --}}
                                         <td>
                                             <span>{{ $order['customer_last_name'] . ' ' . $order['customer_first_name'] }}</span>
                                         </td>

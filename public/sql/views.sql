@@ -16,4 +16,90 @@ SELECT o.id AS order_id,
     o.created_at
 FROM order_details od
     INNER JOIN orders o ON o.id = od.order_id
-    INNER JOIN products p ON p.id = od.product_id
+    INNER JOIN products p ON p.id = od.product_id;
+--
+CREATE OR REPLACE VIEW stock_status_view AS
+SELECT sm.product_id,
+    COALESCE(
+        (
+            SELECT SUM(quantity)
+            FROM stock_movements sm2
+            WHERE sm2.product_id = sm.product_id
+                AND type = 0
+        ),
+        0
+    ) AS move_in,
+    COALESCE(
+        (
+            SELECT SUM(quantity)
+            FROM stock_movements sm2
+            WHERE sm2.product_id = sm.product_id
+                AND type = 1
+        ),
+        0
+    ) AS move_out,
+    (
+        COALESCE(
+            (
+                SELECT SUM(quantity)
+                FROM stock_movements sm2
+                WHERE sm2.product_id = sm.product_id
+                    AND type = 0
+            ),
+            0
+        ) - COALESCE(
+            (
+                SELECT SUM(quantity)
+                FROM stock_movements sm2
+                WHERE sm2.product_id = sm.product_id
+                    AND type = 1
+            ),
+            0
+        )
+    ) AS current_status
+FROM stock_movements sm
+    INNER JOIN products p ON p.id = sm.product_id
+GROUP BY sm.product_id;
+--
+CREATE OR REPLACE VIEW stock_status_view AS
+SELECT sm.product_id,
+    COALESCE(
+        (
+            SELECT SUM(quantity)
+            FROM stock_movements sm2
+            WHERE sm2.product_id = sm.product_id
+                AND type = 0
+        ),
+        0
+    ) AS move_in,
+    COALESCE(
+        (
+            SELECT SUM(quantity)
+            FROM stock_movements sm2
+            WHERE sm2.product_id = sm.product_id
+                AND type = 1
+        ),
+        0
+    ) AS move_out,
+    (
+        COALESCE(
+            (
+                SELECT SUM(quantity)
+                FROM stock_movements sm2
+                WHERE sm2.product_id = sm.product_id
+                    AND type = 0
+            ),
+            0
+        ) - COALESCE(
+            (
+                SELECT SUM(quantity)
+                FROM stock_movements sm2
+                WHERE sm2.product_id = sm.product_id
+                    AND type = 1
+            ),
+            0
+        )
+    ) AS current_status
+FROM stock_movements sm
+    INNER JOIN products p ON p.id = sm.product_id
+GROUP BY sm.product_id

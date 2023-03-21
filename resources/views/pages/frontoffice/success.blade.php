@@ -14,9 +14,9 @@
                     achat a été
                     effectué
                     avec succès.
-                    <br> <br>
+                    <br>
                     Nous sommes en train de préparer votre colis et vous tiendrons informé(e) de son expédition.
-                    <br> <br>
+                    <br>
                     Nous vous remercions de votre confiance et espérons que vous apprécierez votre achat. <br>
                 </p>
                 <button onclick="window.location.href='{{ route('homepage') }}'" type="button"
