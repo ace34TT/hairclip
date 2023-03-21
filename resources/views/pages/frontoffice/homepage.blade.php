@@ -34,16 +34,12 @@
                                 Recever le {{ date('Y-m-d', strtotime(date('Y-m-d') . ' +7 days')) }}
                             </p>
                         </div>
-
                     </div>
-
                 </div>
                 <div class="flex-1 flex justify-center mb-5 :mb-0 ">
                     <div class="cursor-pointer " id="video-preview-1">
                         <img src="{{ asset('images/video-preview/video-preview-1.png') }}" alt="">
                     </div>
-                    {{-- <iframe src="https://drive.google.com/file/d/18bNS-Dh_KZczUoFnQ85EYILPfnCa8Npt/preview"
-                        class="h-full w-full md:min-h-[400px]" allow="autoplay"></iframe> --}}
                 </div>
             </div>
         </div>
