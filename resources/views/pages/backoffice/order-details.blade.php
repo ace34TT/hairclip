@@ -3,14 +3,15 @@
 @section('title', 'Details commande')
 
 @section('content')
-    <div class="container-fluid mt-100 mb-100">
+    <div id="GFG" class=" container-fluid mt-100 mb-100">
         <div id="ui-view">
             <div>
                 <div class="card">
                     <div class="card-header">
                         Commande<strong>#{{ $order->id }} </strong>
                         <div class="pull-right">
-                            <a class="btn btn-sm btn-info" href="#" data-abc="true"><i class="fa fa-print mr-1"></i>
+                            <a onclick="printDiv()" class="btn btn-sm btn-info" href="#" data-abc="true"><i
+                                    class="fa fa-print mr-1"></i>
                                 Imprimer</a>
                             <a class="btn btn-sm btn-info" href="#" data-abc="true"><i
                                     class="fa fa-file-text-o mr-1"></i>Sauvegarder</a>
@@ -113,4 +114,19 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        function printDiv() {
+            var divContents = document.getElementById("GFG").innerHTML;
+            var a = window.open('', '', 'height=500, width=500');
+            a.document.write('<html>');
+            a.document.write('<body>');
+            a.document.write(divContents);
+            a.document.write('</body></html>');
+            a.document.close();
+            a.print();
+        }
+    </script>
 @endsection

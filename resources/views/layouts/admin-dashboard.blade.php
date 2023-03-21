@@ -234,6 +234,7 @@
     <script src="{{ asset('admin-template/assets/node_modules/c3-master/c3.min.js') }} "></script>
     <!-- Chart JS -->
     <script src="{{ asset('admin-template/html/js/dashboard1.js') }} "></script>
+    @yield('script')
 </body>
 
 </html>
