@@ -4,6 +4,15 @@
 
 @push('styles')
     <link href="{{ asset('css/confetti.css') }}" rel="stylesheet">
+    <style>
+        .active-selected-item {
+            border: solid 2px black;
+        }
+
+        .inactive-selected-item {
+            border: solid 2px white;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -65,9 +74,8 @@
                                 @foreach ($colors as $color)
                                     <label {{-- onclick="window.location.href='{{ route('product-overview', ['product_id' => $color->id]) }}'" --}} onclick="handleItem({{ $color->id }})"
                                         class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ring-gray-700">
-                                        <span aria-hidden="true"
-                                            style="border : solid 2px @if ($color->id === $product->id) black @else white @endif; background-color: {{ $color->value }}"
-                                            class="color-picker h-8 w-8 rounded-full border border-opacity-10"
+                                        <span aria-hidden="true" style="background-color: {{ $color->value }}"
+                                            class="@if ($color->id === $product->id) active-selected-item @else inactive-selected-item @endif; color-picker h-8 w-8 rounded-full border border-opacity-10"
                                             data-product="{{ $color->id }}"></span>
                                     </label>
                                 @endforeach
@@ -88,12 +96,13 @@
                             <ul class="ml-3">
                                 <li>1.99 € pour un achat de moins de 3 chouchou</li>
                                 <li>4.99 € pour un achat de plus de 3 chouchou</li>
+                                <li>Expédition en 24h et livraison sous 48h / 72h</li>
                             </ul>
                         </div>
                     </div>
                     <div class="sm:flex-1 mt-10 flex">
-                        <button type="button" class="confetti-button"
-                            onclick="cust_redirect('{{ route('shopping-cart.add-item', ['product_id' => $product->id]) }}')">
+                        <button id="add-to-cart-btn" type="button" class="confetti-button"
+                            data-product-id="{{ $product->id }}" onclick="handleAddToChart()">
                             Ajouter au panier
                         </button>
                     </div>
@@ -107,14 +116,13 @@
 @section('script')
     {{-- confities js --}}
     <script type="module" src="{{ asset('js/confities.js') }}"></script>
-
     <script>
         var products = {{ Js::from($products->toArray()) }};
         var productPreview = document.getElementById("product-preview");
         var productName = document.getElementById("product-name");
         var productPrice = document.getElementById("product-price");
-        var colorPicker = document.querySelectorAll(".color-picker")
-        console.log(products);
+        var colorPicker = document.querySelectorAll(".color-picker");
+        var btn = document.getElementById("add-to-cart-btn");
 
         function handleItem(itemId) {
             var clickedItem =
@@ -123,11 +131,14 @@
                 clickedItem.file_name;
             productName.innerText = clickedItem.name;
             colorPicker.forEach(box => {
-                console.log(box.dataset.product, clickedItem.id);
-                if (box.dataset.product === clickedItem.id) {
-                    box.style.border = 'solid 2px black';
+                btn.dataset.productId = clickedItem.id;
+                if (box.dataset.product === clickedItem.id.toString()) {
+                    box.classList.remove("inactive-selected-item");
+                    box.classList.add("active-selected-item");
+                } else {
+                    box.classList.remove("active-selected-item");
+                    box.classList.add("inactive-selected-item");
                 }
-                box.style.border = 'solid 2px white';
             });
         }
     </script>
@@ -149,15 +160,24 @@
         }
 
         function cust_redirect(url) {
+            window.location.href = url + "/" + data.quantity.value
+        }
+    </script>
+    <script>
+        function handleAddToChart() {
+            const submit_btn = document.getElementById("add-to-cart-btn");
+            const xdata = submit_btn.dataset.productId;
+
             let data = {
                 quantity: {
                     element: document.getElementById("quantity"),
                     value: parseInt(document.getElementById("quantity").textContent)
                 },
             }
-            window.location.href = url + "/" + data.quantity.value
+            console.log(data.quantity.value);
         }
     </script>
+
     <script>
         let shippingVisibility = false;
 
