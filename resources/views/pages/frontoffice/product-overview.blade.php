@@ -34,7 +34,7 @@
                     <p class="text-3xl tracking-tight text-gray-900 sr-only md:not-sr-only">{{ $product->price }} €</p>
                 </div>
 
-                <div class="flex gap-8">
+                <div class="flex gap-4 items-center mt-4">
                     <x-ei-minus class="cursor-pointer w-7 h-7 flex justify-center items-center text-3xl text-black "
                         onclick="updateQuantity(-1)" />
                     <span data-quantity="" id="quantity">1
@@ -76,11 +76,11 @@
                     </div>
                     <div class="mt-6 py-6 border-t-2 border-b-2">
                         <div class="flex justify-between items-center">
-                            <div class="font-bold text-lg">Livraison & retours </div>
+                            <div class="font-bold text-lg">Livraison </div>
                             <button class="mr-9" onclick="handleShippingInformation()">
                                 <div class="plus">
-                                    <div class="horizontal h-7 w-[1px] bg-black"></div>
-                                    <div class="vertical h-7 w-[1px] -mt-7 bg-black rotate-90"></div>
+                                    <div class="horizontal h-7 w-[2px] bg-black"></div>
+                                    <div class="vertical h-7 w-[2px] -mt-7 bg-black rotate-90"></div>
                                 </div>
                             </button>
                         </div>
@@ -140,7 +140,7 @@
         function handleShippingInformation() {
             if (shippingVisibility) {
                 gsap.to("#shipping-information", {
-                    position: "absolute",
+                    // position: "absolute",
                     height: "0",
                     opacity: "0",
                 });

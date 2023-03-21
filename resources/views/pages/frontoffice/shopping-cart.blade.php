@@ -128,9 +128,9 @@
                             <li>Expédition en 24h et livraison sous 48 / 72h</li>
                         </ul>
                     </div>
-                    <div>
+                    <div class="flex items-end">
                         <button onclick="proceedToPayment()" type="button"
-                            class="rounded-md bg-cyan-800 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            class=" rounded-md bg-cyan-800 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             onclick="postData()">
                             <span id="is-not-loading"> Passer la commande</span>
                             </span>
