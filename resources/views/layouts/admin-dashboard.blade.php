@@ -137,20 +137,21 @@
                                     bord</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="{{ route('admin.order-list') }}"
-                                aria-expanded="false"><i class="fa fa-user-circle-o"></i><span
+                                aria-expanded="false"><i class="fa fa-list" aria-hidden="true"></i></i><span
                                     class="hide-menu">Commandes</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="{{ route('admin.sock-availability') }}"
-                                aria-expanded="false"><i class="fa fa-user-circle-o"></i><span class="hide-menu">Etat de
+                                aria-expanded="false"><i class="fa fa-th" aria-hidden="true"></i></i><span
+                                    class="hide-menu">Etat de
                                     stock</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="{{ route('admin.stock-movements') }}"
-                                aria-expanded="false"><i class="fa fa-user-circle-o"></i><span
+                                aria-expanded="false"><i class="fa fa-book" aria-hidden="true"></i></i><span
                                     class="hide-menu">Mouvements de stock
                                 </span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="{{ route('admin.logout') }}"
-                                aria-expanded="false"><i class="fa-solid fa-right-from-bracket"></i><span
+                                aria-expanded="false"><i class="fa fa-sign-out" aria-hidden="true"></i><span
                                     class="hide-menu">Deconnexion</span></a>
                         </li>
                     </ul>
@@ -175,10 +176,10 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor">Dashboard</h3>
+                        <h3 class="text-themecolor">@yield('current-page')</h3>
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Admin</a></li>
+                            <li class="breadcrumb-item active">@yield('current-page')</li>
                         </ol>
                     </div>
                 </div>

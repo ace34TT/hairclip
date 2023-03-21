@@ -3,7 +3,7 @@
 @section('title', 'Details commande')
 
 @section('content')
-    <div id="GFG" class=" container-fluid mt-100 mb-100">
+    <div class=" container-fluid mt-100 mb-100">
         <div id="ui-view">
             <div>
                 <div class="card">
@@ -17,7 +17,7 @@
                                     class="fa fa-file-text-o mr-1"></i>Sauvegarder</a>
                         </div>
                     </div>
-                    <div class="card-body">
+                    <div id="GFG" class="card-body">
                         <div class="row mb-4">
                             <div class="col-sm-4">
                                 <h6 class="mb-3">De:</h6>

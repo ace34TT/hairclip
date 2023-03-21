@@ -59,7 +59,7 @@
                 <div class="flex items-center justify-between">
                     <button type="submit"
                         class="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white">
-                        Sign in
+                        Se connecter
                     </button>
                 </div>
             </form>

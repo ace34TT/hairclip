@@ -77,7 +77,7 @@
                     <div class="mt-6 py-6 border-t-2 border-b-2">
                         <div class="flex justify-between items-center">
                             <div class="font-bold text-lg">Livraison </div>
-                            <button class="mr-9" onclick="handleShippingInformation()">
+                            <button class="mr-9 bg-slate-200" onclick="handleShippingInformation()">
                                 <div class="plus">
                                     <div class="horizontal h-7 w-[2px] bg-black"></div>
                                     <div class="vertical h-7 w-[2px] -mt-7 bg-black rotate-90"></div>
