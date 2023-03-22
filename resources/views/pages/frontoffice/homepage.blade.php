@@ -108,8 +108,8 @@
                 <x-codicon-credit-card class="w-6" />
             </div>
             <div class="">
-                <h3 class="m-0 font-bold text-d-green">Paiement Sécurisé</h3>
-                <h4 class="m-0 font-bold text-gray-400">Toutes cartes accéptées</h4>
+                <h4 class="m-0 font-bold text-d-green">Paiement Sécurisé</h4>
+                <h5 class="m-0 font-bold text-gray-400">Toutes cartes accéptées</h5>
             </div>
         </div>
         <div class="flex items-center gap-5">
@@ -117,8 +117,8 @@
                 <x-lineawesome-shipping-fast-solid class="w-6" />
             </div>
             <div class="">
-                <h3 class="m-0 font-bold text-d-green">Livraison Rapide</h3>
-                <h4 class="m-0 font-bold text-gray-400">Recevez sous 72h</h4>
+                <h4 class="m-0 font-bold text-d-green">Livraison Rapide</h4>
+                <h5 class="m-0 font-bold text-gray-400">Recevez sous 72h</h5>
             </div>
         </div>
         <div class="flex items-center  gap-5">
@@ -126,8 +126,8 @@
                 <x-bi-check-circle class="w-10 h-6" />
             </div>
             <div class="">
-                <h3 class="m-0 font-bold text-d-green">Qualité Garantie</h3>
-                <h4 class="m-0 font-bold text-gray-400">Un produit garantie</h4>
+                <h4 class="m-0 font-bold text-d-green">Qualité Garantie</h4>
+                <h5 class="m-0 font-bold text-gray-400">Un produit garantie</h5>
             </div>
         </div>
         <div class="flex items-center  gap-5">
@@ -135,8 +135,8 @@
                 <x-bx-support class="w-6" />
             </div>
             <div class="">
-                <h3 class="m-0 font-bold text-d-green">Support Client</h3>
-                <h4 class="m-0 font-bold text-gray-400">Support mail 24h/24h</h4>
+                <h4 class="m-0 font-bold text-d-green">Support Client</h4>
+                <h5 class="m-0 font-bold text-gray-400">Support mail 24h/24h</h5>
             </div>
         </div>
     </div>

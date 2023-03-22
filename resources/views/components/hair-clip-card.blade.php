@@ -11,10 +11,10 @@
                 <div class="text-2xl">
                     7€
                 </div>
-                <div class="-ml-8 mt-3.5 h-[2px] rotate-12 w-10 bg-slate-50"></div>
+                {{-- <div class="-ml-8 mt-3.5 h-[2px] rotate-12 w-10 bg-slate-50"></div> --}}
             </div>
             <div class="">
-                et 5€ a partir de 3 chouchou acheter
+                et 5€ à partir de 3 chouchous acheter
             </div>
         </div>
         <p class="text-slate-50 text-lg font-bold m-3"> {{ $price }} €</p>
