@@ -88,18 +88,6 @@
                                             <td class="left"><strong>Livraison</strong></td>
                                             <td class="right">{{ $order->shipping }} € </td>
                                         </tr>
-                                        {{-- <tr>
-                                            <td class="left"><strong>Discount (0%)</strong></td>
-                                            <td class="right">0</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="left"><strong>VAT (10%)</strong></td>
-                                            <td class="right">0</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="left"><strong>Livraison</strong></td>
-                                            <td class="right">{{ $order->shipping }}</td>
-                                        </tr> --}}
                                         <tr>
                                             <td class="left"><strong>Total</strong></td>
                                             <td class="right"><strong>{{ $order->shipping + $order->amount }} € </strong>

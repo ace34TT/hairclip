@@ -60,33 +60,75 @@ class ProductsTableSeeder extends Seeder
                 "file_name" => "Product_1_tv.jpg",
             ],
             [
+                'product_id' => "1",
+                'type' => "cropped_view",
+                "file_name" => "HairClip PackS HD-19.png",
+            ],
+            //
+            [
                 'product_id' => "2",
                 'type' => "top_view",
                 "file_name" => "Product_2_tv.jpg",
             ],
+            [
+                'product_id' => "2",
+                'type' => "cropped_view",
+                "file_name" => "HairClip PackS HD-20.png",
+            ],
+            //
             [
                 'product_id' => "3",
                 'type' => "top_view",
                 "file_name" => "Product_3_tv.jpg",
             ],
             [
+                'product_id' => "3",
+                'type' => "cropped_view",
+                "file_name" => "HairClip PackS HD-21.png",
+            ],
+            //
+            [
                 'product_id' => "4",
                 'type' => "top_view",
                 "file_name" => "Product_4_tv.jpg",
             ],
             [
+                'product_id' => "4",
+                'type' => "cropped_view",
+                "file_name" => "HairClip PackS HD-22.png",
+            ],
+            //
+            [
                 'product_id' => "5",
                 'type' => "top_view",
                 "file_name" => "Product_5_tv.jpg",
-            ],  [
+            ],
+            [
+                'product_id' => "5",
+                'type' => "cropped_view",
+                "file_name" => "HairClip PackS HD-23.png",
+            ],
+            //
+            [
                 'product_id' => "6",
                 'type' => "top_view",
                 "file_name" => "Product_6_tv.jpg",
             ],
             [
+                'product_id' => "6",
+                'type' => "cropped_view",
+                "file_name" => "HairClip PackS HD-24.png",
+            ],
+            //
+            [
                 'product_id' => "7",
                 'type' => "top_view",
                 "file_name" => "Product_7_tv.jpg",
+            ],
+            [
+                'product_id' => "7",
+                'type' => "cropped_view",
+                "file_name" => "HairClip PackS HD-25.png",
             ],
         ]);
     }

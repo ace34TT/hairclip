@@ -33,7 +33,7 @@ Route::get("/product-overview/{product_id}", function ($product_id) {
 // * SHOPPING CART
 Route::group(["prefix" => "shopping-cart", "as" => "shopping-cart."], function () {
     Route::get('/', [ShoppingCartController::class, 'shoppingCart'])->name('index');
-    Route::get("/{product_id}/{quantity?}", [ShoppingCartController::class, "addItem"])->name("add-item")->where('product_id', '[0-9]+');;;
+    Route::get("/{product_id?}/{quantity?}", [ShoppingCartController::class, "addItem"])->name("add-item")->where('product_id', '[0-9]+');;;
     Route::get('/remove/{rowId}', [ShoppingCartController::class, "removeItem"])->name("remove-item");
     Route::post("/", [ShoppingCartController::class, "updateItems"])->name("update-items");
     Route::view("/details", "pages/frontoffice/shopping-cart-details")->name("details");

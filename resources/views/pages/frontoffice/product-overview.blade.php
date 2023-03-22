@@ -17,24 +17,20 @@
 
 @section('content')
     <div class="mx-auto max-w-2xl py-4 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
-            <h1 class="md:sr-only text-3xl font-bold tracking-tight text-gray-900">{{ $product->name }}
+        <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-32">
+            <h1 id="main-title" class="md:sr-only text-3xl font-bold tracking-tight text-gray-900">{{ $product->name }}
             </h1>
-            <!-- Image gallery -->
-            <div class="flex flex-col-reverse">
-                <!-- Image selector -->
-                <div class="aspect-w-1 aspect-h-1 w-full">
-                    <!-- Tab panel, show/hide based on tab state. -->
-                    <div id="tabs-1-panel-1" aria-labelledby="tabs-1-tab-1" role="tabpanel" tabindex="0">
-                        <img id="product-preview" src="{{ asset('images/scranchies/' . $product->file_name) }}"
-                            alt="Angled front view with bag zipped and handles upright."
-                            class="h-full w-full object-cover object-center sm:rounded-lg">
-                    </div>
-                    <!-- More images... -->
+            <div class="h-full w-full relative" id="product-color" style="background-color: {{ $product->value }}">
+                <h1 id="main-titel" class="mb-0 mt-8 ml-14 text-7xl text-slate-50 opacity-50 ">
+                    {{ $product->name }}</h1>
+                <div class="absolute bottom-12 -right-12">
+                    <img id="product-preview" src="{{ asset('images/scranchies/' . $product->file_name) }}"
+                        alt="Angled front view with bag zipped and handles upright."
+                        class="m-0 h-72 w-72 object-cover object-center sm:rounded-lg">
                 </div>
             </div>
             <!-- Product info -->
-            <div class="mt-4 px-4  sm:px-0 lg:mt-0">
+            <div class="mt-4 px-4 sm:px-0 lg:mt-0">
                 <h1 class="text-3xl font-bold tracking-tight text-gray-900">
                     <span class="sr-only md:not-sr-only" id="product-name"> {{ $product->name }}</span>
                     <span class="md:sr-only" id="product-price">{{ $product->price }} €</span>
@@ -118,6 +114,8 @@
     <script type="module" src="{{ asset('js/confities.js') }}"></script>
     <script>
         var products = {{ Js::from($products->toArray()) }};
+        var productBGColor = document.getElementById("product-color");
+        var mainTitle = document.getElementById("main-title");
         var productPreview = document.getElementById("product-preview");
         var productName = document.getElementById("product-name");
         var productPrice = document.getElementById("product-price");
@@ -125,8 +123,9 @@
         var btn = document.getElementById("add-to-cart-btn");
 
         function handleItem(itemId) {
-            var clickedItem =
-                products.find(item => item.id === itemId);
+            var clickedItem = products.find(item => item.id === itemId);
+            productBGColor.style.backgroundColor = clickedItem.value;
+            mainTitle.textContent = clickedItem.name;
             productPreview.src = "{{ asset('images/scranchies/') }}" + "/" +
                 clickedItem.file_name;
             productName.innerText = clickedItem.name;
@@ -166,15 +165,16 @@
     <script>
         function handleAddToChart() {
             const submit_btn = document.getElementById("add-to-cart-btn");
-            const xdata = submit_btn.dataset.productId;
-
+            const productId = submit_btn.dataset.productId;
             let data = {
                 quantity: {
                     element: document.getElementById("quantity"),
                     value: parseInt(document.getElementById("quantity").textContent)
                 },
             }
-            console.log(data.quantity.value);
+            const url = `{{ route('shopping-cart.add-item') }}/${productId}/${data.quantity.value}`
+            console.log(url);
+            window.location.href = url;
         }
     </script>
 

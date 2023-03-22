@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->enum('type', ['top_view', 'front_view']);
+            $table->enum('type', ['top_view', 'front_view', "cropped_view"]);
             $table->string('file_name');
         });
     }

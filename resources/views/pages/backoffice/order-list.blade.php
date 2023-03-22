@@ -35,9 +35,6 @@
                                         <td>
                                             <span>{{ $order['payment_intent_id'] }}</span>
                                         </td>
-                                        {{-- <td>
-                                            <span>{{ $order['status'] }}</span>
-                                        </td> --}}
                                         <td>
                                             <span>{{ $order['customer_last_name'] . ' ' . $order['customer_first_name'] }}</span>
                                         </td>
@@ -62,10 +59,6 @@
                                                     onclick="window.location.href = '{{ route('admin.deliver-order', ['order_id' => $order['id']]) }}'"
                                                     type="button" class="btn btn-light">Livrer</button>
                                             @endif
-
-                                            {{-- <button
-                                                onclick="window.location.href='{{ route('admin.deliver-order', ['order_id' => $order['id']]) }}'"
-                                                type="button" class="btn btn-light">Livrer</button> --}}
                                         </td>
                                     </tr>
                                 @endforeach
