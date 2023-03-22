@@ -123,8 +123,6 @@
                     <div class="leading-4 sr-only md:not-sr-only ">
                         <h3 class="mt-0">Livraison : </h3>
                         <ul class="ml-3">
-                            <li>1.99 € pour un achat de moins de 3 chouchou</li>
-                            <li>4.99 € pour un achat de plus de 3 chouchou</li>
                             <li>
                                 <div class="flex justify-start items-center gap-2">
                                     <x-akar-shipping-box-v2 class="w-5" />
@@ -133,6 +131,9 @@
                                     </p>
                                 </div>
                             </li>
+                            <li>1.99 € pour un achat de moins de 3 chouchou</li>
+                            <li>4.99 € pour un achat de plus de 3 chouchou</li>
+
                         </ul>
                     </div>
                     <div class="flex items-end">

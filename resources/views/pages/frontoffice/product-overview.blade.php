@@ -26,7 +26,7 @@
                 <div class="absolute bottom-20 -right-12">
                     <img id="product-preview" src="{{ asset('images/cropped-webp/' . $product->file_name) }}"
                         alt="Angled front view with bag zipped and handles upright."
-                        class="m-0 h-72 w-72 object-cover object-center sm:rounded-lg">
+                        class=" m-0 h-72 w-72 object-contain object-center sm:rounded-lg">
                 </div>
             </div>
             <!-- Product info -->
@@ -95,8 +95,6 @@
                         </div>
                         <div class="mt-2 md:mt-4 h-0 absolute opacity-0" id="shipping-information">
                             <ul class="ml-3">
-                                <li>1.99 € pour un achat de moins de 3 chouchou</li>
-                                <li>4.99 € pour un achat de plus de 3 chouchou</li>
                                 <li>
                                     <div class="flex justify-start items-center gap-2">
                                         <x-akar-shipping-box-v2 class="w-5 text-black" />
@@ -105,6 +103,9 @@
                                         </p>
                                     </div>
                                 </li>
+                                <li>1.99 € pour un achat de moins de 3 chouchou</li>
+                                <li>4.99 € pour un achat de plus de 3 chouchou</li>
+
                             </ul>
                         </div>
                     </div>

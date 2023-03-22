@@ -20,11 +20,14 @@ class ShoppingCartController extends Controller
         $duplicated = Cart::search(function ($cartItem, $rowId) use ($product_id) {
             return $cartItem->id === (int) $product_id;
         });
-        if ($duplicated->isNotEmpty()) return redirect()->back();
+        if ($duplicated->isNotEmpty()) {
+            Cart::update($duplicated->first()->rowId, $duplicated->first()->qty + $quantity); // Will update the quantity
+            return redirect()->back();
+        }
         $product = Products::getWithTopViewPic($product_id);
         Cart::add($product->id, $product->name, $quantity, $product->price, ["top_view" => $product->file_name])->associate(Products::class);
         Session::flash('success', 'Form submitted successfully.');
-        return redirect()->route("product-overview", ["product_id" => $product_id]);
+        return redirect()->back();
     }
     public function removeItem($rowId)
     {
