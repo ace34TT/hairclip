@@ -115,7 +115,13 @@
                         </div>
                     </div>
                     <br>
-                    <p class="my-0 font-bold">Expédition en 24h et livraison sous 48h / 72h</p>
+                    <p class="my-0 font-bold">
+                    <div class="flex justify-start items-center gap-2">
+                        <x-akar-shipping-box-v2 class="w-5" />
+                        <p class=" m-0">
+                            Expédition en 24h et livraison sous 48h/72h
+                        </p>
+                    </div>
                     <br>
                     <button type="submit"
                         class="float-right rounded-md bg-d-green py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-900-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">

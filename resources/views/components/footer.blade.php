@@ -1,8 +1,8 @@
 <footer id="footer" class="h-fit p-5 gap-5 md:p-10 bg-d-green">
     {{-- main item --}}
-    <div class="h-fit flex justify-around items-center ">
+    <div class="h-fit flex justify-center items-center ">
         {{-- logo --}}
-        <div class="">
+        <div class="justify-self-start">
             <img src="{{ asset('images/logo/2_transparent_logo_white.png') }}" height="150px" width="150px" alt="">
         </div>
         {{-- divider --}}

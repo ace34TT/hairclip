@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{ asset('images/logo/1_transparent_logo_black_scroped.png') }}">
-    <title>@yield('title')</title>
+    <title>Hairclip - @yield('title')</title>
     @vite('resources/css/app.css')
     @stack('styles')
     @yield('extra-js')

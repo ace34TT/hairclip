@@ -102,10 +102,10 @@
     </div>
     {{--  --}}
     <div
-        class="pb-10 container mx-auto prose max-w-none flex pl-4 flex-col md:flex-row items-start md:justify-between md:w-11/12 gap-4 md:gap-8">
+        class="pb-12 pt-2 container mx-auto prose max-w-none flex pl-4 flex-col md:flex-row items-start md:justify-between md:w-11/12 gap-4 md:gap-8">
         <div class="flex items-center gap-5">
             <div>
-                <x-codicon-credit-card class="w-6" />
+                <x-codicon-credit-card class="w-12" />
             </div>
             <div class="">
                 <h4 class="m-0 font-bold text-d-green">Paiement Sécurisé</h4>
@@ -114,25 +114,25 @@
         </div>
         <div class="flex items-center gap-5">
             <div>
-                <x-lineawesome-shipping-fast-solid class="w-6" />
+                <x-lineawesome-shipping-fast-solid class="w-12" />
             </div>
             <div class="">
                 <h4 class="m-0 font-bold text-d-green">Livraison Rapide</h4>
                 <h5 class="m-0 font-bold text-gray-400">Recevez sous 72h</h5>
             </div>
         </div>
-        <div class="flex items-center  gap-5">
+        <div class="flex items-center gap-5">
             <div>
-                <x-bi-check-circle class="w-10 h-6" />
+                <x-bi-check-circle class="w-10 h-12" />
             </div>
             <div class="">
                 <h4 class="m-0 font-bold text-d-green">Qualité Garantie</h4>
                 <h5 class="m-0 font-bold text-gray-400">Un produit garantie</h5>
             </div>
         </div>
-        <div class="flex items-center  gap-5">
+        <div class="flex items-center gap-5">
             <div>
-                <x-bx-support class="w-6" />
+                <x-bx-support class="w-12" />
             </div>
             <div class="">
                 <h4 class="m-0 font-bold text-d-green">Support Client</h4>
@@ -142,7 +142,7 @@
     </div>
     {{--  --}}
     {{-- end-section-3 --}}
-    <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-0">
+    {{-- <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-0"> --}}
     {{-- start-section-4 --}}
     <div class="container mx-auto ">
         <div class=" max-h-fit py-4 md:py-12 flex flex-col items-center justify-center prose max-w-none">

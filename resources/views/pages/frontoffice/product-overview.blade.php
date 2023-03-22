@@ -1,6 +1,6 @@
 @extends('layouts.frontoffice')
 
-@section('title', 'Details produit')
+@section('title', 'Achat')
 
 @push('styles')
     <link href="{{ asset('css/confetti.css') }}" rel="stylesheet">
