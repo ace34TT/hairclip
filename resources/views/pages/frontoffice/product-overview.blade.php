@@ -20,10 +20,11 @@
         <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-32">
             <h1 id="main-title-mobile" class="md:sr-only text-3xl font-bold tracking-tight text-gray-900">{{ $product->name }}
             </h1>
-            <div class="h-full w-full rounded-md relative" id="product-color" style="background-color: {{ $product->value }}">
-                <h1 id="main-title" class="mb-0 mt-8 ml-10 text-7xl text-slate-50 opacity-50 ">
+            <div class="h-full w-full p-6 rounded-md relative" id="product-color"
+                style="background-color: {{ $product->value }}">
+                <h1 id="main-title" class="sr-only md:not-sr-only mb-0 mt-8 ml-10 text-7xl text-slate-50 opacity-50 ">
                     {{ $product->name }}</h1>
-                <div class="absolute bottom-20 -right-12">
+                <div class=" md:absolute md:bottom-20 md:-right-12">
                     <img id="product-preview" src="{{ asset('images/cropped-webp/' . $product->file_name) }}"
                         alt="Angled front view with bag zipped and handles upright."
                         class=" m-0 h-72 w-72 object-contain object-center sm:rounded-lg">
@@ -105,7 +106,6 @@
                                 </li>
                                 <li>1.99 € pour un achat de moins de 3 chouchou</li>
                                 <li>4.99 € pour un achat de plus de 3 chouchou</li>
-
                             </ul>
                         </div>
                     </div>

@@ -133,7 +133,6 @@
                             </li>
                             <li>1.99 € pour un achat de moins de 3 chouchou</li>
                             <li>4.99 € pour un achat de plus de 3 chouchou</li>
-
                         </ul>
                     </div>
                     <div class="flex items-end">

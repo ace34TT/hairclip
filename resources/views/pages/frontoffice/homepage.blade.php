@@ -8,9 +8,9 @@
 
 @section('content')
     {{-- stert-section-1 --}}
-    <div class="pt-10 container -mt-24 mx-auto h-fit min-h-screen flex justify-center items-center">
+    <div class="container md:-mt-24 mx-auto h-fit md:min-h-screen flex justify-center items-center">
         <div class="w-full h-fit flex flex-col lg:flex-row items-start justify-around gap-4 px-4 md:px-4">
-            <div class="flex-1 mb-5 :mb-0 relative">
+            <div class="sr-only md:not-sr-only flex-1 mb-5 :mb-0 relative">
                 <img id="scranchie-1" class="absolute w-64 h-64"
                     src="{{ asset('images/cropped-webp/HairClip PackS HD-19-min.webp') }}" alt="">
                 <img id="scranchie-2" class="absolute w-64 h-64"
@@ -100,10 +100,11 @@
         </div>
     </div>
     {{--  --}}
-    <div class="pb-10 container mx-auto prose max-w-none flex justify-center gap-8">
-        <div class="flex items-center gap-5 ">
+    <div
+        class="pb-10 container mx-auto prose max-w-none flex pl-4 flex-col md:flex-row items-start md:justify-between md:w-11/12 gap-4 md:gap-8">
+        <div class="flex items-center gap-5">
             <div>
-                <x-codicon-credit-card class="w-10" />
+                <x-codicon-credit-card class="w-6" />
             </div>
             <div class="">
                 <h2 class="m-0 font-bold text-d-green">Paiement Sécurisé</h2>
@@ -112,7 +113,7 @@
         </div>
         <div class="flex items-center gap-5">
             <div>
-                <x-lineawesome-shipping-fast-solid class="w-10" />
+                <x-lineawesome-shipping-fast-solid class="w-6" />
             </div>
             <div class="">
                 <h2 class="m-0 font-bold text-d-green">Livraison Rapide</h2>
@@ -121,7 +122,7 @@
         </div>
         <div class="flex items-center  gap-5">
             <div>
-                <x-bi-check-circle class="w-10 h-10" />
+                <x-bi-check-circle class="w-10 h-6" />
             </div>
             <div class="">
                 <h2 class="m-0 font-bold text-d-green">Qualité Garantie</h2>
@@ -130,7 +131,7 @@
         </div>
         <div class="flex items-center  gap-5">
             <div>
-                <x-bx-support class="w-10" />
+                <x-bx-support class="w-6" />
             </div>
             <div class="">
                 <h2 class="m-0 font-bold text-d-green">Support Client</h2>
@@ -206,38 +207,38 @@
                         rotate: "150deg",
                         x: 300,
                         y: -150
-                    },
+                    }, "animation-1"
                 )
                 .to(
                     "#scranchie-2", 1, {
                         rotate: "150deg",
                         x: 400,
                         y: -200
-                    },
+                    }, "animation-1"
                 ).to(
                     "#scranchie-3", 1, {
                         rotate: "150deg",
                         x: 200,
                         y: -250
-                    },
+                    }, "animation-1"
                 ).to(
                     "#scranchie-4", 1, {
                         rotate: "150deg",
                         x: 150,
                         y: -100
-                    },
+                    }, "animation-1"
                 ).to(
                     "#scranchie-5", 1, {
                         rotate: "150deg",
                         x: 15,
                         y: -50
-                    },
+                    }, "animation-1"
                 ).to(
                     "#scranchie-6", 1, {
                         rotate: "150deg",
                         x: 300,
                         y: 250
-                    },
+                    }, "animation-1"
                 )
         };
     </script>
