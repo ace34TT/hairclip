@@ -20,10 +20,9 @@
             </a>
         </li>
         <li class="invisible absolute md:static md:visible">
-            <button onclick="window.location.href='{{ route('product-overview', ['product_id' => 1]) }}'"
-                class="bg-d-green hover:bg-d-green text-white font-bold py-2 px-4 rounded-full">
-                Acheter
-            </button>
+            <button onclick="window.location.href='{{ route('product-overview', ['product_id' => 1]) }}'" type="button"
+                class="rounded-md bg-d-green py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-d-green-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-d-green-100">
+                Acheter </button>
         </li>
     </ul>
 </header>

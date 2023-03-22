@@ -8,59 +8,35 @@
 
 @section('content')
     {{-- stert-section-1 --}}
-    <div class="pt-10 container mx-auto ">
-        <div class="h-fit flex justify-center items-center">
-            <div class=" h-fit flex flex-col lg:flex-row items-start justify-around gap-4 px-4 md:px-4">
-                <div class="flex flex-1 flex-col gap-4 justify-center items-center md:items-start prose max-w-none md:px-10">
-                    <h2 class="text-left my-1 md:mt-0 text-5xl font-bold">
-                        Une <span class="text-d-green"> nouvelle génération </span>
-                        <br>
-                        de chouchou
-                    </h2>
-                    <p class="text-left mb-0">
-                        Simple, rapide, facile d'utilisation, et tellement léger qu'une fois mis en
-                        place,on l'oublie. <br>
-                        Tient très bien pour tout type de coiffure, chignon, queue de cheval, demie queue etc.. <br>
-                        Hair Clip permet de rassembler les cheveux d'un simple clip afin de dégager le contour du visage.
-                    </p>
-                    <div class="flex items-center">
-                        <button onclick="window.location.href='{{ route('product-overview', ['product_id' => 1]) }}'"
-                            type="button"
-                            class="rounded-md bg-d-green py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-d-green-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-d-green-100">
-                            Acheter </button>
-                        <div class="flex justify-center items-center gap-5 text-zinc-900">
-                            <x-akar-shipping-box-v2 class="w-7 ml-4" />
-                            <p class="">
-                                Recever le {{ date('Y-m-d', strtotime(date('Y-m-d') . ' +7 days')) }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex-1 flex justify-center mb-5 :mb-0 ">
-                    <div class="cursor-pointer " id="video-preview-1">
+    <div class="pt-10 container -mt-24  mx-auto h-fit min-h-screen flex justify-center items-center">
+        <div class="w-full h-fit flex flex-col lg:flex-row items-start justify-around gap-4 px-4 md:px-4">
+            <div class="flex-1 flex justify-center mb-5 :mb-0 ">
+                {{-- <div class="cursor-pointer " id="video-preview-1">
                         <img src="{{ asset('images/video-preview/video-preview-1.png') }}" alt="">
+                    </div> --}}
+                p
+            </div>
+            <div class="flex flex-1 flex-col items-end gap-4 md:items-start prose max-w-none md:px-10">
+                <h2 class="text-right my-1 md:mt-0 text-5xl font-bold">
+                    Une <span class="text-d-green"> nouvelle génération </span> de chouchou
+                </h2>
+                <p class="text-right mb-0">
+                    Simple, rapide, facile d'utilisation, et tellement léger qu'une fois mis en
+                    place,on l'oublie.
+                    Tient très bien pour tout type de coiffure, chignon, queue de cheval, demie queue etc.. <br>
+                    Hair Clip permet de rassembler les cheveux d'un simple clip afin de dégager le contour du visage.
+                </p>
+                <div class="flex gap-5 justify-end items-center w-full">
+                    <div class="flex justify-center items-center gap-2 text-zinc-900">
+                        <x-akar-shipping-box-v2 class="w-7 ml-4" />
+                        <p class="">
+                            Recevez les le {{ $shipping_date }}
+                        </p>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="h-fit py-4 md:py-12 flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-8 ">
-            <div class="flex-1 flex justify-center">
-                <div style="max-width: 95%; height: auto;">
-                    <img style=" width: 100% ; height: auto;" class="self-center rounded-lg"
-                        src="{{ asset('images/images/HairClip-09.jpg') }}" alt="">
-                </div>
-            </div>
-            <div class="flex-1 prose h-full max-w-none flex flex-col justify-center items-center">
-                <div class="w-11/12 h-full flex flex-col justify-center">
-                    <h2 class="text-5xl mt-0 mb-4 md:mb-12 text-left">Rétractable, souple <br>
-                        et résistant.</h2>
-                    <h2 class="text-cyan-900 mb-0 md:mb-6">Crée pour vous simplifier la vie </h2>
-                    <ul class="mb-0 md:mb-7">
-                        <li class="leading-5">Eco sustainable : All recyclable materials, 0% CO2 emissions</li>
-                        <li class="leading-5">Hyphoallergenic : 100% natural, human friendly ingredients</li>
-                        <li class="leading-5">Handmade : All candles are craftly made with love.</li>
-                        <li class="leading-5">Long burning : No more waste. Created for last long.</li>
-                    </ul>
+                    <button onclick="window.location.href='{{ route('product-overview', ['product_id' => 1]) }}'"
+                        type="button"
+                        class="rounded-md bg-d-green py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-d-green-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-d-green-100">
+                        Acheter </button>
                 </div>
             </div>
         </div>
@@ -88,7 +64,72 @@
         </div>
     </div>
     {{-- end-section-2 --}}
-    <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
+    {{-- start-section-3 --}}
+    <div
+        class="h-fit container mx-auto py-4 md:py-12 flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-8 ">
+        <div class="flex-1 flex justify-center">
+            <div style="max-width: 95%; height: auto;">
+                <img style=" width: 100% ; height: auto;" class="self-center rounded-lg"
+                    src="{{ asset('images/images/HairClip-09.jpg') }}" alt="">
+            </div>
+        </div>
+        <div class="flex-1 prose h-full max-w-none flex flex-col justify-center items-center">
+            <div class="w-11/12 h-full flex flex-col justify-center">
+                <h2 class="text-5xl mt-0 mb-4 md:mb-12 text-left">Rétractable, souple <br>
+                    et résistant.</h2>
+                <h2 class="text-cyan-900 mb-0 md:mb-6">Crée pour vous simplifier la vie </h2>
+                <ul class="mb-0 md:mb-7">
+                    <li class="leading-5">Pratique pour maintenir les cheveux en place pendant les activités physiques.</li>
+                    <li class="leading-5">Évite la casse des cheveux et préserve la santé capillaire.</li>
+                    <li class="leading-5">Accessoire polyvalent pour créer des coiffures simples et élégantes.</li>
+                    <li class="leading-5">Peut être utilisé pour ajouter une touche de couleur ou d'élément décoratif aux
+                        cheveux.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {{--  --}}
+    <div class="pb-10 container mx-auto prose max-w-none flex justify-center gap-8">
+        <div class="flex items-center gap-5 ">
+            <div>
+                <x-codicon-credit-card class="w-32" />
+            </div>
+            <div class="">
+                <h2 class="m-0 font-bold text-d-green">Paiement Sécurisé</h2>
+                <h3 class="m-0 font-bold text-gray-400">Toutes cartes accéptées</h3>
+            </div>
+        </div>
+        <div class="flex items-center gap-5">
+            <div>
+                <x-lineawesome-shipping-fast-solid class="w-32" />
+            </div>
+            <div class="">
+                <h2 class="m-0 font-bold text-d-green">Livraison Rapide</h2>
+                <h3 class="m-0 font-bold text-gray-400">Recevez sous 72h</h3>
+            </div>
+        </div>
+        <div class="flex items-center  gap-5">
+            <div>
+                <x-bi-check-circle class="w-28 h-28" />
+            </div>
+            <div class="">
+                <h2 class="m-0 font-bold text-d-green">Qualité Garantie</h2>
+                <h3 class="m-0 font-bold text-gray-400">Un produit garantie</h3>
+            </div>
+        </div>
+        <div class="flex items-center  gap-5">
+            <div>
+                <x-bx-support class="w-32" />
+            </div>
+            <div class="">
+                <h2 class="m-0 font-bold text-d-green">Support Client</h2>
+                <h3 class="m-0 font-bold text-gray-400">Support mail 24h/24h</h3>
+            </div>
+        </div>
+    </div>
+    {{--  --}}
+    {{-- end-section-3 --}}
+    <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-0">
     {{-- start-section-4 --}}
     <div class="container mx-auto ">
         <div class=" max-h-fit py-4 md:py-12 flex flex-col items-center justify-center prose max-w-none">
@@ -100,7 +141,7 @@
         </div>
     </div>
     {{-- end-section-4 --}}
-    <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
+    <hr class="h-px bg-gray-200 border-0">
     {{-- start-section-5 --}}
     <div
         class="h-fit px-12 py-4 md:py-12 bg-stone-200 flex flex-col justify-center items-center prose max-w-none overflow-x-hidden">

@@ -18,12 +18,12 @@
 @section('content')
     <div class="mx-auto max-w-2xl py-4 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-32">
-            <h1 id="main-title" class="md:sr-only text-3xl font-bold tracking-tight text-gray-900">{{ $product->name }}
+            <h1 id="main-title-mobile" class="md:sr-only text-3xl font-bold tracking-tight text-gray-900">{{ $product->name }}
             </h1>
-            <div class="h-full w-full relative" id="product-color" style="background-color: {{ $product->value }}">
-                <h1 id="main-titel" class="mb-0 mt-8 ml-14 text-7xl text-slate-50 opacity-50 ">
+            <div class="h-full w-full rounded-md relative" id="product-color" style="background-color: {{ $product->value }}">
+                <h1 id="main-title" class="mb-0 mt-8 ml-10 text-7xl text-slate-50 opacity-50 ">
                     {{ $product->name }}</h1>
-                <div class="absolute bottom-12 -right-12">
+                <div class="absolute bottom-20 -right-12">
                     <img id="product-preview" src="{{ asset('images/scranchies/' . $product->file_name) }}"
                         alt="Angled front view with bag zipped and handles upright."
                         class="m-0 h-72 w-72 object-cover object-center sm:rounded-lg">
@@ -51,9 +51,14 @@
                     <div class="divide-y divide-gray-200">
                         <div class="prose prose-sm " id="disclosure-1">
                             <ul role="list">
-                                <li class="leading-5">Multiple strap configurations</li>
-                                <li class="leading-5">Spacious interior with top zip</li>
-                                <li class="leading-5">Leather handle and tabs</li>
+                                <li class="leading-5">Pratique pour maintenir les cheveux en place pendant les activités
+                                    physiques.</li>
+                                <li class="leading-5">Évite la casse des cheveux et préserve la santé capillaire.</li>
+                                <li class="leading-5">Accessoire polyvalent pour créer des coiffures simples et élégantes.
+                                </li>
+                                <li class="leading-5">Peut être utilisé pour ajouter une touche de couleur ou d'élément
+                                    décoratif aux cheveux.
+                                </li>
                             </ul>
                         </div>
                         <!-- More sections... -->

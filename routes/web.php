@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ShoppingCartController;
 use App\Models\Products;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 
 
@@ -20,7 +21,9 @@ use Illuminate\Support\Facades\Route;
 // * HOMEPAGE
 Route::get('/', function () {
     $data = Products::getWithTopViewPic();
-    return view("pages/frontoffice/homepage")->with("products", $data);
+    setlocale(LC_TIME, 'fr_FR'); // set the locale to French
+    Carbon::setLocale('fr'); // set the Carbon locale to French
+    return view("pages/frontoffice/homepage")->with("products", $data)->with("shipping_date", Carbon::now()->addDays(3)->locale('fr')->isoFormat('dddd D MMMM YYYY'));
 })->name("homepage");
 
 Route::get("/product-overview/{product_id}", function ($product_id) {
