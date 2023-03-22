@@ -58,7 +58,7 @@
                 @endif
                 <div class="flex items-center justify-between">
                     <button type="submit"
-                        class="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white">
+                        class="inline-block rounded-lg bg-d-green px-5 py-3 text-sm font-medium text-white">
                         Se connecter
                     </button>
                 </div>
