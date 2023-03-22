@@ -27,9 +27,10 @@ Route::get('/', function () {
 })->name("homepage");
 
 Route::get("/product-overview/{product_id}", function ($product_id) {
-    $data = Products::getWithTopViewPic($product_id);
-    $products =  Products::getWithTopViewPic();
-    $colors = Products::getWithTopViewPic();
+    $data = Products::getWithCroppedPic($product_id);
+    // dd($data);
+    $products =  Products::getWithCroppedPic();
+    $colors = Products::getWithCroppedPic();
     return view("pages.frontoffice.product-overview")->with("product", $data)->with("colors", $colors)->with("products", $products);
 })->name("product-overview");
 

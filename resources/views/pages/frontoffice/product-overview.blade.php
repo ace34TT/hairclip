@@ -24,7 +24,7 @@
                 <h1 id="main-title" class="mb-0 mt-8 ml-10 text-7xl text-slate-50 opacity-50 ">
                     {{ $product->name }}</h1>
                 <div class="absolute bottom-20 -right-12">
-                    <img id="product-preview" src="{{ asset('images/scranchies/' . $product->file_name) }}"
+                    <img id="product-preview" src="{{ asset('images/cropped-webp/' . $product->file_name) }}"
                         alt="Angled front view with bag zipped and handles upright."
                         class="m-0 h-72 w-72 object-cover object-center sm:rounded-lg">
                 </div>
@@ -97,7 +97,14 @@
                             <ul class="ml-3">
                                 <li>1.99 € pour un achat de moins de 3 chouchou</li>
                                 <li>4.99 € pour un achat de plus de 3 chouchou</li>
-                                <li>Expédition en 24h et livraison sous 48h / 72h</li>
+                                <li>
+                                    <div class="flex justify-start items-center gap-2">
+                                        <x-akar-shipping-box-v2 class="w-5 text-black" />
+                                        <p class="text-black">
+                                            Expédition en 24h et livraison sous 48h/72h
+                                        </p>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -129,10 +136,10 @@
 
         function handleItem(itemId) {
             var clickedItem = products.find(item => item.id === itemId);
-            productBGColor.style.backgroundColor = clickedItem.value;
             mainTitle.textContent = clickedItem.name;
-            productPreview.src = "{{ asset('images/scranchies/') }}" + "/" +
+            productPreview.src = "{{ asset('images/cropped-webp/') }}" + "/" +
                 clickedItem.file_name;
+            productBGColor.style.backgroundColor = clickedItem.value;
             productName.innerText = clickedItem.name;
             colorPicker.forEach(box => {
                 btn.dataset.productId = clickedItem.id;
@@ -182,7 +189,6 @@
             window.location.href = url;
         }
     </script>
-
     <script>
         let shippingVisibility = false;
 

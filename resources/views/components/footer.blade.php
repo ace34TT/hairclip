@@ -1,6 +1,6 @@
 <footer id="footer" class="h-fit p-5 gap-5 md:p-10 bg-d-green">
     {{-- main item --}}
-    <div class="h-6/5 flex flex-col justify-around items-center ">
+    <div class="h-6/5 flex justify-around items-center ">
         {{-- logo --}}
         <div class="h-5/6">
             <img src="{{ asset('images/logo/2_transparent_logo_white.png') }}" height="150px" width="150px" alt="">

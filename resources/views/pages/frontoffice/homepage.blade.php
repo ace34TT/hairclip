@@ -26,14 +26,14 @@
                 <img id="scranchie-7" class="absolute  w-64 h-64"
                     src="{{ asset('images/cropped-webp/HairClip PackS HD-25-min.webp') }}" alt="">
             </div>
-            <div class="flex flex-1 flex-col items-end gap-4 md:items-start prose max-w-none md:px-10">
+            <div class="flex flex-1 flex-col items-end gap-4 md:items-start prose max-w-none md:pr-10">
                 <h2 class="text-right my-1 md:mt-0 text-5xl font-bold">
                     Une <span class="text-d-green"> nouvelle génération </span> de chouchou
                 </h2>
-                <p class="text-right mb-0">
+                <p class="text-right mb-0 ">
                     Simple, rapide, facile d'utilisation, et tellement léger qu'une fois mis en
-                    place,on l'oublie.
-                    Tient très bien pour tout type de coiffure, chignon, queue de cheval, demie queue etc.. <br>
+                    place,on l'oublie. Tient très bien pour tout type de coiffure, chignon, queue de cheval, demie queue
+                    etc..
                     Hair Clip permet de rassembler les cheveux d'un simple clip afin de dégager le contour du visage.
                 </p>
                 <div class="flex gap-5 justify-end items-center w-full">
@@ -103,7 +103,7 @@
     <div class="pb-10 container mx-auto prose max-w-none flex justify-center gap-8">
         <div class="flex items-center gap-5 ">
             <div>
-                <x-codicon-credit-card class="w-32" />
+                <x-codicon-credit-card class="w-10" />
             </div>
             <div class="">
                 <h2 class="m-0 font-bold text-d-green">Paiement Sécurisé</h2>
@@ -112,7 +112,7 @@
         </div>
         <div class="flex items-center gap-5">
             <div>
-                <x-lineawesome-shipping-fast-solid class="w-32" />
+                <x-lineawesome-shipping-fast-solid class="w-10" />
             </div>
             <div class="">
                 <h2 class="m-0 font-bold text-d-green">Livraison Rapide</h2>
@@ -121,7 +121,7 @@
         </div>
         <div class="flex items-center  gap-5">
             <div>
-                <x-bi-check-circle class="w-28 h-28" />
+                <x-bi-check-circle class="w-10 h-10" />
             </div>
             <div class="">
                 <h2 class="m-0 font-bold text-d-green">Qualité Garantie</h2>
@@ -130,7 +130,7 @@
         </div>
         <div class="flex items-center  gap-5">
             <div>
-                <x-bx-support class="w-32" />
+                <x-bx-support class="w-10" />
             </div>
             <div class="">
                 <h2 class="m-0 font-bold text-d-green">Support Client</h2>
@@ -188,7 +188,6 @@
                     onclick="scrollOpinions('r')" />
             </div>
         </div>
-
     </div>
 
 

@@ -125,7 +125,14 @@
                         <ul class="ml-3">
                             <li>1.99 € pour un achat de moins de 3 chouchou</li>
                             <li>4.99 € pour un achat de plus de 3 chouchou</li>
-                            <li>Expédition en 24h et livraison sous 48 / 72h</li>
+                            <li>
+                                <div class="flex justify-start items-center gap-2">
+                                    <x-akar-shipping-box-v2 class="w-5" />
+                                    <p class=" m-0">
+                                        Expédition en 24h et livraison sous 48h/72h
+                                    </p>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     <div class="flex items-end">
