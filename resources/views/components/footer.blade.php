@@ -1,12 +1,11 @@
 <footer id="footer" class="h-fit p-5 gap-5 md:p-10 bg-d-green">
     {{-- main item --}}
-    <div class="h-6/5 flex justify-around items-center ">
+    <div class="h-fit flex justify-around items-center ">
         {{-- logo --}}
-        <div class="h-5/6">
+        <div class="">
             <img src="{{ asset('images/logo/2_transparent_logo_white.png') }}" height="150px" width="150px" alt="">
         </div>
         {{-- divider --}}
-        <div></div>
         {{-- right section --}}
         <div class="md:h-5/6 flex gap-5 md:gap-20">
             {{-- help and information --}}

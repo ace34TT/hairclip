@@ -32,7 +32,8 @@
                 </h2>
                 <p class="text-right mb-0 ">
                     Simple, rapide, facile d'utilisation, et tellement léger qu'une fois mis en
-                    place,on l'oublie. Tient très bien pour tout type de coiffure, chignon, queue de cheval, demie queue
+                    place,on l'oublie. <br> Tient très bien pour tout type de coiffure, chignon, queue de cheval, demie
+                    queue
                     etc..
                     Hair Clip permet de rassembler les cheveux d'un simple clip afin de dégager le contour du visage.
                 </p>
@@ -40,7 +41,7 @@
                     <div class="flex justify-center items-center gap-2 text-zinc-900">
                         <x-akar-shipping-box-v2 class="w-7 ml-4" />
                         <p class="">
-                            Recevez les le {{ $shipping_date }}
+                            Recevez-le {{ $shipping_date }}
                         </p>
                     </div>
                     <button onclick="window.location.href='{{ route('product-overview', ['product_id' => 1]) }}'"
