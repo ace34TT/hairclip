@@ -8,13 +8,23 @@
 
 @section('content')
     {{-- stert-section-1 --}}
-    <div class="pt-10 container -mt-24  mx-auto h-fit min-h-screen flex justify-center items-center">
+    <div class="pt-10 container -mt-24 mx-auto h-fit min-h-screen flex justify-center items-center">
         <div class="w-full h-fit flex flex-col lg:flex-row items-start justify-around gap-4 px-4 md:px-4">
-            <div class="flex-1 flex justify-center mb-5 :mb-0 ">
-                {{-- <div class="cursor-pointer " id="video-preview-1">
-                        <img src="{{ asset('images/video-preview/video-preview-1.png') }}" alt="">
-                    </div> --}}
-                p
+            <div class="flex-1 mb-5 :mb-0 relative">
+                <img id="scranchie-1" class="absolute w-64 h-64"
+                    src="{{ asset('images/cropped-webp/HairClip PackS HD-19-min.webp') }}" alt="">
+                <img id="scranchie-2" class="absolute w-64 h-64"
+                    src="{{ asset('images/cropped-webp/HairClip PackS HD-20-min.webp') }}" alt="">
+                <img id="scranchie-3" class="absolute w-64 h-64"
+                    src="{{ asset('images/cropped-webp/HairClip PackS HD-21-min.webp') }}" alt="">
+                <img id="scranchie-4" class="absolute w-64 h-64"
+                    src="{{ asset('images/cropped-webp/HairClip PackS HD-22-min.webp') }}" alt="">
+                <img id="scranchie-5" class="absolute w-64 h-64"
+                    src="{{ asset('images/cropped-webp/HairClip PackS HD-23-min.webp') }}" alt="">
+                <img id="scranchie-6" class="absolute w-64 h-64"
+                    src="{{ asset('images/cropped-webp/HairClip PackS HD-24-min.webp') }}" alt="">
+                <img id="scranchie-7" class="absolute  w-64 h-64"
+                    src="{{ asset('images/cropped-webp/HairClip PackS HD-25-min.webp') }}" alt="">
             </div>
             <div class="flex flex-1 flex-col items-end gap-4 md:items-start prose max-w-none md:px-10">
                 <h2 class="text-right my-1 md:mt-0 text-5xl font-bold">
@@ -53,8 +63,8 @@
             <div id="products" class="products flex gap-3 md:gap-11 overflow-x-auto p-5">
                 @foreach ($products as $product)
                     <x-hair-clip-card id="{{ $product->id }}" name="{{ $product->name }}"
-                        colorValue="{{ $product->value }}" price="{{ $product->price }}" preview="{{ $product->file_name }}"
-                        description="Pour une couleur qui se marie avec tout." />
+                        colorValue="{{ $product->value }}" price="{{ $product->price }}"
+                        preview="{{ $product->file_name }}" description="Pour une couleur qui se marie avec tout." />
                 @endforeach
             </div>
             <div>
@@ -179,9 +189,41 @@
         </div>
 
     </div>
+    <div class="cursor-pointer " id="video-preview-1">
+        <img src="{{ asset('images/video-preview/video-preview-1.png') }}" alt="">
+    </div>
+
 @endsection
 
 @section('script')
+    <script>
+        window.onload = function() {
+            let scranchiesAnimation = gsap.timeline({
+
+            });
+            scranchiesAnimation
+                .to(
+                    "#scranchie-1", {
+                        rotate: "150deg",
+                        x: 300,
+                        y: -150
+                    },
+                )
+                .to(
+                    "#scranchie-2", {
+                        rotate: "150deg",
+                        x: 140,
+                        y: -200
+                    },
+                )
+            // .to(
+            //     "#scranchie-", {
+            //         rotate: "150deg",
+            //         x: 130,
+            //     },
+            // )
+        };
+    </script>
     <script>
         let showAdditionGallery = false;
         const col_1 = `<div id="first-gallery-additional-item" class="additional-item w-1/2 p-1 md:p-2 max-h-80">
