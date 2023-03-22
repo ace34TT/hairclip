@@ -6,7 +6,7 @@
                 {{ $customerName }}</p>
             <div class="justify-self-end flex justify-start items-center mb-5 md:mb-0 h-fit w-full ">
                 @for ($i = 0; $i < 5; $i++)
-                    <x-tni-star class="h-5 w-5  md:w-" style="color :rgb(15, 57, 46)" />
+                    <x-tni-star class="h-5 w-5  md:w-" style="color :rgb(240, 218, 72)" />
                 @endfor
             </div>
         </div>

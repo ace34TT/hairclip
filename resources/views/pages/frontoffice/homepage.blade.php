@@ -28,7 +28,7 @@
             </div>
             <div class="flex flex-1 flex-col items-end gap-4 md:items-start prose max-w-none md:pr-10">
                 <h2 class="text-right my-1 md:mt-0 text-5xl font-bold">
-                    Une <span class="text-d-green"> nouvelle génération </span> de chouchou
+                    Une <span class="text-d-green"> nouvelle génération </span> de chouchous
                 </h2>
                 <p class="text-right mb-0 ">
                     Simple, rapide, facile d'utilisation, et tellement léger qu'une fois mis en
@@ -76,7 +76,7 @@
     </div>
     {{-- end-section-2 --}}
     {{-- start-section-3 --}}
-    <div
+    <div id="about"
         class="h-fit container mx-auto py-4 md:py-12 flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-8 ">
         <div class="flex-1 flex justify-center">
             <div style="max-width: 95%; height: auto;">
@@ -89,7 +89,7 @@
             <div class="w-11/12 h-full flex flex-col justify-center">
                 <h2 class="text-5xl mt-0 mb-4 md:mb-12 text-left">Rétractable, souple <br>
                     et résistant.</h2>
-                <h2 class="text-cyan-900 mb-0 md:mb-6">Crée pour vous simplifier la vie </h2>
+                <h2 class="text-cyan-900 mb-0 md:mb-6">Créer pour vous simplifier la vie </h2>
                 <ul class="mb-0 md:mb-7">
                     <li class="leading-5">Pratique pour maintenir les cheveux en place pendant les activités physiques.</li>
                     <li class="leading-5">Évite la casse des cheveux et préserve la santé capillaire.</li>
@@ -108,8 +108,8 @@
                 <x-codicon-credit-card class="w-6" />
             </div>
             <div class="">
-                <h2 class="m-0 font-bold text-d-green">Paiement Sécurisé</h2>
-                <h3 class="m-0 font-bold text-gray-400">Toutes cartes accéptées</h3>
+                <h3 class="m-0 font-bold text-d-green">Paiement Sécurisé</h3>
+                <h4 class="m-0 font-bold text-gray-400">Toutes cartes accéptées</h4>
             </div>
         </div>
         <div class="flex items-center gap-5">
@@ -117,8 +117,8 @@
                 <x-lineawesome-shipping-fast-solid class="w-6" />
             </div>
             <div class="">
-                <h2 class="m-0 font-bold text-d-green">Livraison Rapide</h2>
-                <h3 class="m-0 font-bold text-gray-400">Recevez sous 72h</h3>
+                <h3 class="m-0 font-bold text-d-green">Livraison Rapide</h3>
+                <h4 class="m-0 font-bold text-gray-400">Recevez sous 72h</h4>
             </div>
         </div>
         <div class="flex items-center  gap-5">
@@ -126,8 +126,8 @@
                 <x-bi-check-circle class="w-10 h-6" />
             </div>
             <div class="">
-                <h2 class="m-0 font-bold text-d-green">Qualité Garantie</h2>
-                <h3 class="m-0 font-bold text-gray-400">Un produit garantie</h3>
+                <h3 class="m-0 font-bold text-d-green">Qualité Garantie</h3>
+                <h4 class="m-0 font-bold text-gray-400">Un produit garantie</h4>
             </div>
         </div>
         <div class="flex items-center  gap-5">
@@ -135,8 +135,8 @@
                 <x-bx-support class="w-6" />
             </div>
             <div class="">
-                <h2 class="m-0 font-bold text-d-green">Support Client</h2>
-                <h3 class="m-0 font-bold text-gray-400">Support mail 24h/24h</h3>
+                <h3 class="m-0 font-bold text-d-green">Support Client</h3>
+                <h4 class="m-0 font-bold text-gray-400">Support mail 24h/24h</h4>
             </div>
         </div>
     </div>
@@ -158,7 +158,7 @@
     {{-- start-section-5 --}}
     <div
         class="h-fit px-12 py-4 md:py-12 bg-stone-200 flex flex-col justify-center items-center prose max-w-none overflow-x-hidden">
-        <h2 class="text-5xl text-center mb-4 md:mb-4">Témoignages</h2>
+        <h2 class="text-5xl text-left md:text-center mb-4 md:mb-4">Ce que vous pensez de nos chouchous.</h2>
         <p class="text-center text-cyan-800 mb-0 md:mb-5">Nos clients sont ravis, c’est à votre tour !</p>
         <div class="flex justify-center items-center gap-8">
             <div>
