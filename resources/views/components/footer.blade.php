@@ -14,9 +14,9 @@
                 <br>
                 <div class="text-gray-400">
                     <a href="#">A propos</a> <br>
-                    <a href="#">Mode de paiement</a> <br>
+                    {{-- <a href="#">Mode de paiement</a> <br>
                     <a href="#">Livraison standard</a> <br>
-                    <a href="#">CGV</a>
+                    <a href="#">CGV</a> --}}
                     <div class="flex justify-center items-center gap-5 mt-4">
                         <x-akar-shipping-box-v2 class="w-10 text-white" />
                         <p class="text-white">
