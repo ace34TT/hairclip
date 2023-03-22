@@ -3,7 +3,7 @@
 @endpush
 <div class="inline-block">
     <div style="background-color: {{ $colorValue }}" style="min-width: 384px; "
-        class=" flex w-80 md:w-96  p-6  flex-col items-center rounded-3xl prose hover:scale-105 hover:shadow-md transition ease-in-out cursor-pointer break-words">
+        class=" flex w-80 md:w-96  py-6  flex-col items-center rounded-3xl prose hover:scale-105 hover:shadow-md transition ease-in-out cursor-pointer break-words">
         <h2 class="text-white">{{ $name }}</h2>
         <img src="{{ asset('images/scranchies/' . $preview) }}" class="rounded-3xl" alt="">
         <div class="text-slate-50 w-10/12 text-center  inline-block">

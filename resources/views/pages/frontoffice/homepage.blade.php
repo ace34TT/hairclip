@@ -79,8 +79,9 @@
         class="h-fit container mx-auto py-4 md:py-12 flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-8 ">
         <div class="flex-1 flex justify-center">
             <div style="max-width: 95%; height: auto;">
-                <img style=" width: 100% ; height: auto;" class="self-center rounded-lg"
-                    src="{{ asset('images/images/HairClip-09.jpg') }}" alt="">
+                <div class="cursor-pointer " id="video-preview-1">
+                    <img src="{{ asset('images/video-preview/video-preview-1.png') }}" alt="">
+                </div>
             </div>
         </div>
         <div class="flex-1 prose h-full max-w-none flex flex-col justify-center items-center">
@@ -189,39 +190,56 @@
         </div>
 
     </div>
-    <div class="cursor-pointer " id="video-preview-1">
-        <img src="{{ asset('images/video-preview/video-preview-1.png') }}" alt="">
-    </div>
+
 
 @endsection
 
 @section('script')
     <script>
         window.onload = function() {
-            let scranchiesAnimation = gsap.timeline({
-
+            let scranchiesAnimation = new TimelineMax({
+                // delay: 5,
+                // duration: 5,
             });
             scranchiesAnimation
                 .to(
-                    "#scranchie-1", {
+                    "#scranchie-1", 1, {
                         rotate: "150deg",
                         x: 300,
                         y: -150
                     },
                 )
                 .to(
-                    "#scranchie-2", {
+                    "#scranchie-2", 1, {
                         rotate: "150deg",
-                        x: 140,
+                        x: 400,
                         y: -200
                     },
+                ).to(
+                    "#scranchie-3", 1, {
+                        rotate: "150deg",
+                        x: 200,
+                        y: -250
+                    },
+                ).to(
+                    "#scranchie-4", 1, {
+                        rotate: "150deg",
+                        x: 150,
+                        y: -100
+                    },
+                ).to(
+                    "#scranchie-5", 1, {
+                        rotate: "150deg",
+                        x: 15,
+                        y: -50
+                    },
+                ).to(
+                    "#scranchie-6", 1, {
+                        rotate: "150deg",
+                        x: 300,
+                        y: 250
+                    },
                 )
-            // .to(
-            //     "#scranchie-", {
-            //         rotate: "150deg",
-            //         x: 130,
-            //     },
-            // )
         };
     </script>
     <script>

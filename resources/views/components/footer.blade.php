@@ -31,7 +31,7 @@
                 <h6 class="text-white font-bold">Nous contacter</h6>
                 <br>
                 <div class="text-gray-400">
-                    <a href="#">16 rue Hair clip, 75003 Paris</a> <br>
+                    <a href="#">8 Place de Geneve. 7300 Chambery</a> <br>
                     <a href="#">contact@hairclip.fr</a> <br>
                 </div>
             </div>
