@@ -38,8 +38,8 @@
      </style>
 
      <section class="overflow-hidden text-neutral-700">
-         <div class="container mx-auto px-5 py-2">
-             <div class="gallery -m-1 flex flex-wrap md:-m-2">
+         <div class="rounded-b-md container mx-auto px-5 py-2">
+             <div class="gallery -m-1 flex flex-wrap md:-m-2 rounded-sm">
                  <div class="flex w-1/2 flex-wrap">
                      <div class="w-1/2 p-1 md:p-2 max-h-80">
                          <img alt="gallery"
