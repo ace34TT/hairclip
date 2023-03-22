@@ -9,7 +9,7 @@
         <div class="text-slate-50 w-10/12 text-center  inline-block">
             <div class="flex justify-center ">
                 <div class="text-2xl">
-                    7€
+                    {{ $price }} €
                 </div>
                 {{-- <div class="-ml-8 mt-3.5 h-[2px] rotate-12 w-10 bg-slate-50"></div> --}}
             </div>
@@ -17,7 +17,8 @@
                 et 5€ à partir de 3 chouchous acheter
             </div>
         </div>
-        <p class="text-slate-50 text-lg font-bold m-3"> {{ $price }} €</p>
+        <br>
+        {{-- <p class="text-slate-50 text-lg font-bold m-3"> {{ $price }} €</p> --}}
         <button onclick="window.location.href='{{ route('product-overview', ['product_id' => $id]) }}'" type="button"
             class="hover:filter hover:brightness-120 rounded-md bg-white bg-opacity-0 hover:bg-opacity-50 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 hover:shadow-lg transition ease-in-out">
             Ajouter au panier</button>
