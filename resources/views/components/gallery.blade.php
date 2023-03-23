@@ -79,8 +79,9 @@
      </section>
      {{-- video player --}}
      <div onclick="closeVideo()" id="video-viewer">
-         <iframe src="https://drive.google.com/file/d/18bNS-Dh_KZczUoFnQ85EYILPfnCa8Npt/preview"
-             class="md:h-full w-[500px] md:w-10/12 h-[400px]  md:min-h-[400px]" allow="autoplay"></iframe>
+         <iframe style="background-color: white"
+             src="https://drive.google.com/file/d/18bNS-Dh_KZczUoFnQ85EYILPfnCa8Npt/preview"
+             class="md:h-full w-[100px] h-[100px] md:w-10/12 md:min-h-[400px]" allow="autoplay"></iframe>
          {{-- <iframe src="https://drive.google.com/file/d/1-5eXfTUb4q6cA6ljtBNfLA3wefJNJ2sc/preview"
              class="md:h-full w-[500px] md:w-10/12 h-[400px]  md:min-h-[400px]" allow="autoplay"></iframe> --}}
      </div>
