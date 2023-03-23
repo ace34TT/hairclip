@@ -11,19 +11,19 @@
     <div class="container md:-mt-24 mx-auto h-fit md:min-h-screen flex justify-center items-center">
         <div class="w-full h-fit flex flex-col lg:flex-row items-start justify-around gap-4 px-4 md:px-4">
             <div class="sr-only md:not-sr-only flex-1 mb-5 :mb-0 relative">
-                <img id="scranchie-1" class="absolute w-64 h-64"
+                <img id="scranchie-1" class="object-contain absolute w-64 h-64"
                     src="{{ asset('images/cropped-webp/HairClip PackS HD-19-min.webp') }}" alt="">
-                <img id="scranchie-2" class="absolute w-64 h-64"
+                <img id="scranchie-2" class="object-contain absolute w-64 h-64"
                     src="{{ asset('images/cropped-webp/HairClip PackS HD-20-min.webp') }}" alt="">
-                <img id="scranchie-3" class="absolute w-64 h-64"
+                <img id="scranchie-3" class="object-contain absolute w-64 h-64"
                     src="{{ asset('images/cropped-webp/HairClip PackS HD-21-min.webp') }}" alt="">
-                <img id="scranchie-4" class="absolute w-64 h-64"
+                <img id="scranchie-4" class="object-contain absolute w-64 h-64"
                     src="{{ asset('images/cropped-webp/HairClip PackS HD-22-min.webp') }}" alt="">
-                <img id="scranchie-5" class="absolute w-64 h-64"
+                <img id="scranchie-5" class="object-contain absolute w-64 h-64"
                     src="{{ asset('images/cropped-webp/HairClip PackS HD-23-min.webp') }}" alt="">
-                <img id="scranchie-6" class="absolute w-64 h-64"
+                <img id="scranchie-6" class="object-contain absolute w-64 h-64"
                     src="{{ asset('images/cropped-webp/HairClip PackS HD-24-min.webp') }}" alt="">
-                <img id="scranchie-7" class="absolute  w-64 h-64"
+                <img id="scranchie-7" class="object-contain absolute  w-64 h-64"
                     src="{{ asset('images/cropped-webp/HairClip PackS HD-25-min.webp') }}" alt="">
             </div>
             <div class="flex flex-1 flex-col items-end gap-4 md:items-start prose max-w-none md:pr-10">
@@ -44,9 +44,10 @@
                             Recevez-le {{ $shipping_date }}
                         </p>
                     </div>
+
                     <button onclick="window.location.href='{{ route('product-overview', ['product_id' => 1]) }}'"
                         type="button"
-                        class="rounded-md bg-d-green py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-d-green-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-d-green-100">
+                        class="md:w-44 rounded-md bg-d-green py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-d-green-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-d-green-100">
                         Acheter </button>
                 </div>
             </div>
@@ -58,8 +59,8 @@
         class="h-fit w-screen  py-4 md:py-12 bg-stone-200 flex flex-col items-center justify-center prose max-w-none overflow-x-hidden">
         <h2 class="text-5xl mb-4 md:mb-12 ">Nos coloris</h2>
         <div class="flex justify-center items-center gap-8">
-            <div>
-                <x-gmdi-arrow-back-ios-new-r class="h-10 w-10" onclick="scrollProducts('l')" />
+            <div class="flex items-center h-44 cursor-pointer" onclick="scrollProducts('l')">
+                <x-gmdi-arrow-back-ios-new-r class="h-10 w-10 opacity-100" />
             </div>
             <div id="products" class="products flex gap-3 md:gap-11 overflow-x-auto p-5">
                 @foreach ($products as $product)
@@ -68,9 +69,8 @@
                         preview="{{ $product->file_name }}" description="Pour une couleur qui se marie avec tout." />
                 @endforeach
             </div>
-            <div>
-                <x-gmdi-arrow-back-ios-new-r style="transform: scaleX(-1);" class="h-10 w-10"
-                    onclick="scrollProducts('r')" />
+            <div class="flex items-center h-44 cursor-pointer" onclick="scrollProducts('r')">
+                <x-gmdi-arrow-back-ios-new-r style="transform: scaleX(-1);" class="h-10 w-10" />
             </div>
         </div>
     </div>
@@ -102,7 +102,7 @@
     </div>
     {{--  --}}
     <div
-        class="pb-12 pt-2 container mx-auto prose max-w-none flex pl-4 flex-col md:flex-row items-start md:justify-between md:w-11/12 gap-4 md:gap-8">
+        class="pb-28 pt-24 container mx-auto prose max-w-none flex pl-4 flex-col md:flex-row items-start md:justify-between md:w-11/12 gap-4 md:gap-8">
         <div class="flex items-center gap-5">
             <div>
                 <x-codicon-credit-card class="w-12" />
@@ -191,8 +191,6 @@
             </div>
         </div>
     </div>
-
-
 @endsection
 
 @section('script')
