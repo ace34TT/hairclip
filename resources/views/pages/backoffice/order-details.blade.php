@@ -10,11 +10,11 @@
                     <div class="card-header">
                         Commande<strong>#{{ $order->id }} </strong>
                         <div class="pull-right">
-                            <a onclick="printDiv()" class="btn btn-sm btn-info" href="#" data-abc="true"><i
+                            {{-- <a onclick="printDiv()" class="btn btn-sm btn-info" href="#" data-abc="true"><i
                                     class="fa fa-print mr-1"></i>
                                 Imprimer</a>
                             <a class="btn btn-sm btn-info" href="#" data-abc="true"><i
-                                    class="fa fa-file-text-o mr-1"></i>Sauvegarder</a>
+                                    class="fa fa-file-text-o mr-1"></i>Sauvegarder</a> --}}
                         </div>
                     </div>
                     <div id="GFG" class="card-body">
@@ -22,10 +22,10 @@
                             <div class="col-sm-4">
                                 <h6 class="mb-3">De:</h6>
                                 <div><strong>Hairclip</strong></div>
-                                <div>546 Aston Avenue</div>
+                                <div>8 Place de Geneve. 7300 Chambery</div>
                                 <div>NYC, NY 12394</div>
-                                <div>Email: contact@bbbootstrap.com</div>
-                                <div>Phone: +1 848 389 9289</div>
+                                <div>Email: contact@hairclip-boutique.fr</div>
+                                {{-- <div>Phone: +1 848 389 9289</div> --}}
                             </div>
                             <div class="col-sm-4">
                                 <h6 class="mb-3">A:</h6>
@@ -63,8 +63,9 @@
                                             <td class="center">{{ $orderDetail->product_id }}</td>
                                             <td class="left">{{ $orderDetail->name }}</td>
                                             <td class="left">{{ $orderDetail->total_by_details }}</td>
-                                            <td class="center">{{ $orderDetail->price }} €</td>
-                                            <td class="right">{{ $orderDetail->price * $orderDetail->total_by_details }} €
+                                            <td class="center">{{ $orderDetail->amount }} €</td>
+                                            <td class="right">{{ $orderDetail->amount * $orderDetail->total_by_details }}
+                                                €
                                             </td>
                                         </tr>
                                     @endforeach

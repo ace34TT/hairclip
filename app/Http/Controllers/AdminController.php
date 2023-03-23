@@ -51,26 +51,16 @@ class AdminController extends Controller
     public function deliverOrder($order_id)
     {
         $order = Order::find($order_id);
-        // Order::where('id', $order_id)
-        //     ->update(['status' => 1]);
-        dump($order["customer_emil"]);
-        try {
-            Mail::to($order["customer_emil"])->send(new Shipping($order_id, $order["amount"]));
-        }
-        //catch exception
-        catch (Exception $e) {
-            echo 'Message: ' . $e->getMessage();
-        }
-
+        Order::where('id', $order_id)
+            ->update(['status' => 1]);
+        Mail::to($order["customer_emil"])->send(new Shipping($order_id, $order["amount"]));
         return redirect()->route("admin.order-list");
     }
 
     public function orderDetails($order_id)
     {
         $orderDetails = DB::table('sheet_data')->where('order_id', '=', $order_id)->get();
-        // dd($orderDetails);
         $order = Order::find($order_id);
-        // dd($orderDetails);
         return view("pages.backoffice.order-details")->with("order", $order)->with("orderDetails", $orderDetails);
     }
     //

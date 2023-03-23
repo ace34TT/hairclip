@@ -35,8 +35,8 @@
                 prochains jours.
             </p>
             <p>
-                Voici les détails de votre commande: Numéro de commande: {{ $order_id }} Montant total de la
-                commande: {{ $amount }}
+                Voici les détails de votre commande: Numéro de commande: #{{ $order_id }} Montant total de la
+                commande: {{ $amount }} €
             </p>
             <p>
                 Nous espérons que vous apprécierez vos achats et que vous serez

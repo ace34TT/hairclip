@@ -226,7 +226,7 @@
                                     <tr>
                                         <td class="whitespace-nowrap py-4 px-3 text-sml align-middle text-xl">
                                             <span data-total="" class="text-black font-bold ">
-                                                Livraison : {{ Cart::count(true) <= 3 ? 1.99 : 4.99 }} € </span>
+                                                Livraison : {{ Cart::count(true) < 3 ? 1.99 : 4.99 }} € </span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -236,7 +236,7 @@
                                             </span>
                                             <span data-total="" class="text-black font-bold ">
                                                 <span id="total_price"> :
-                                                    {{ Cart::total() + (Cart::count(true) <= 3 ? 1.99 : 4.99) }} </span>
+                                                    {{ Cart::total() + (Cart::count(true) < 3 ? 1.99 : 4.99) }} </span>
                                                 € </span>
                                         </td>
                                     </tr>

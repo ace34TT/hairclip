@@ -18,6 +18,7 @@
                 <br>
                 <!-- Display a payment form -->
                 <form id="payment-form" class="py-4">
+                    {{-- <h3 id="isLoading" class="text-d-green text-center">Chargement du formulaire ...</h3> --}}
                     <div id="link-authentication-element">
                         <!--Stripe.js injects the Link Authentication Element-->
                     </div>
@@ -126,7 +127,7 @@
                                     <tr>
                                         <td class="whitespace-nowrap py-4 px-3 text-sml align-middle text-xl">
                                             <span data-total="" class="text-black font-bold ">
-                                                Livraison : {{ Cart::count(true) <= 3 ? 1.99 : 4.99 }} € </span>
+                                                Livraison : {{ Cart::count(true) < 3 ? 1.99 : 4.99 }} € </span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -136,7 +137,7 @@
                                             </span>
                                             <span data-total="" class="text-black font-bold ">
                                                 <span id="total_price"> :
-                                                    {{ Cart::total() + (Cart::count(true) <= 3 ? 1.99 : 4.99) }} </span>
+                                                    {{ Cart::total() + (Cart::count(true) < 3 ? 1.99 : 4.99) }} </span>
                                                 € </span>
                                         </td>
                                     </tr>
@@ -159,12 +160,12 @@
         const items = [{
             id: "xl-tshirt"
         }];
-
         let elements;
-        // showLoadingScrenn();
+        //
+        showLoadingScrenn();
         initialize();
         checkStatus();
-        // hideLoadingScrenn();
+
         document
             .querySelector("#payment-form")
             .addEventListener("submit", handleSubmit);
@@ -188,6 +189,8 @@
             };
             const paymentElement = elements.create("payment", paymentElementOptions);
             paymentElement.mount("#payment-element");
+            //
+            hideLoadingScrenn();
         }
 
         async function handleSubmit(e) {
@@ -266,4 +269,5 @@
             }
         }
     </script>
+    <script></script>
 @endsection

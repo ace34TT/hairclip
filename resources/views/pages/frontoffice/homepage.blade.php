@@ -40,7 +40,7 @@
                 <div class="flex gap-5 justify-end items-center w-full">
                     <div class="flex justify-center items-center gap-2 text-zinc-900">
                         <x-akar-shipping-box-v2 class="w-7 m-0 md:ml-4" />
-                        <p class="m-0 sm:m-5 text-xs">
+                        <p class="m-0  text-xs md:text-base">
                             Recevez-le {{ $shipping_date }}
                         </p>
                     </div>

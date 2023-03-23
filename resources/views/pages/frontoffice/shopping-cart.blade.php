@@ -22,9 +22,16 @@
             <div class="leading-5 md:sr-only">
                 <h3 class="mt-0 ml-4">Livraison : </h3>
                 <ul class="mx-4 mb-0 pl-4">
+                    <li>
+                        <div class="flex justify-start items-start gap-2">
+                            <x-akar-shipping-box-v2 class="w-5" />
+                            <p class=" m-0">
+                                Expédition en 24h et livraison sous 48h/72h
+                            </p>
+                        </div>
+                    </li>
                     <li>1.99 € pour un achat de moins de 3 chouchou</li>
                     <li>4.99 € pour un achat de plus de 3 chouchou</li>
-                    <li>Expédition en 24h et livraison sous 48 / 72h</li>
                 </ul>
             </div>
             <div class="-mt-5 sm:-mt-0 px-4sm:px-6 lg:px-8 w-8/12 md:w-10/12 ">

@@ -28,7 +28,7 @@ class OrderController extends Controller
     public function pay()
     {
         $total = request('total');
-        $total = $total <= 21 ? $total + 1.99 : $total + 4.99;
+        $total = $total < 21 ? $total + 1.99 : $total + 4.99;
         try {
             Stripe::setApiKey(env(key: "SK_STRIPE"));
             $paymentIntent = PaymentIntent::create([
@@ -68,7 +68,7 @@ class OrderController extends Controller
                 //
                 "quantity" => Cart::count(true),
                 "amount" => Cart::total(),
-                "shipping" => Cart::count(true) <= 3 ? 1.99 : 4.99,
+                "shipping" => Cart::count(true) < 3 ? 1.99 : 4.99,
                 'created_at' => $currentDate,
                 'updated_at' => $currentDate,
             ];
@@ -94,7 +94,7 @@ class OrderController extends Controller
             BillModel::create([
                 "order_id" => $orderDoc->id,
             ]);
-            Mail::to($shippingDetails["email"])->send(new Bill(Cart::total(),  $shippingDetails["lastname"] . " " . $shippingDetails["firstname"], $currentDate, $orderDoc->id, Cart::count(true) <= 3 ? 1.99 : 4.99,));
+            Mail::to($shippingDetails["email"])->send(new Bill(Cart::total(),  $shippingDetails["lastname"] . " " . $shippingDetails["firstname"], $currentDate, $orderDoc->id, Cart::count(true) < 3 ? 1.99 : 4.99,));
             Cart::destroy();
             return redirect()->route("order.payment.success.page")->with("order_id", $orderDoc->id);
         } catch (Exception $e) {

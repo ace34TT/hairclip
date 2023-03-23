@@ -3,7 +3,6 @@
 @endpush
 <div id="loading-screen">
     <div class="spinner"></div>
-    <p>Loading...</p>
 </div>
 
 <script>

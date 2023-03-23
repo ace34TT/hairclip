@@ -31,7 +31,7 @@
                 <br>
                 <div class="text-gray-400">
                     <a href="#">8 Place de Geneve. 7300 Chambery</a> <br>
-                    <a href="#">contact@hairclip.fr</a> <br>
+                    <a href="#">contact@hairclip-boutique.fr</a> <br>
                 </div>
             </div>
         </div>
