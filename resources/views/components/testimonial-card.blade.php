@@ -4,12 +4,12 @@
         <div class="flex  justify-start items-center gap-5 w-full">
             <p class="text-left text-lg font-bold p-0 my-0 ">
                 {{ $customerName }}</p>
-            <div class="justify-self-end flex justify-start items-center mb-5 md:mb-0 h-fit w-full ">
+            <div class="justify-self-end flex justify-cemter items-center md:mb-0 h-fit w-full ">
                 @for ($i = 0; $i < 5; $i++)
                     <x-tni-star class="h-5 w-5  md:w-" style="color :rgb(240, 218, 72)" />
                 @endfor
             </div>
         </div>
-        <p class="text-center md:text-left my-0 leading-5">{{ $message }}</p>
+        <p class="text-left my-0 leading-5">{{ $message }}</p>
     </div>
 </div>
