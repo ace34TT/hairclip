@@ -101,7 +101,7 @@
     </div>
     {{--  --}}
     <div
-        class="pb-10 pt-8 sm:pb-28 sm:pt-24 gap-4 container mx-auto prose max-w-none flex pl-4 flex-col md:flex-row items-start md:justify-between md:w-11/12 gap-4 md:gap-8">
+        class="pb-10 pt-8 sm:pb-28 sm:pt-24 container mx-auto prose max-w-none flex pl-4 flex-col md:flex-row items-start md:justify-between md:w-11/12 gap-4 md:gap-8">
         <div class="flex items-center gap-5">
             <div>
                 <x-codicon-credit-card class="w-12" />
