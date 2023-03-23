@@ -8,8 +8,7 @@
             <div class="flex-1 flex flex-col gap-7 prose max-w-none justify-center items-start px-4 py-4 md:px-16">
                 <h3>
                     <span class="text-black">
-                        <span class="text-d-green">Panier > </span>
-                        <span class="underline text-black"> Livraison </span>
+                        <span class="text-d-green">Panier > Livraison </span>
                         <span> > Paiement </span>
                     </span>
                 </h3>
@@ -116,9 +115,9 @@
                     </div>
                     <br>
                     <p class="my-0 font-bold">
-                    <div class="flex justify-start items-center gap-2">
-                        <x-akar-shipping-box-v2 class="w-5" />
-                        <p class=" m-0">
+                    <div class="flex justify-center items-start md:items-center gap-2 text-zinc-900">
+                        <x-akar-shipping-box-v2 class="w-7 m-0 md:ml-4" />
+                        <p class="m-0 sm:m-5 text-xs">
                             Expédition en 24h et livraison sous 48h/72h
                         </p>
                     </div>
@@ -156,7 +155,8 @@
                                                 <div class="flex gap-10 items-center">
                                                     <div class="w-fit sm:w-56">
                                                         <div class="relative" style="height: 150px; width: 150px;">
-                                                            <img class="m-0" style="height: 150px; width; 150px"
+                                                            <img class="m-0 rounded-md"
+                                                                style="height: 150px; width; 150px"
                                                                 src="{{ asset('images/scranchies/' . $cart_item->options['top_view']) }}"
                                                                 alt="">
                                                             <span
@@ -184,7 +184,8 @@
                                                 <div class="flex gap-10 items-center">
                                                     <div class="w-fit sm:w-56">
                                                         <div class="relative" style="height: 150px; width: 150px;">
-                                                            <img class="m-0" style="height: 150px; width; 150px"
+                                                            <img class="m-0 rounded-md"
+                                                                style="height: 150px; width; 150px"
                                                                 src="{{ asset('images/scranchies/' . $cart_item->options['top_view']) }}"
                                                                 alt="">
                                                             <span

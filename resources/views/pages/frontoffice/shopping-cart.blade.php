@@ -57,7 +57,7 @@
                                         <div class="font-medium text-gray-900">
                                             <div class=" flex gap-10 items-center">
                                                 <div class="sr-only md:not-sr-only w-fit md:w-fit">
-                                                    <img class="h-28 w-28 mr-0 object-contain my-0"
+                                                    <img class="h-28 w-28 mr-0 object-contain my-0 rounded-md"
                                                         src="{{ asset('images/scranchies/' . $cart_item->options['top_view']) }}"
                                                         alt="">
                                                 </div>

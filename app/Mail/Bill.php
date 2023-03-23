@@ -31,7 +31,7 @@ class Bill extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Facture pour achat de chouchou',
+            subject: 'Confirmation de commande Hairclip',
         );
     }
 

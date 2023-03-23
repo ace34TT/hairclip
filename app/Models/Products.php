@@ -12,32 +12,35 @@ class Products extends Model
 
     public $timestamps = true;
 
-    public static function getWithTopViewPic($product_id = null)
+    public static function findOneWithTopView($product_id)
     {
-        if ($product_id) {
-            return DB::table('products')
-                ->join('images', 'products.id', '=', 'images.product_id')
-                ->select('products.*', 'images.file_name')
-                ->where("images.type", "=", 'top_view')
-                ->where('products.id', '=', $product_id)
-                ->first();
-        }
+        return DB::table('products')
+            ->join('images', 'products.id', '=', 'images.product_id')
+            ->select('products.*', 'images.file_name')
+            ->where("images.type", "=", 'top_view')
+            ->where('products.id', '=', $product_id)
+            ->first();
+    }
+    public static function findAllWithTopView()
+    {
         return DB::table('products')
             ->join('images', 'products.id', '=', 'images.product_id')
             ->select('products.*', 'images.file_name')
             ->where("images.type", "=", 'top_view')
             ->get();
     }
-    public static function getWithCroppedPic($product_id = null)
+
+    public static function findOneWithCroppedPic($product_id)
     {
-        if ($product_id) {
-            return DB::table('products')
-                ->join('images', 'products.id', '=', 'images.product_id')
-                ->select('products.*', 'images.file_name')
-                ->where("images.type", "=", 'cropped_view')
-                ->where('products.id', '=', $product_id)
-                ->first();
-        }
+        return DB::table('products')
+            ->join('images', 'products.id', '=', 'images.product_id')
+            ->select('products.*', 'images.file_name')
+            ->where("images.type", "=", 'cropped_view')
+            ->where('products.id', '=', $product_id)
+            ->first();
+    }
+    public static function findAllWithCroppedImage()
+    {
         return DB::table('products')
             ->join('images', 'products.id', '=', 'images.product_id')
             ->select('products.*', 'images.file_name')

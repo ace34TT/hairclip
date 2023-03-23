@@ -10,10 +10,11 @@
 @endsection
 
 @section('content')
+    <x-loading-screen />
     <div class="flex justify-center items-cente h-fit ">
         <div class="flex flex-col md:flex-row h-fit min-h-screen w-11/12">
             <div class="flex-1 flex flex-col justify-center items-center prose max-w-none">
-                <h2>Mode de paiement </h2>
+                <h2>Mode de paiement</h2>
                 <br>
                 <!-- Display a payment form -->
                 <form id="payment-form" class="py-4">
@@ -56,7 +57,7 @@
                                                 <div class="flex gap-10 items-center">
                                                     <div class="w-fit sm:w-56">
                                                         <div class="relative" style="height: 150px; width: 150px;">
-                                                            <img class="m-0" style="height: 150px; width; 150px"
+                                                            <img class="m-0 rounded-md" style="height: 150px; width; 150px"
                                                                 src="{{ asset('images/scranchies/' . $cart_item->options['top_view']) }}"
                                                                 alt="">
                                                             <span
@@ -160,10 +161,10 @@
         }];
 
         let elements;
-
+        // showLoadingScrenn();
         initialize();
         checkStatus();
-
+        // hideLoadingScrenn();
         document
             .querySelector("#payment-form")
             .addEventListener("submit", handleSubmit);

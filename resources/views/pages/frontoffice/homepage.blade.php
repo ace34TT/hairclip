@@ -8,9 +8,9 @@
 
 @section('content')
     {{-- stert-section-1 --}}
-    <div class="container md:-mt-24 mx-auto h-fit md:min-h-screen flex justify-center items-center">
+    <div class="container mb-10 md:-mt-24 mx-auto h-fit md:min-h-screen flex justify-center items-center">
         <div class="w-full h-fit flex flex-col lg:flex-row items-start justify-around gap-4 px-4 md:px-4">
-            <div class="sr-only md:not-sr-only flex-1 mb-5 :mb-0 relative">
+            <div class="sr-only lg:not-sr-only flex-1 mb-5 :mb-0 relative">
                 <img id="scranchie-1" class="object-contain absolute w-64 h-64"
                     src="{{ asset('images/cropped-webp/HairClip PackS HD-19-min.webp') }}" alt="">
                 <img id="scranchie-2" class="object-contain absolute w-64 h-64"
@@ -30,7 +30,7 @@
                 <h2 class="text-right my-1 md:mt-0 text-5xl font-bold">
                     Une <span class="text-d-green"> nouvelle génération </span> de chouchous
                 </h2>
-                <p class="text-right mb-0 ">
+                <p class="text-right mb-0 leading-6 sm:leading-normal">
                     Simple, rapide, facile d'utilisation, et tellement léger qu'une fois mis en
                     place,on l'oublie. <br> Tient très bien pour tout type de coiffure, chignon, queue de cheval, demie
                     queue
@@ -39,12 +39,11 @@
                 </p>
                 <div class="flex gap-5 justify-end items-center w-full">
                     <div class="flex justify-center items-center gap-2 text-zinc-900">
-                        <x-akar-shipping-box-v2 class="w-7 ml-4" />
-                        <p class="">
+                        <x-akar-shipping-box-v2 class="w-7 m-0 md:ml-4" />
+                        <p class="m-0 sm:m-5 text-xs">
                             Recevez-le {{ $shipping_date }}
                         </p>
                     </div>
-
                     <button onclick="window.location.href='{{ route('product-overview', ['product_id' => 1]) }}'"
                         type="button"
                         class="md:w-44 rounded-md bg-d-green py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-d-green-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-d-green-100">
@@ -102,7 +101,7 @@
     </div>
     {{--  --}}
     <div
-        class="pb-28 pt-24 container mx-auto prose max-w-none flex pl-4 flex-col md:flex-row items-start md:justify-between md:w-11/12 gap-4 md:gap-8">
+        class="pb-10 pt-8 sm:pb-28 sm:pt-24 gap-4 container mx-auto prose max-w-none flex pl-4 flex-col md:flex-row items-start md:justify-between md:w-11/12 gap-4 md:gap-8">
         <div class="flex items-center gap-5">
             <div>
                 <x-codicon-credit-card class="w-12" />
@@ -157,8 +156,10 @@
     <hr class="h-px bg-gray-200 border-0">
     {{-- start-section-5 --}}
     <div
-        class="h-fit px-12 py-4 md:py-12 bg-stone-200 flex flex-col justify-center items-center prose max-w-none overflow-x-hidden">
-        <h2 class="text-5xl text-left md:text-center mb-4 md:mb-4">Ce que vous pensez de nos chouchous.</h2>
+        class="h-fit px-4 md:px-12 py-4 md:py-12 bg-stone-200 flex flex-col justify-center items-center prose max-w-none overflow-x-hidden">
+        <h2 class="text-5xl text-left md:text-center mb-4 md:mb-4 tracking-tighter md:tracking-normal">Ce que vous pensez
+            de nos chouchous.
+        </h2>
         <p class="text-center text-cyan-800 mb-0 md:mb-5">Nos clients sont ravis, c’est à votre tour !</p>
         <div class="flex justify-center items-center gap-8">
             <div>

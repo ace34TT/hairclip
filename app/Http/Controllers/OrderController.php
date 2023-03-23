@@ -89,7 +89,6 @@ class OrderController extends Controller
                     "updated_at" => $currentDate,
                 ];
             }
-            // dd($stockMovements);
             OrderDetail::insert($orderDetails);
             StockMovement::insert($stockMovements);
             BillModel::create([

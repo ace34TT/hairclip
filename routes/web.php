@@ -20,18 +20,16 @@ use Illuminate\Support\Facades\Route;
 */
 // * HOMEPAGE
 Route::get('/', function () {
-    $data = Products::getWithTopViewPic();
+    $data = Products::findAllWithTopView();
     setlocale(LC_TIME, 'fr_FR'); // set the locale to French
     Carbon::setLocale('fr'); // set the Carbon locale to French
     return view("pages/frontoffice/homepage")->with("products", $data)->with("shipping_date", Carbon::now()->addDays(3)->locale('fr')->isoFormat('dddd D MMMM YYYY'));
 })->name("homepage");
 
 Route::get("/product-overview/{product_id}", function ($product_id) {
-    $data = Products::getWithCroppedPic($product_id);
-    // dd($data);
-    $products =  Products::getWithCroppedPic();
-    $colors = Products::getWithCroppedPic();
-    return view("pages.frontoffice.product-overview")->with("product", $data)->with("colors", $colors)->with("products", $products);
+    $data = Products::findOneWithCroppedPic($product_id);
+    $colors = Products::findAllWithCroppedImage();
+    return view("pages.frontoffice.product-overview")->with("product", $data)->with("colors", $colors);
 })->name("product-overview");
 
 // * SHOPPING CART

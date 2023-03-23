@@ -24,7 +24,7 @@ class ShoppingCartController extends Controller
             Cart::update($duplicated->first()->rowId, $duplicated->first()->qty + $quantity); // Will update the quantity
             return redirect()->back();
         }
-        $product = Products::getWithTopViewPic($product_id);
+        $product = Products::findOneWithTopView($product_id);
         Cart::add($product->id, $product->name, $quantity, $product->price, ["top_view" => $product->file_name])->associate(Products::class);
         Session::flash('success', 'Form submitted successfully.');
         return redirect()->back();

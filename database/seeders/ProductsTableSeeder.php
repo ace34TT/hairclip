@@ -62,7 +62,7 @@ class ProductsTableSeeder extends Seeder
             [
                 'product_id' => "1",
                 'type' => "cropped_view",
-                "file_name" => "HairClip PackS HD-19.png",
+                "file_name" => "HairClip PackS HD-19-min.webp",
             ],
             //
             [
@@ -73,7 +73,7 @@ class ProductsTableSeeder extends Seeder
             [
                 'product_id' => "2",
                 'type' => "cropped_view",
-                "file_name" => "HairClip PackS HD-20.png",
+                "file_name" => "HairClip PackS HD-20-min.webp",
             ],
             //
             [
@@ -84,7 +84,7 @@ class ProductsTableSeeder extends Seeder
             [
                 'product_id' => "3",
                 'type' => "cropped_view",
-                "file_name" => "HairClip PackS HD-21.png",
+                "file_name" => "HairClip PackS HD-21-min.webp",
             ],
             //
             [
@@ -95,7 +95,7 @@ class ProductsTableSeeder extends Seeder
             [
                 'product_id' => "4",
                 'type' => "cropped_view",
-                "file_name" => "HairClip PackS HD-22.png",
+                "file_name" => "HairClip PackS HD-22-min.webp",
             ],
             //
             [
@@ -106,7 +106,7 @@ class ProductsTableSeeder extends Seeder
             [
                 'product_id' => "5",
                 'type' => "cropped_view",
-                "file_name" => "HairClip PackS HD-23.png",
+                "file_name" => "HairClip PackS HD-23-min.webp",
             ],
             //
             [
@@ -117,7 +117,7 @@ class ProductsTableSeeder extends Seeder
             [
                 'product_id' => "6",
                 'type' => "cropped_view",
-                "file_name" => "HairClip PackS HD-24.png",
+                "file_name" => "HairClip PackS HD-24-min.webp",
             ],
             //
             [
@@ -128,7 +128,7 @@ class ProductsTableSeeder extends Seeder
             [
                 'product_id' => "7",
                 'type' => "cropped_view",
-                "file_name" => "HairClip PackS HD-25.png",
+                "file_name" => "HairClip PackS HD-25-min.webp",
             ],
         ]);
     }

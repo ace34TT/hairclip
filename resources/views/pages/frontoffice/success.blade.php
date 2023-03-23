@@ -3,14 +3,14 @@
 @section('title', 'Paiement effectué')
 
 @section('content')
-    <div class="flex my-4 justify-center items-cente h-fit md:max-h-screen">
+    <div class="flex my-4 justify-center items-cente h-fit md:h-[80vh] md:min-h-[600px]">
         <div class="flex flex-col md:flex-row w-11/12">
             <div class="flex-1 flex flex-col gap-4 justify-center items-center prose max-w-none md:px-16">
                 <x-gmdi-check-circle-outline-r class="h-28" style="color: #03524C" />
                 <p class="text-xl font-bold m-0 text-center sm:text-left">Paiement effectué</p>
                 {{-- <p class="text-xl font-bold m-0">Commande : 123456</p> --}}
                 <p class="text-left m-0">
-                    Nous avons bien reçu votre commande ({{ $order_id }}) et sommes heureux de vous confirmer que votre
+                    Nous avons bien reçu votre commande #{{ $order_id }} et sommes heureux de vous confirmer que votre
                     achat a été
                     effectué
                     avec succès.
@@ -25,7 +25,7 @@
                 </button>
             </div>
             <div class="flex-1 invisible top-0 left-0 absolute md:visible md:static">
-                <img class="rounded-md" src="{{ asset('images/images/HairClip-17.jpg') }}"
+                <img class="rounded-md object-cover" src="{{ asset('images/images/HairClip-17.jpg') }}"
                     style="height: 100%; width: 100%;" alt="">
             </div>
         </div>

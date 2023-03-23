@@ -24,7 +24,7 @@
                 style="background-color: {{ $product->value }}">
                 <h1 id="main-title" class="sr-only md:not-sr-only mb-0 mt-8 ml-10 text-7xl text-slate-50 opacity-50 ">
                     {{ $product->name }}</h1>
-                <div class=" md:absolute md:bottom-20 md:-right-12">
+                <div class=" md:absolute md:bottom-20 md:-right-12 flex justify-center">
                     <img id="product-preview" src="{{ asset('images/cropped-webp/' . $product->file_name) }}"
                         alt="Angled front view with bag zipped and handles upright."
                         class=" m-0 h-72 w-72 object-contain object-center sm:rounded-lg">
@@ -48,7 +48,7 @@
                     <x-ei-plus class="cursor-pointer w-7 h-7  text-3xl text-black" onclick="updateQuantity(1)" />
                 </div>
                 <section aria-labelledby="details-heading" class="mt-4">
-                    <h2 id="details-heading" class="sr-only">Additional details</h2>
+                    <h2 id="details-heading" class="sr-only">Details</h2>
                     <div class="divide-y divide-gray-200">
                         <div class="prose prose-sm " id="disclosure-1">
                             <ul role="list">
@@ -126,7 +126,7 @@
     {{-- confities js --}}
     <script type="module" src="{{ asset('js/confities.js') }}"></script>
     <script>
-        var products = {{ Js::from($products->toArray()) }};
+        var products = {{ Js::from($colors->toArray()) }};
         var productBGColor = document.getElementById("product-color");
         var mainTitle = document.getElementById("main-title");
         var productPreview = document.getElementById("product-preview");
@@ -208,7 +208,7 @@
             } else {
                 gsap.to("#shipping-information", {
                     position: "static",
-                    height: "75px",
+                    height: "fit-content",
                     opacity: "1",
                 });
                 gsap.to(".horizontal", {

@@ -14,7 +14,7 @@
                 {{-- <div class="-ml-8 mt-3.5 h-[2px] rotate-12 w-10 bg-slate-50"></div> --}}
             </div>
             <div class="">
-                et 5€ à partir de 3 chouchous acheter
+                et 5€ à partir de 3 chouchous acheté
             </div>
         </div>
         <br>
